@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Déboguer",
+      "program": "${file}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Mettre à jour le dépôt",
       "program": "${workspaceFolder}/.scripts/mise-a-jour.js"
     }
