@@ -29,7 +29,7 @@ Voici les instructions à suivre pour faire les exercices depuis Visual Studio C
    5. Une fois le téléchargement effectué vous aurez un nouveau répertoire **Documents/module-intermediaire**. Visual Studio Code va vous demander dans une popup en bas à droite si vous voulez ouvrir le dépôt cloné : cliquez sur le bouton **Ouvrir le dépôt**.
       ![capture d'écran ouvrir le dépot](../images/ouvrir-depot.jpg)
    6. Si vous ne voyez pas la popup de l'étape précédente, utilisez le menu **Fichier > Ouvrir** puis sélectionnez le répertoire **Documents/module-intermediaire**. Sélectionnez bien le répertoire **module-intermediaire** et pas **Documents** avant de cliquer sur `Ouvrir`.
-6. Dans ce nouveau projet, cliquez sur le répertoire **cours** puis sur le cours de votre choix par exemple **05 - Les chaines de caractères**.
+6. Dans ce nouveau projet, cliquez sur le répertoire **cours** puis sur le cours de votre choix par exemple **00 - Les littéraux de gabarits**.
    ![capture d'écran ouvrir le cours](../images/go-live.jpg)
 7. Sélectionnez le fichier **exercices.html** (ou un des fichiers se terminant par **.html**).
 8. Lancez le serveur Web en cliquant sur **Go Live** tout en bas dans la barre d'état bleue.
