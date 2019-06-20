@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Les littéraux de gabarits (template strings) - Exercices</title>
+    <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+    <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+  </head>
+
+  <body>
+    <h1>Les littéraux de gabarits</h1>
+    <p>
+      Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+      N'oubliez pas d'ouvrir la console développeur de Chrome pour voir vos erreurs JavaScript.
+    </p>
+    <p>
+      <a
+        class="mdn"
+        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Littéraux_gabarits"
+        target="_blank"
+        >Consulter la doc MDN sur les littéraux de gabarits</a
+      >
+    </p>
+    <p>Vous êtes bloqué ? <a href="https://javascriptdezero.slack.com">Demandez de l'aide sur Slack</a>.</p>
+
+    <div class="objectifs">
+      <h2>Objectifs</h2>
+      <ul>
+        <li>Comprendre le fonctionnement des littéraux de gabarits (template strings).</li>
+        <li>Savoir déclarer et utiliser des littéraux de gabarits.</li>
+        <li>Savoir utiliser des expressions JavaScript dans les espaces réservés.</li>
+        <li>Utiliser des fonctions en tant qu'expression dans un espace réservé.</li>
+      </ul>
+    </div>
+
+    <div class="enonce" id="enonce-0">
+      <h2>Exercice 0</h2>
+
+      <p>
+        Tom a tellement été content de votre aide récemment qu'il a parlé de vous à Hugo, son patron, qui vous a
+        embauché en tant que développeur junior chez <strong>MagiciensDuCode</strong> 🎉 !
+      </p>
+
+      <p>
+        Très heureux de votre nouveau poste, vous ne faites pas trop le malin quand même car vous êtes toujours en
+        période d'essai.
+      </p>
+
+      <p>
+        Tout de même, vous décidez de fêter ça en vous amusant à créer une petite fonction <code>merci</code> qui
+        utilisera les littéraux de gabarits (aussi appelées template strings) pour retourner (avec <code>return</code>) un message de remerciement à Tom.
+      </p>
+
+      <p>
+        Cette fonction prendra <code>2</code> paramètres : <code>prenom</code> et <code>nomSociete</code>.
+      </p>
+
+      <p>Pour l'appel de fonction suivant <code>merci("Tom", "MagiciensDuCode")</code>, elle devra retourner :</p>
+
+      <p class="code">C'est Tom qui m'a permis d'entrer dans MagiciensDuCode</p>
+
+      <p>À votre éditeur de code préféré !</p>
+
+      <div class="message"></div>
+    </div>
+
+    <div class="enonce" id="enonce-1">
+      <h2>Exercice 1</h2>
+
+      <p>
+        Hugo vient vous voir pour recoder une fonctionnalité que Tom avait faite récemment. Vous savez, vous l'aviez aidé pour finir son code !
+      </p>
+
+      <p>Il s'agit de recoder la fonction pour afficher l'adresse du destinaire sur les lettres de la campagne marketing qu'Hugo veut mettre en place.</p>
+
+      <p>
+        Développez une fonction <code>formaterAdresse(prenom, nom, adresse, codePostal, ville)</code> qui retourne l'adresse sous la forme d'une chaîne de caractères (via une template string bien sûr !) sous cette forme :
+      </p>
+
+      <p class="code">
+        ===[ Destinataire ]===<br />
+        Tom REDOCEMIA<br />
+        21 rue du bloc d'instructions<br />
+        1337 POINT-VIRGULE<br />
+      </p>
+
+      <p>Utilisez une template string pour bénéficier des multi-lignes facilement.</p>
+
+      <div class="message"></div>
+    </div>
+
+    <div class="enonce" id="enonce-2">
+      <h2>Exercice 2</h2>
+
+      <p>Tout fonctionne bien. Maintenant il va falloir utiliser toutes ces fonctions pour créer l'entête final.</p>
+
+      <p>
+        Tom essaye d'afficher tout l'entête avec son adresse, et un numéro premium <code>5842</code>, ça doit donner ça
+        :
+      </p>
+
+      <p class="code">
+        ===[ Notre adresse ]===<br />
+        MagiciensDuCode<br />
+        42 avenue de l'accolade ouvrante<br />
+        1337 POINT-VIRGULE<br />
+        <br />
+        ===[ Destinataire ]===<br />
+        Tom REDOCEMIA<br />
+        21 rue du bloc d'instructions<br />
+        1337 POINT-VIRGULE<br />
+        <br />
+        ===[ Vos références ]===<br />
+        N° de client : PR5842
+      </p>
+
+      <p>
+        Tom a déjà créé toutes les variables manquantes, tout le contenu est là pour l'affichage, il ne reste plus qu'à
+        appeler les fonctions dans le bon ordre. Aidez-le à finir son code !
+      </p>
+
+      <div class="attention">
+        Pour espacer chaque partie (adresse, destinaire, vos références) avec une ligne vide, utilisez simplement
+        l'instruction <code>console.log("")</code>.
+      </div>
+      <br />
+
+      <div class="message"></div>
+    </div>
+
+    <div class="enonce" id="enonce-3">
+      <h2>Exercice 3</h2>
+
+      <p>
+        Tom est tellement fier d'avoir fini cet entête ! Il s'octroie un peu de repos avec un petit challenge.
+      </p>
+
+      <p>Il veut rédiger du code permettant de faire un joli logo au format texte comme ceci :</p>
+
+      <pre>
+      **              **      **
+    **               **         **
+  **                **            **
+**                 **               **
+  **              **              **
+    **           **             **
+      **        **            **</pre
+      >
+
+      <p>
+        Pour ça, il veut créer une fonction avec 3 paramètres : <code>afficherLigneLogo(esp1, esp2, esp3)</code>. Chaque
+        paramètre correspond au nombre d'espaces avant les symboles <code>**</code>.
+      </p>
+
+      <p>
+        Par exemple l'appel <code>afficherLigneLogo(2, 4, 6)</code> doit afficher une ligne avec 2 espaces, 2 étoiles, 4
+        espaces, 2 étoiles puis 6 espaces et enfin 2 étoiles comme ça :
+      </p>
+
+      <code>&nbsp;&nbsp;**&nbsp;&nbsp;&nbsp;&nbsp;**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</code>
+
+      <p>
+        Il a déjà rédigé la liste des appels de cette fonction pour créer le logo comme il faut, mais il a besoin d'un
+        coup de main pour rédiger le corps de cette fonction.
+      </p>
+
+      <div class="message"></div>
+    </div>
+
+    <div class="enonce bogue" id="enonce-4">
+      <h2>Chassez le bogue ! 0</h2>
+      <img alt="insecte" src="../../images/insecte-ricane.png" />
+
+      <p>
+        Tom continue avec ses petits challenges, il essaye de rédiger un code pour afficher un sapin de Noël comme
+        celui-là :
+      </p>
+
+      <pre>
+     *
+    *o*
+   *o*o*
+  *o*o*o*
+ *o*o*o*o*
+*o*o*o*o*o*
+    ***
+    ***
+    ***</pre
+      >
+
+      <p>Malheureusement son code est bogué. Corrigez-le !</p>
+
+      <div class="message"></div>
+    </div>
+
+    <p>D'autres exercices arrivent bientôt... patience !</p>
+
+    <footer>
+      Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+      <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+    </footer>
+
+    <script src="../commun/mes-outils.js"></script>
+    <script src="../commun/init.js"></script>
+    <script src="exercices.js"></script>
+    <script src="validateur/tests.js"></script>
+  </body>
+</html>
