@@ -134,6 +134,29 @@ ajouterTest(4, "convertirEnSemainesEtJours", {
   sortie: "9000 jours, c'est équivalent à 1285 semaines et 5 jours"
 });
 
+// Exercice 5
+descriptionEntrees = ["numeroClient"];
+ajouterTest(5, "retournerReference", {
+  entrees: [1864],
+  descriptionEntrees,
+  sortie: "N° de client : 421864 (standard)"
+});
+ajouterTest(5, "retournerReference", {
+  entrees: [5842],
+  descriptionEntrees,
+  sortie: "N° de client : PR5842 (premium)"
+});
+ajouterTest(5, "retournerReference", {
+  entrees: [5000],
+  descriptionEntrees,
+  sortie: "N° de client : PR5000 (premium)"
+});
+ajouterTest(5, "retournerReference", {
+  entrees: [7000],
+  descriptionEntrees,
+  sortie: "N° de client : 427000 (standard)"
+});
+
 lancerTousLesTests();
 
 // Code qui vient tester tous les exercices remplis par l'étudiant

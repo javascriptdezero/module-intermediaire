@@ -168,14 +168,15 @@
       </p>
 
       <p>
-        Écrivez une fonction <code>convertirEnSemainesEtJours(nombreDeJours)</code> qui devra retourner, pour
-        l'appel de fonction <code>convertirEnSemainesEtJours(19)</code> le texte suivant :
+        Écrivez une fonction <code>convertirEnSemainesEtJours(nombreDeJours)</code> qui devra retourner, pour l'appel de
+        fonction <code>convertirEnSemainesEtJours(19)</code> le texte suivant :
       </p>
 
       <p class="code">19 jours, c'est équivalent à 2 semaines et 5 jours</p>
 
       <p>
-        Petite difficulté supplémentaire, vous devrez gérez les pluriels des mots <code>semaine(s)</code> et <code>jour(s)</code> (jour apparaît 2 fois dans la phrase) comme ceci :
+        Petite difficulté supplémentaire, vous devrez gérez les pluriels des mots <code>semaine(s)</code> et
+        <code>jour(s)</code> (jour apparaît 2 fois dans la phrase) comme ceci :
       </p>
 
       <p class="code">
@@ -189,8 +190,47 @@
       </p>
 
       <ul>
-        <li>On mettra un 's' à la fin des mots semaine et jour lorsque la valeur précédante est strictement supérieure à 1</li>
+        <li>
+          On mettra un 's' à la fin des mots semaine et jour lorsque la valeur précédante est strictement supérieure à 1
+        </li>
       </ul>
+
+      <div class="message"></div>
+    </div>
+
+    <div class="enonce" id="enonce-5">
+      <h2>Exercice 5</h2>
+
+      <p>
+        Hugo aimerait améliorer la présentation du numéro client sur la lettre de marketing. Il aimerait y ajouter le
+        statut du client (si c'est un client standard ou premium).
+      </p>
+
+      <p>
+        Pour rappel, les clients premium ont un numéro de client supérieur ou égal à <code>5000</code> et strictement inférieur à <code>7000</code>. Leur numéro doit être affiché sous la forme <code>PR5132</code> au lieu de <code>425132</code> (pour le
+        client numéro <code>5132</code> par exemple).
+      </p>
+
+      <p>Hugo aimerait qu'on affiche le type de compte client entre parenthèses comme ça :</p>
+
+      <p class="code">
+        N° de client : PR5842 (premium)<br />
+        N° de client : 421864 (standard)
+      </p>
+
+      <p>
+        Vous récupérez le code de Tom qui contient la fonction <code>formaterNumeroClient(numeroClient)</code> qui renvoie le numéro client formaté <code>PRXXXX</code> ou <code>42XXXX</code> en fonction du <code>numeroClient</code> donné.
+      </p>
+
+      <p>En vous appuyant sur cette fonction, rédigez une nouvelle fonction <code>retournerReference(numeroClient)</code> qui renvoie la référence client avec le type de compte entre parenthèses à partir d'un numéro de client donné.</p>
+
+      <p>Par exemple pour l'appel de fonction <code>retournerReference(1864)</code>, elle doit retourner :</p>
+
+      <p class="code">
+        N° de client : 421864 (standard)
+      </p>
+
+      <p>Exploitez la fonction de Tom pour retourner, grâce à une template string, la référence formatée d'un client.</p>
 
       <div class="message"></div>
     </div>

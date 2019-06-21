@@ -56,3 +56,12 @@ function convertirEnSemainesEtJours(nombreDeJours) {
 
   return `${nombreDeJours} jour${plurielNombreDeJours}, c'est équivalent à ${nombreDeSemaines} semaine${plurielNombreDeSemaines} et ${nombreDeJoursRestants} jour${plurielJoursRestants}`;
 }
+
+// Exercice 5
+function retournerReference(numeroClient) {
+  let typeCompte = "standard";
+  if (numeroClient >= 5000 && numeroClient < 7000) {
+    typeCompte = "premium";
+  }
+  return `N° de client : ${formaterNumeroClient(numeroClient)} (${typeCompte})`;
+}

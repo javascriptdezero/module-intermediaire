@@ -45,3 +45,30 @@
 // Déclarez une fonction convertirEnSemainesEtJours(nombreDeJours) et faites lui retourner
 // une template string qui correspond à la solution de l'énoncé.
 // Faites bien attention aux différents pluriels et bon courage !
+
+
+// Exercice 5
+// 1. Décommentez le code de Tom ci-dessous pour pouvoir utiliser sa fonction formaterNumeroClient
+// 2. Rédigez une fonction retournerReference(numeroClient) qui retourne la template string
+// permettant de répondre à l'énoncé
+
+// function formaterNumeroClient(numero) {
+//   if (numero >= 5000 && numero < 7000) {
+//     // On peut retourner tout de suite la valeur en utilisant le mot-clé return
+//     return "PR" + numero;
+//   } else {
+//     let prefixe = "42";
+//     if (numero < 1000) {
+//       prefixe = prefixe + "0";
+//     }
+//     if (numero < 100) {
+//       prefixe = prefixe + "0";
+//     }
+//     if (numero < 10) {
+//       prefixe = prefixe + "0";
+//     }
+//     return prefixe + numero;
+//   }
+// }
+
+// Déclarez votre fonction retournerReference(numeroClient) ci-dessous
