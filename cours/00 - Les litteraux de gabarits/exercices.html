@@ -50,12 +50,11 @@
 
       <p>
         Tout de même, vous décidez de fêter ça en vous amusant à créer une petite fonction <code>merci</code> qui
-        utilisera les littéraux de gabarits (aussi appelées template strings) pour retourner (avec <code>return</code>) un message de remerciement à Tom.
+        utilisera les littéraux de gabarits (aussi appelées template strings) pour retourner (avec <code>return</code>)
+        un message de remerciement à Tom.
       </p>
 
-      <p>
-        Cette fonction prendra <code>2</code> paramètres : <code>prenom</code> et <code>nomSociete</code>.
-      </p>
+      <p>Cette fonction prendra deux paramètres : <code>prenom</code> et <code>nomSociete</code>.</p>
 
       <p>Pour l'appel de fonction suivant <code>merci("Tom", "MagiciensDuCode")</code>, elle devra retourner :</p>
 
@@ -70,13 +69,18 @@
       <h2>Exercice 1</h2>
 
       <p>
-        Hugo vient vous voir pour recoder une fonctionnalité que Tom avait faite récemment. Vous savez, vous l'aviez aidé pour finir son code !
+        Hugo vient vous voir pour recoder une fonctionnalité que Tom avait faite récemment. Vous savez, vous l'aviez
+        aidé pour finir son code !
       </p>
 
-      <p>Il s'agit de recoder la fonction pour afficher l'adresse du destinaire sur les lettres de la campagne marketing qu'Hugo veut mettre en place.</p>
+      <p>
+        Il s'agit de recoder la fonction pour formater l'adresse du destinaire sur les lettres de la campagne marketing
+        qu'Hugo veut mettre en place.
+      </p>
 
       <p>
-        Développez une fonction <code>formaterAdresse(prenom, nom, adresse, codePostal, ville)</code> qui retourne l'adresse sous la forme d'une chaîne de caractères (via une template string bien sûr !) sous cette forme :
+        Développez une fonction <code>formaterAdresse(prenom, nom, adresse, codePostal, ville)</code> qui retourne
+        l'adresse sous la forme d'une chaîne de caractères sous cette forme :
       </p>
 
       <p class="code">
@@ -86,7 +90,7 @@
         1337 POINT-VIRGULE<br />
       </p>
 
-      <p>Utilisez une template string pour bénéficier des multi-lignes facilement.</p>
+      <p>Utilisez une template string pour bénéficier du multi-lignes facilement.</p>
 
       <div class="message"></div>
     </div>
@@ -94,38 +98,35 @@
     <div class="enonce" id="enonce-2">
       <h2>Exercice 2</h2>
 
-      <p>Tout fonctionne bien. Maintenant il va falloir utiliser toutes ces fonctions pour créer l'entête final.</p>
+      <p>
+        Tom est vraiment content que vous ayez été embauché chez <strong>MagiciensDuCode</strong>. Vous allez pouvoir
+        progresser ensemble.
+      </p>
 
       <p>
-        Tom essaye d'afficher tout l'entête avec son adresse, et un numéro premium <code>5842</code>, ça doit donner ça
-        :
+        Il vous lance un petit défi : écrire une fonction <code>convertirEnSemaines(nombreDeJours)</code> qui retourne
+        le nombre de semaines équivalent à un nombre de jours donné <strong>sans</strong> utiliser de variable !
       </p>
+
+      <p>Vous devrez utiliser une expression directement dans une template string pour y arriver.</p>
+
+      <p>Par exemple pour l'appel de fonction <code>convertirEnSemaines(35)</code>, elle devra retourner :</p>
 
       <p class="code">
-        ===[ Notre adresse ]===<br />
-        MagiciensDuCode<br />
-        42 avenue de l'accolade ouvrante<br />
-        1337 POINT-VIRGULE<br />
-        <br />
-        ===[ Destinataire ]===<br />
-        Tom REDOCEMIA<br />
-        21 rue du bloc d'instructions<br />
-        1337 POINT-VIRGULE<br />
-        <br />
-        ===[ Vos références ]===<br />
-        N° de client : PR5842
+        35 jours sont équivalents à 5 semaines
       </p>
 
-      <p>
-        Tom a déjà créé toutes les variables manquantes, tout le contenu est là pour l'affichage, il ne reste plus qu'à
-        appeler les fonctions dans le bon ordre. Aidez-le à finir son code !
-      </p>
-
-      <div class="attention">
-        Pour espacer chaque partie (adresse, destinaire, vos références) avec une ligne vide, utilisez simplement
-        l'instruction <code>console.log("")</code>.
-      </div>
-      <br />
+      <ul>
+        <li>Une semaine contient 7 jours</li>
+        <li>
+          Pour faciliter cet exercice, les tests n'utiliseront qu'un nombre de jours qui fait "pile" N semaines.
+          Autrement dit vous n'aurez pas de valeur comme 12 jours, qui représente 1 semaine et 5 jours.
+        </li>
+        <li>
+          On refera cet exercice avec des valeurs qui ne tombent pas "pile" lorsqu'on aura vu l'opérateur modulo, dans
+          la prochaine leçon 🙂
+        </li>
+      </ul>
 
       <div class="message"></div>
     </div>
@@ -134,63 +135,62 @@
       <h2>Exercice 3</h2>
 
       <p>
-        Tom est tellement fier d'avoir fini cet entête ! Il s'octroie un peu de repos avec un petit challenge.
+        Dernier challenge proposé par Tom (qui a lutté pour le réussir), écrivez une fonction
+        <code>templateString()</code> qui renvoie, toujours en utilisant une template string, ceci :
       </p>
 
-      <p>Il veut rédiger du code permettant de faire un joli logo au format texte comme ceci :</p>
-
-      <pre>
-      **              **      **
-    **               **         **
-  **                **            **
-**                 **               **
-  **              **              **
-    **           **             **
-      **        **            **</pre
-      >
-
-      <p>
-        Pour ça, il veut créer une fonction avec 3 paramètres : <code>afficherLigneLogo(esp1, esp2, esp3)</code>. Chaque
-        paramètre correspond au nombre d'espaces avant les symboles <code>**</code>.
+      <p class="code">
+        Les template strings sont délimitées par des backticks ``.<br />
+        Pour créer un espace réservé on utilise ${}.
       </p>
 
-      <p>
-        Par exemple l'appel <code>afficherLigneLogo(2, 4, 6)</code> doit afficher une ligne avec 2 espaces, 2 étoiles, 4
-        espaces, 2 étoiles puis 6 espaces et enfin 2 étoiles comme ça :
-      </p>
+      <p>Cet exercice présente plusieurs difficultés, bon courage !</p>
 
-      <code>&nbsp;&nbsp;**&nbsp;&nbsp;&nbsp;&nbsp;**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</code>
-
-      <p>
-        Il a déjà rédigé la liste des appels de cette fonction pour créer le logo comme il faut, mais il a besoin d'un
-        coup de main pour rédiger le corps de cette fonction.
-      </p>
+      <div class="attention">
+        Consultez
+        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Littéraux_gabarits" target="_blank"
+          >la documentation</a
+        >
+        si besoin.
+      </div>
+      <br />
 
       <div class="message"></div>
     </div>
 
-    <div class="enonce bogue" id="enonce-4">
-      <h2>Chassez le bogue ! 0</h2>
-      <img alt="insecte" src="../../images/insecte-ricane.png" />
+    <div class="enonce" id="enonce-4">
+      <h2>Exercice 4</h2>
 
       <p>
-        Tom continue avec ses petits challenges, il essaye de rédiger un code pour afficher un sapin de Noël comme
-        celui-là :
+        Vous décidez de résoudre le problème de conversion des jours en semaines qui ne tombe pas "pile" sans utiliser
+        l'opérateur modulo mais en utilisant une boucle <code>while</code>. Après tout vous l'aviez fait pour les heures
+        et les minutes, avec des jours et des semaines c'est pareil !
       </p>
 
-      <pre>
-     *
-    *o*
-   *o*o*
-  *o*o*o*
- *o*o*o*o*
-*o*o*o*o*o*
-    ***
-    ***
-    ***</pre
-      >
+      <p>
+        Écrivez une fonction <code>convertirEnSemainesEtJours(nombreDeJours)</code> qui devra retourner, pour
+        l'appel de fonction <code>convertirEnSemainesEtJours(19)</code> le texte suivant :
+      </p>
 
-      <p>Malheureusement son code est bogué. Corrigez-le !</p>
+      <p class="code">19 jours, c'est équivalent à 2 semaines et 5 jours</p>
+
+      <p>
+        Petite difficulté supplémentaire, vous devrez gérez les pluriels des mots <code>semaine(s)</code> et <code>jour(s)</code> (jour apparaît 2 fois dans la phrase) comme ceci :
+      </p>
+
+      <p class="code">
+        0 jour, c'est équivalent à 0 semaine et 0 jour<br />
+        1 jour, c'est équivalent à 0 semaine et 1 jour<br />
+        3 jours, c'est équivalent à 0 semaine et 3 jours<br />
+        7 jours, c'est équivalent à 1 semaine et 0 jour<br />
+        8 jours, c'est équivalent à 1 semaine et 1 jour<br />
+        9 jours, c'est équivalent à 1 semaine et 2 jours<br />
+        19 jours, c'est équivalent à 2 semaines et 5 jours<br />
+      </p>
+
+      <ul>
+        <li>On mettra un 's' à la fin des mots semaine et jour lorsque la valeur précédante est strictement supérieure à 1</li>
+      </ul>
 
       <div class="message"></div>
     </div>

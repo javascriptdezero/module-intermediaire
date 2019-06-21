@@ -61,7 +61,78 @@ Jérémy MOUZIN
 });
 
 // Exercice 2
+descriptionEntrees = ["nombreDeJours"];
+ajouterTest(2, "convertirEnSemaines", {
+  entrees: [35],
+  descriptionEntrees,
+  sortie: "35 jours sont équivalents à 5 semaines"
+});
+ajouterTest(2, "convertirEnSemaines", {
+  entrees: [0],
+  descriptionEntrees,
+  sortie: "0 jours sont équivalents à 0 semaines"
+});
+ajouterTest(2, "convertirEnSemaines", {
+  entrees: [42],
+  descriptionEntrees,
+  sortie: "42 jours sont équivalents à 6 semaines"
+});
+ajouterTest(2, "convertirEnSemaines", {
+  entrees: [1337],
+  descriptionEntrees,
+  sortie: "1337 jours sont équivalents à 191 semaines"
+});
 
+// Exercice 3
+descriptionEntrees = null;
+ajouterTest(3, "templateString", {
+  descriptionEntrees,
+  sortie: `Les template strings sont délimitées par des backticks \`\`.
+Pour créer un espace réservé on utilise \$\{\}.`
+});
+
+// Exercice 4
+descriptionEntrees = ["nombreDeJours"];
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [0],
+  descriptionEntrees,
+  sortie: "0 jour, c'est équivalent à 0 semaine et 0 jour"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [1],
+  descriptionEntrees,
+  sortie: "1 jour, c'est équivalent à 0 semaine et 1 jour"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [3],
+  descriptionEntrees,
+  sortie: "3 jours, c'est équivalent à 0 semaine et 3 jours"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [7],
+  descriptionEntrees,
+  sortie: "7 jours, c'est équivalent à 1 semaine et 0 jour"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [8],
+  descriptionEntrees,
+  sortie: "8 jours, c'est équivalent à 1 semaine et 1 jour"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [9],
+  descriptionEntrees,
+  sortie: "9 jours, c'est équivalent à 1 semaine et 2 jours"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [19],
+  descriptionEntrees,
+  sortie: "19 jours, c'est équivalent à 2 semaines et 5 jours"
+});
+ajouterTest(4, "convertirEnSemainesEtJours", {
+  entrees: [9000],
+  descriptionEntrees,
+  sortie: "9000 jours, c'est équivalent à 1285 semaines et 5 jours"
+});
 
 lancerTousLesTests();
 

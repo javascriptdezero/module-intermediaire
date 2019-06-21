@@ -308,3 +308,7 @@ p.code {
   border-radius: var(--dim-base);
   margin-top: 0;
 }
+
+.attention a {
+  color: var(--bleu-fonce);
+}
