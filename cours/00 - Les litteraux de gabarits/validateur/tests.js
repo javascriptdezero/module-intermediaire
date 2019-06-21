@@ -95,15 +95,15 @@ function construireMessageErreur(test, numeroTest, nombreDeTests) {
   let messageErreur = `${test.sortie}\n`;
 
   if (test.descriptionEntrees !== null) {
-    if (Array.isArray(test.descriptionEntrees)) {
+    if (test.descriptionEntrees.length > 1) {
       messageErreur += '\n→ pour les arguments ';
       let listeDescriptionValeur = [];
       test.descriptionEntrees.forEach((description, index) => {
-        listeDescriptionValeur.push(`<strong>${description}</strong> = <code>${test.entrees[index]}</code>`);
+        listeDescriptionValeur.push(formateArgumentEtValeurHtml(description, test.entrees[index]));
       });
       messageErreur += listeDescriptionValeur.join(" et ");
     } else {
-      messageErreur += `\n→ pour l'argument ${test.descriptionEntrees} = ${test.entrees}`;
+      messageErreur += `\n→ pour l'argument ${formateArgumentEtValeurHtml(test.descriptionEntrees[0], test.entrees[0])}`;
     }
     let pourcentageReussi = 100 * numeroTest / nombreDeTests;
     if (!Number.isInteger(pourcentageReussi)) {
@@ -112,4 +112,8 @@ function construireMessageErreur(test, numeroTest, nombreDeTests) {
     messageErreur += `\n\n<p class="indication-tests-reussis">Tests réussis : <strong>${pourcentageReussi}%</strong></p>`;
   }
   return messageErreur;
+}
+
+function formateArgumentEtValeurHtml(nomArgument, valeur) {
+  return `<strong>${nomArgument}</strong> = <code>${valeur}</code>`;
 }
