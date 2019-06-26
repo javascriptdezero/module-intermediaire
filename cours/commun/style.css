@@ -31,6 +31,7 @@
   --bordure-titre: solid var(--jaune);
   --bordure-titre-succes: solid var(--vert);
   --bordure-titre-echec: solid var(--rouge);
+  --bordure-titre-devinette: solid var(--bleu);
   --bordure-gauche: solid var(--dim-base);
   --background-insecte: top var(--dim-triple) right var(--dim-triple) / var(--dim-insecte) no-repeat;
 }
@@ -226,6 +227,16 @@ p.code {
   color: var(--noir);
   border-bottom: var(--dim-demie) dotted var(--bleu-fonce);
   padding-bottom: var(--dim-demie);
+}
+
+/* Devinettes */
+.devinette {
+  -webkit-box-shadow: var(--bleu) 0 0 var(--dim-double);
+  box-shadow: var(--bleu) 0 0 var(--dim-double);
+}
+
+.devinette h2 {
+  border-bottom: var(--bordure-titre-devinette) var(--dim-demie);
 }
 
 /* Chassez les bogues */
