@@ -28,23 +28,29 @@ const enonces = {
     enonce.classList.remove(classesCSS.succes);
     enonce.classList.add(classesCSS.enonce);
     const message = this.extraireMessage(enonce);
-    message.classList = classesCSS.message;
-    message.innerHTML = this.attente;
+    if (message !== undefined) {
+      message.classList = classesCSS.message;
+      message.innerHTML = this.attente;
+    }
   },
   definirSucces(enonce, bonneReponse) {
     enonce.classList.remove(classesCSS.echec);
     enonce.classList.add(classesCSS.succes);
     const message = this.extraireMessage(enonce);
-    message.classList.remove(classesCSS.echec);
-    message.classList.add(classesCSS.succes);
-    message.innerHTML = `<p>▶︎ Bonne réponse 👍</p><pre class="valeur">${bonneReponse}</pre>`;
+    if (message !== undefined) {
+      message.classList.remove(classesCSS.echec);
+      message.classList.add(classesCSS.succes);
+      message.innerHTML = `<p>▶︎ Bonne réponse 👍</p><pre class="valeur">${bonneReponse}</pre>`;
+    }
   },
   definirEchec(enonce, valeurs) {
     enonce.classList.remove(classesCSS.succes);
     enonce.classList.add(classesCSS.echec);
     const message = this.extraireMessage(enonce);
-    message.classList.remove(classesCSS.succes);
-    message.classList.add(classesCSS.echec);
+    if (message !== undefined) {
+      message.classList.remove(classesCSS.succes);
+      message.classList.add(classesCSS.echec);
+    }
     const { valeurRecue, valeurAttendue } = valeurs;
     message.innerHTML = `<p>▶︎ Votre code affiche :</p><pre class="valeur">${valeurRecue || 'Rien (undefined)'}</pre>
     <p>▶︎ Alors qu'il devrait afficher :</p><pre class="valeur">${valeurAttendue}</pre>
