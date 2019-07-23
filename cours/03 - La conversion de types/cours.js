@@ -118,7 +118,7 @@
 //   return null;
 // }
 
-// let aujourdhui = "23";
+// let aujourdhui = 23;
 // if (nombreJoursAvantFin = calculJoursAvantFinDuMois(aujourdhui)) {
 //   console.log(`Fin du mois dans ${nombreJoursAvantFin} jours`);
 // } else {
