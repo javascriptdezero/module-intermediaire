@@ -28,14 +28,7 @@ pratique sur comment lire une expression JavaScript !
 L'objectif va être de réussir à dire à quelle valeur seront évaluées les
 expressions ci-dessous.
 
-Pour vérifier vos résultats, affichez l'expression dans une instruction console.log
-dans la console développeur Chrome par exemple.
-
-Par exemple pour l'expression !!"bonjour", utilisez console.log(!!"bonjour");
-
-Attention avec les opérateurs ++ et -- ils modifient la valeur de la variable
-donc pensez à réaffecter à toutes les variables leurs valeurs initiales avant
-de faire vos tests.
+Pour vérifier vos résultats, reportez-vous au fichier solutions.js.
 
 Aidez-vous également de la précédence des opérateurs, la doc est ici :
 https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Pr%C3%A9c%C3%A9dence_des_op%C3%A9rateurs
