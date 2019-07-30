@@ -2,13 +2,13 @@
 
 /* Le raccourci "else if" */
 // Rappel
-// let condition = false;
+let condition = false;
 
-// if (condition) {
-//   console.log("La condition est vraie");
-// } else {
-//   console.log("La condition est fausse");
-// }
+if (condition) {
+  console.log("La condition est vraie");
+} else {
+  console.log("La condition est fausse");
+}
 
 // Autoriser certains accès sur un forum
 // let typeUtilisateur = "";
