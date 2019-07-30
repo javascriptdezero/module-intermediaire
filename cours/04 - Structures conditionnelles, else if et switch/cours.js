@@ -2,16 +2,16 @@
 
 /* Le raccourci "else if" */
 // Rappel
-let condition = false;
+// let condition = false;
 
-if (condition) {
-  console.log("La condition est vraie");
-} else {
-  console.log("La condition est fausse");
-}
+// if (condition) {
+//   console.log("La condition est vraie");
+// } else {
+//   console.log("La condition est fausse");
+// }
 
 // Autoriser certains accès sur un forum
-// let typeUtilisateur = "modérateur";
+// let typeUtilisateur = "";
 
 // if (typeUtilisateur === "administrateur") {
 //   console.log("Accès autorisés : administration + modération + création de contenu");
@@ -44,5 +44,4 @@ if (condition) {
 //     console.log("Les visiteurs peuvent uniquement lire le forum");
 //     break;
 // }
-
 // console.log("Fin du code");
