@@ -31,7 +31,7 @@ if (condition) {
 // let typeUtilisateur = "modérateur";
 
 // switch (typeUtilisateur) {
-//   case "administration":
+//   case "administrateur":
 //     console.log("Accès autorisés : administration + modération + création de contenu");
 //     break;
 //   case "modérateur":
