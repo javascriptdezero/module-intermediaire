@@ -1,7 +1,8 @@
 /* La portée des variables avec var */
 
-// var nombre = 42;
-// console.log(nombre);
+console.log(nombre);
+var nombre = 42;
+console.log(nombre);
 
 /* La portée au niveau des blocs d'instructions avec var */
 // {
