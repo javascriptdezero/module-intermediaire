@@ -1,4 +1,4 @@
-/* Les objets (partie 2) */
+/* Les objets 2 — Différences entre classes et prototypes */
 
 /* Objet vide */
 let personne = {};
