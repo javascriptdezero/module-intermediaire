@@ -11,36 +11,37 @@ let personne = {
     ville: "Code source",
   },
 }
-console.log(personne);
+// console.log(personne);
 
 /* Lecture d'une propriété imbriquée */
-console.log(`Code postal: ${personne.adresse.codePostal}`);
+// console.log(`Code postal: ${personne.adresse.codePostal}`);
 
 /* Ajout dynamique d'une propriété à un objet imbriqué */
-personne.adresse.interphone = 7;
-personne.adresse["batiment"] = "Bâtiment H";
-console.log(personne);
+// personne.adresse.interphone = 7;
+// personne.adresse["batiment"] = "Bâtiment H";
+// console.log(personne);
 
 /* Suppression dynamique d'une propriété d'un objet imbriqué */
-delete personne.adresse.interphone;
-delete personne.adresse["batiment"];
-console.log(personne);
+// delete personne.adresse.interphone;
+// console.log(personne);
 
 /* Ajout dynamique d'un objet imbriqué à une propriété */
-personne.conjointe = {
-  prenom: "Lea",
-  nom: "Redocemia",
-};
-console.log(personne);
+// personne.conjointe = {
+//   prenom: "Lea",
+//   nom: "Redocemia",
+// };
+// console.log(personne);
 
 /* Ajout dynamique d'un objet dans un objet... */
-personne.conjointe.adresse = {
-  numero: 21,
-  nom: "allée des accolades",
-  codePostal: 31337,
-  ville: "Code source",
-};
-console.log(personne);
+// personne.conjointe.adresse = {
+//   numero: 21,
+//   nom: "allée des accolades",
+//   codePostal: 31337,
+//   ville: "Code source",
+// };
+// console.log(personne);
 
-/* Exemple d'objet complexe : tweet au format JSON */
+/* Notion de niveaux d'imbrication */
+
+/* Exemple d'objet complexe : un tweet au format JSON */
 // https://jsoneditoronline.org/
