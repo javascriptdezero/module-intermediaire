@@ -43,5 +43,8 @@ let personne = {
 
 /* Notion de niveaux d'imbrication */
 
-/* Exemple d'objet complexe : un tweet au format JSON */
+/* Exemple d'objet complexe */
+// Un tweet au format JSON retourné par l'API de Twitter
+// API : Application Programming Interface
+// JSON : JavaScript Object Notation
 // https://jsoneditoronline.org/
