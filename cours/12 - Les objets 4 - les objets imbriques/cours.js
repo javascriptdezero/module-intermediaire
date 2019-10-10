@@ -11,7 +11,7 @@ let personne = {
     ville: "Code source",
   },
 }
-// console.log(personne);
+console.log(personne);
 
 /* Lecture d'une propriété imbriquée */
 // console.log(`Code postal: ${personne.adresse.codePostal}`);
