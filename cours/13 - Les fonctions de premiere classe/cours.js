@@ -7,7 +7,24 @@ function bonjour() {
 
 bonjour();
 
-/* Fonctions de 1ère classe : les fonctions sont des valeurs ! */
+/* Les fonctions sont... des objets ! */
+// function bonjour() {
+//   console.log("bonjour");
+// }
+
+// console.log(bonjour);
+// bonjour.texte = "Propriété texte de la fonction";
+// bonjour.nombre = 42;
+// console.log(bonjour);
+
+/* Le type d'un objet et d'une fonction */
+// let phrase = { texte: "Un simple objet" };
+// function bonjour() { console.log("bonjour"); }
+
+// console.log(`Type de phrase: ${typeof phrase}`);
+// console.log(`Type de bonjour: ${typeof bonjour}`);
+
+/* Affectation à une variable */
 // let saluer = function bonjour() {
 //   console.log("bonjour");
 // }; // <-- Point-virgule car c'est une instruction d'affectation (fonction bonjour est une expression)
@@ -16,19 +33,21 @@ bonjour();
 // saluer();
 
 /* Fonctions anonymes */
-// let nom = function() {
-//   console.log("Je n'ai pas de nom");
+// let saluer = function () {
+//   console.log("bonjour");
+// };
+
+// saluer();
+
+/* Une fonction en tant qu'argument d'un appel de fonction */
+// function magie(chapeau, faireLeTour) {
+//   console.log("Le spectacle commence... on fait un tour de magie !");
+//   return faireLeTour(chapeau);
 // }
 
-// nom();
+// function cartes(chapeau) { chapeau.cartes = "🃏"; return chapeau; }
+// function lapin(chapeau) { chapeau.lapin = "🐇"; return chapeau; }
 
-/* Les fonctions sont des objets */
-let objet = {
-  texte: "Je suis un objet",
-};
-console.log(typeof objet);
-let fonction = function() {
-  console.log("Je suis une fonction");
-};
-console.log(typeof fonction);
-
+// let chapeau = {};
+// console.log("🎩 →", magie(chapeau, cartes));
+// console.log("🎩 →", magie(chapeau, lapin));
