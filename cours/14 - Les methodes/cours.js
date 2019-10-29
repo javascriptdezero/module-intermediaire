@@ -1,49 +1,49 @@
 /* Les méthodes : des fonctions dans des objets */
 
 /* Définition d'une méthode (VS une fonction) */
-const identifiant = {
+const compte = {
   twitter: "@JeremyMouzin",
   nom: "Jérémy Mouzin",
   afficher: function() {
-    console.log("L'identifiant twitter @JeremyMouzin appartient à Jérémy Mouzin.");
+    console.log("Le compte twitter @JeremyMouzin appartient à Jérémy Mouzin.");
   },
 };
 
 // Notation pointée
-identifiant.afficher();
+compte.afficher();
 // Notation avec les crochets
-// identifiant["afficher"]();
+// compte["afficher"]();
 
 /* Lire les propriétés d'un objet depuis une méthode */
 
-// const identifiant = {
+// const compte = {
 //   twitter: "@JeremyMouzin",
 //   nom: "Jérémy Mouzin",
 //   afficher: function() {
-//     console.log(`L'identifiant twitter ${twitter} appartient à ${nom}.`);
+//     console.log(`Le compte twitter ${twitter} appartient à ${nom}.`);
 //   },
 // };
 
-// identifiant.afficher();
-// identifiant.nom = "Tom Redocemia";
-// identifiant.afficher();
+// compte.afficher();
+// compte.nom = "Tom Redocemia";
+// compte.afficher();
 
 /* Modifier les propriétés d'un objet depuis une méthode */
 
-// const identifiant = {
+// const compte = {
 //   twitter: "@JeremyMouzin",
 //   nom: "Jérémy Mouzin",
 //   modifierNom: function(nouveauNom) {
 //     this.nom = nouveauNom;
 //   },
 //   afficher: function() {
-//     console.log(`L'identifiant twitter ${twitter} appartient à ${nom}.`);
+//     console.log(`Le compte twitter ${this.twitter} appartient à ${this.nom}.`);
 //   }
 // };
 
-// identifiant.afficher();
-// identifiant.modifierNom("Tom Redocemia");
-// identifiant.afficher();
+// compte.afficher();
+// compte.modifierNom("Tom Redocemia");
+// compte.afficher();
 
 /* Vous avez déjà utilisé une méthode ! */
 
