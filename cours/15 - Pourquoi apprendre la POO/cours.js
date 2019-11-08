@@ -2,70 +2,44 @@
 
 /* Définition : paradigme de programmation */
 
-// Exemple programmation impérative
-// const TEMPS_EN_MINUTES = 421337;
-// const NOMBRE_MINUTES_DANS_1_HEURE = 60;
-// const NOMBRE_MINUTES_DANS_1_JOUR = 24 * NOMBRE_MINUTES_DANS_1_HEURE;
-// const NOMBRE_MINUTES_DANS_1_SEMAINE = 7 * NOMBRE_MINUTES_DANS_1_JOUR;
-// let semaines = 0;
-// let jours = 0;
-// let heures = 0;
-// let minutes = TEMPS_EN_MINUTES;
+// Exemple de programmation impérative
+// const PRIX_CLAVIER = 30;
+// const REDUCTION_SUR_CLAVIER_EN_POURCENTS = 20;
 
-// while (minutes >= NOMBRE_MINUTES_DANS_1_SEMAINE) {
-//   semaines++;
-//   minutes -= NOMBRE_MINUTES_DANS_1_SEMAINE;
-// }
+// const PRIX_SOURIS = 15;
+// const REDUCTION_SUR_SOURIS_EN_POURCENTS = 10;
 
-// while (minutes >= NOMBRE_MINUTES_DANS_1_JOUR) {
-//   jours++;
-//   minutes -= NOMBRE_MINUTES_DANS_1_JOUR;
-// }
+// let prixAvecReductions = 0;
+// let prixSansReductions = 0;
 
-// while (minutes >= NOMBRE_MINUTES_DANS_1_HEURE) {
-//   heures++;
-//   minutes -= NOMBRE_MINUTES_DANS_1_HEURE;
-// }
+// prixSansReductions += PRIX_CLAVIER;
+// prixAvecReductions += PRIX_CLAVIER - (PRIX_CLAVIER * REDUCTION_SUR_CLAVIER_EN_POURCENTS / 100);
+// prixSansReductions += PRIX_SOURIS;
+// prixAvecReductions += PRIX_SOURIS - (PRIX_SOURIS * REDUCTION_SUR_SOURIS_EN_POURCENTS / 100);
 
-// console.log(`${TEMPS_EN_MINUTES} minutes font ${semaines} semaines, ${jours} jours, ${heures} heures et ${minutes} minutes.`);
+// console.log(`Total : ${prixSansReductions} €, avec réductions : ${prixAvecReductions} €`);
 
-// Exemple en programmation orientée objet
-const TEMPS_EN_MINUTES = 421337;
+// Exemple de programmation orientée objet
+// const clavier = {
+//   prix: 30,
+//   reductionEnPourcents: 20,
+// };
+// const souris = {
+//   prix: 15,
+//   reductionEnPourcents: 10,
+// };
+// const panier = {
+//   totalAvecReductions: 0,
+//   totalSansReductions: 0,
+//   ajouterProduit: function(produit) {
+//     this.totalSansReductions += produit.prix;
+//     this.totalAvecReductions += produit.prix - (produit.prix * produit.reductionEnPourcents / 100);
+//   },
+//   afficherTotal: function() {
+//     console.log(`Total : ${this.totalSansReductions} €, avec réductions : ${this.totalAvecReductions} €`);
+//   },
+// };
 
-const periode = {
-  NOMBRE_MINUTES_DANS_1_HEURE: 60,
-  NOMBRE_MINUTES_DANS_1_JOUR: 24 * 60,
-  NOMBRE_MINUTES_DANS_1_SEMAINE: 7 * 24 * 60,
-  semaines: 0,
-  jours: 0,
-  heures: 0,
-  minutes: 0,
-  temps: 0,
-  compterGroupeDeMinutes: function(minutes, groupeDeMinutes) {
-    let compteur = 0;
-    while (minutes >= groupeDeMinutes) {
-      minutes -= groupeDeMinutes;
-      compteur++;
-    }
-    return compteur;
-  },
-  convertirMinutesEnPeriode: function(tempsEnMinutes) {
-    this.temps = tempsEnMinutes;
-    this.semaines = this.compterGroupeDeMinutes(tempsEnMinutes, this.NOMBRE_MINUTES_DANS_1_SEMAINE);
-    tempsEnMinutes -= this.semaines * this.NOMBRE_MINUTES_DANS_1_SEMAINE;
-    this.jours = this.compterGroupeDeMinutes(tempsEnMinutes, this.NOMBRE_MINUTES_DANS_1_JOUR);
-    tempsEnMinutes -= this.jours * this.NOMBRE_MINUTES_DANS_1_JOUR;
-    this.heures = this.compterGroupeDeMinutes(tempsEnMinutes, this.NOMBRE_MINUTES_DANS_1_HEURE);
-    tempsEnMinutes -= this.heures * this.NOMBRE_MINUTES_DANS_1_HEURE;
-    this.minutes = tempsEnMinutes;
-  },
-  convertirHeuresEnPeriode: function(tempsEnHeures) {
-    this.convertirMinutesEnPeriode(tempsEnHeures * 60);
-  },
-  afficher: function() {
-    console.log(`${this.temps} minutes font ${this.semaines} semaines, ${this.jours} jours, ${this.heures} heures et ${this.minutes} minutes.`)
-  }
-};
-
-periode.convertirHeuresEnPeriode(TEMPS_EN_MINUTES);
-periode.afficher();
+// panier.ajouterProduit(clavier);
+// panier.ajouterProduit(souris);
+// panier.afficherTotal();
