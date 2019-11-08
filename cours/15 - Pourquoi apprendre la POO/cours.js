@@ -29,17 +29,18 @@
 //   reductionEnPourcents: 10,
 // };
 // const panier = {
-//   totalAvecReductions: 0,
-//   totalSansReductions: 0,
+//   prixAvecReductions: 0,
+//   prixSansReductions: 0,
 //   ajouterProduit: function(produit) {
-//     this.totalSansReductions += produit.prix;
-//     this.totalAvecReductions += produit.prix - (produit.prix * produit.reductionEnPourcents / 100);
+//     this.prixSansReductions += produit.prix;
+//     this.prixAvecReductions += produit.prix - (produit.prix * produit.reductionEnPourcents / 100);
 //   },
 //   afficherTotal: function() {
-//     console.log(`Total : ${this.totalSansReductions} €, avec réductions : ${this.totalAvecReductions} €`);
+//     console.log(`Total : ${this.prixSansReductions} €, avec réductions : ${this.prixAvecReductions} €`);
 //   },
 // };
 
 // panier.ajouterProduit(clavier);
+// panier.afficherTotal();
 // panier.ajouterProduit(souris);
 // panier.afficherTotal();
