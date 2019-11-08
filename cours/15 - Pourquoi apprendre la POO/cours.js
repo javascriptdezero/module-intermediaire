@@ -20,27 +20,26 @@
 // console.log(`Total : ${prixSansReductions} €, avec réductions : ${prixAvecReductions} €`);
 
 // Exemple de programmation orientée objet
-// const clavier = {
-//   prix: 30,
-//   reductionEnPourcents: 20,
-// };
-// const souris = {
-//   prix: 15,
-//   reductionEnPourcents: 10,
-// };
-// const panier = {
-//   prixAvecReductions: 0,
-//   prixSansReductions: 0,
-//   ajouterProduit: function(produit) {
-//     this.prixSansReductions += produit.prix;
-//     this.prixAvecReductions += produit.prix - (produit.prix * produit.reductionEnPourcents / 100);
-//   },
-//   afficherTotal: function() {
-//     console.log(`Total : ${this.prixSansReductions} €, avec réductions : ${this.prixAvecReductions} €`);
-//   },
-// };
+const clavier = {
+  prix: 30,
+  reductionEnPourcents: 20,
+};
+const souris = {
+  prix: 15,
+  reductionEnPourcents: 10,
+};
+const panier = {
+  prixAvecReductions: 0,
+  prixSansReductions: 0,
+  ajouterProduit: function(produit) {
+    this.prixSansReductions += produit.prix;
+    this.prixAvecReductions += produit.prix - (produit.prix * produit.reductionEnPourcents / 100);
+  },
+  afficherTotal: function() {
+    console.log(`Total : ${this.prixSansReductions} €, avec réductions : ${this.prixAvecReductions} €`);
+  },
+};
 
-// panier.ajouterProduit(clavier);
-// panier.afficherTotal();
-// panier.ajouterProduit(souris);
-// panier.afficherTotal();
+panier.ajouterProduit(clavier);
+panier.ajouterProduit(souris);
+panier.afficherTotal();
