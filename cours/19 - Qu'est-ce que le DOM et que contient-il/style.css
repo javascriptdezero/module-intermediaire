@@ -1,0 +1,11 @@
+h1 {
+  color: salmon;
+}
+
+.paragraphe {
+  font-size: 1.4em;
+}
+
+.grosse-premiere-lettre::first-letter {
+  font-size: 3em;
+}
