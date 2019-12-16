@@ -1,0 +1,45 @@
+body {
+  margin: 1em;
+  font-size: 1.2rem;
+}
+
+.bleu {
+  color: blue;
+  background-color: aliceblue;
+}
+
+.rouge {
+  color: red;
+  background-color: mistyrose;
+}
+
+.paragraphe {
+  padding: .5em;
+  border-radius: 6px;
+}
+
+button {
+  padding: 1em;
+  font-size: .8em;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  cursor: pointer;
+  outline: none;
+  transition: transform .1s ease-in, box-shadow .1s ease-in;
+  margin-left: 1em;
+}
+
+button:first-of-type {
+  margin-left: 0;
+}
+
+button:focus, button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px salmon;
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px blue;
+  transition: none;
+}
