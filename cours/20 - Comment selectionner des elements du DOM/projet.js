@@ -25,7 +25,7 @@ console.log(document.getElementsByTagName('p'));
 /* Avant il fallait faire comme ça... */
 // const liste1 = document.getElementById('liste-1');
 // const itemsListe1 = liste1.getElementsByTagName('li');
-// const deuxiemeItemListe1 = itemsListe1[1];
+// const deuxiemeItemListe1 = itemsListe1.item(1);
 // console.log("Item 2 de la liste 1 (ancienne méthode): ", deuxiemeItemListe1);
 /* Maintenant... c'est tout de même plus rapide ! */
 // const item2Liste1 = document.querySelector('#liste-1 li:nth-child(2)');
