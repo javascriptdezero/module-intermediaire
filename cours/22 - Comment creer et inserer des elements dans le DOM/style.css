@@ -1,0 +1,20 @@
+body {
+  margin: 1em;
+  line-height: 1.5;
+}
+
+a:visited {
+  color: #0000EE;
+}
+
+.item {
+  background-color: rgba(24, 140, 228, 0.1);
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin: 6px 0;
+}
+
+.formateur {
+  border-bottom: 6px solid salmon;
+  font-style: italic;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Création et insertion d'éléments dans le DOM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Création et insertion d'éléments dans le DOM</h1>
+
+  <p class="paragraphe">Il existe de nombreuses façons de créer des éléments : </p>
+
+  <ol id="liste">
+    <li>
+      <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/innertHTML">innerHTML</a> / <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/Element/outerHTML">outerHTML</a>
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org/fr/docs/Web/API/Document/createElement">document.createElement()</a> + <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild">Node.appendChild()</a> ou <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/ParentNode/append">ParentNode.append()</a>
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode">Node.cloneNode()</a>
+    </li>
+    <li>
+      <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentHTML">Element.insertAdjacentHTML()</a>
+      (et <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentText">...Text()</a>, <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentElement">...Element()</a>)
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore">Node.insertBefore()</a>
+    </li>
+    <li>
+      Nouvelles méthodes <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/ParentNode/prepend">ParentNode.prepend()</a>, <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/ParentNode/append">ParentNode.append()</a>, <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/ChildNode/before">ChildNode.before()</a>, <a
+        href="https://developer.mozilla.org/fr/docs/Web/API/ChildNode/after">ChildNode.after()</a>
+    </li>
+  </ol>
+
+  <script src="projet.js"></script>
+</body>
+</html>
