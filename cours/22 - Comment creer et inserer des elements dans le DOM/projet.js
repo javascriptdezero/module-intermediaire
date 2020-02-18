@@ -44,6 +44,12 @@ const liste = document.querySelector('#liste');
 // Créer et insérer un noeud texte
 // liste.insertAdjacentText('afterbegin', 'Nouveau noeud texte');
 
+/* Très vieille méthode */
+// const nouvelItem = document.createElement('li');
+// nouvelItem.innerHTML = "Item inséré grâce à <strong>insertBefore()</strong>";
+// const itemDeReference = liste.querySelector('li:nth-of-type(3)');
+// liste.insertBefore(nouvelItem, itemDeReference);
+
 /* Nouvelles méthodes */
 // const avant = document.createElement('p');
 // avant.innerHTML = "Élément ajouté via <strong>before()</strong> (🇫🇷 avant le début)";
