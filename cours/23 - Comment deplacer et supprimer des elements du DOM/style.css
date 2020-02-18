@@ -1,0 +1,14 @@
+body {
+  margin: 1em;
+  line-height: 1.5;
+}
+
+a:visited {
+  color: #0000EE;
+}
+
+.surligner {
+  background-color: rgba(24, 140, 228, 0.1);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
