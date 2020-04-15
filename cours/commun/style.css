@@ -10,7 +10,7 @@
   --vert: #9ceb60;
   --vert-tres-fonce: #265700;
   --bleu: #80ddff;
-  --bleu-fonce: #00B8F0;
+  --bleu-fonce: #0077ff;
   --rouge: #ff866e;
   --rouge-transparent: #ff866e;
   --rouge-clair: #ffb59e;
@@ -28,7 +28,7 @@
   --dim-insecte: 200px;
 
   /* Propriétés communes */
-  --bordure-titre: solid var(--jaune);
+  --bordure-titre: solid var(--bleu);
   --bordure-titre-succes: solid var(--vert);
   --bordure-titre-echec: solid var(--rouge);
   --bordure-titre-devinette: solid var(--bleu);
@@ -56,15 +56,26 @@ h2 {
   font-family: "Montserrat", "Open Sans", "Roboto", sans-serif;
   font-weight: 600;
   margin-bottom: 0;
+  display: inline-block;
 }
 
 h1 {
   display: inline-block;
-  border-bottom: var(--bordure-titre) var(--dim-base);
+  border-bottom: solid var(--jaune) var(--dim-base);
 }
 
-a {
+a, summary {
   color: var(--bleu);
+}
+
+details {
+  margin-left: 2rem;
+}
+
+summary {
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
 }
 
 code,
@@ -80,7 +91,7 @@ p.code {
 
 footer {
   text-align: center;
-  margin-top: 2em;
+  margin-top: var(--dim-quadruple);
   margin-bottom: var(--dim-quadruple);
 }
 
@@ -102,9 +113,8 @@ li {
  * Classes personnalisées *
  **************************/
 
-.objectifs > h2 {
-  display: inline-block;
-  border-color: var(--bleu);
+.enonce > h2 {
+  border-color: var(--jaune);
 }
 
 a.mdn::before {
@@ -141,6 +151,7 @@ pre.valeur {
 p.code {
   padding: var(--dim-base) var(--dim-double);
   margin-top: 0;
+  margin-bottom: var(--dim-double);
   line-height: 1.4em;
 }
 
@@ -237,6 +248,10 @@ p.code {
 
 .devinette h2 {
   border-bottom: var(--bordure-titre-devinette) var(--dim-demie);
+}
+
+.enonce:last-of-type {
+  margin-bottom: 0;
 }
 
 /* Chassez les bogues */
