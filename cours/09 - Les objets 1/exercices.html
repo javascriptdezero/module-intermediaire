@@ -1,150 +1,160 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Les objets (partie 1) - Exercices</title>
-    <link rel="stylesheet" type="text/css" href="../commun/style.css" />
-    <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
-  </head>
 
-  <body>
-    <h1>Les objets (partie 1)</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Les objets (partie 1) - Exercices</title>
+  <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+  <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+</head>
+
+<body>
+  <h1>Les objets (partie 1)</h1>
+  <p>
+    Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+  </p>
+  <p>Vous êtes bloqué ? <a href="https://javascriptdezero.slack.com">Demandez de l'aide sur Slack</a>.</p>
+
+  <div class="objectifs">
+    <h2>Objectifs</h2>
+    <ul>
+      <li>Savoir déclarer un objet, lire et modifier ses propriétés.</li>
+      <li>Utiliser un objet dans les paramètres d'une fonction.</li>
+    </ul>
+  </div>
+
+  <div class="enonce" id="enonce-0">
+    <h2>Exercice 0</h2>
+
     <p>
-      Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+      Hugo a entendu parler de la notion d'objet et il veut que vous exploriez ce sujet.
     </p>
-    <p>Vous êtes bloqué ? <a href="https://javascriptdezero.slack.com">Demandez de l'aide sur Slack</a>.</p>
 
-    <div class="objectifs">
-      <h2>Objectifs</h2>
-      <ul>
-        <li>Savoir déclarer un objet, lire et modifier ses propriétés.</li>
-        <li>Utiliser un objet dans les paramètres d'une fonction.</li>
-      </ul>
-    </div>
+    <p>
+      Pour ça, vous décidez de créer une fonction <code>creerHoraire(monHeure, mesMinutes)</code> qui renvoie un objet
+      composé de 2 propriétés : <code>heures</code> et <code>minutes</code>.
+    </p>
 
-    <div class="enonce" id="enonce-0">
-      <h2>Exercice 0</h2>
+    <p>
+      Cet objet devra être initialisé aux valeurs <code>monHeure</code> pour la propriété <code>heures</code> et
+      <code>mesMinutes</code> pour la propriété <code>minutes</code>.
+    </p>
 
-      <p>
-        Hugo a entendu parler de la notion d'objet et il veut que vous exploriez ce sujet.
-      </p>
+    <p>
+      Autrement dit, l'appel <code>creerHoraire(12, 30)</code> devra renvoyer (avec le mot-clé <code>return</code>)
+      l'objet suivant :
+    </p>
 
-      <p>
-        Pour ça, vous décidez de créer une fonction <code>creerHoraire(monHeure, mesMinutes)</code> qui renvoie un objet
-        composé de 2 propriétés : <code>heures</code> et <code>minutes</code>.
-      </p>
-
-      <p>
-        Cet objet devra être initialisé aux valeurs <code>monHeure</code> pour la propriété <code>heures</code> et
-        <code>mesMinutes</code> pour la propriété <code>minutes</code>.
-      </p>
-
-      <p>
-        Autrement dit, l'appel <code>creerHoraire(12, 30)</code> devra renvoyer (avec le mot-clé <code>return</code>)
-        l'objet suivant :
-      </p>
-
-      <code>
+    <code>
         { heures: 12, minutes: 30 }
       </code>
 
-      <p>Créez la fonction <code>creerHoraire(monHeure, mesMinutes)</code>.</p>
+    <p>Créez la fonction <code>creerHoraire(monHeure, mesMinutes)</code>.</p>
 
-      <div class="message"></div>
-    </div>
+    <div class="message"></div>
+  </div>
 
-    <div class="enonce" id="enonce-1">
-      <h2>Exercice 1</h2>
+  <div class="enonce" id="enonce-1">
+    <h2>Exercice 1</h2>
 
-      <p>
-        Maintenant que vous savez créer un objet, vous voulez lire et afficher les données qu'il contient grâce à une
-        fonction.
-      </p>
+    <p>
+      Maintenant que vous savez créer un objet, vous voulez lire et afficher les données qu'il contient grâce à une
+      fonction.
+    </p>
 
-      <p>
-        Vous décidez de créer une fonction <code>afficherHoraire(horaire)</code> qui prend en paramètre un objet
-        <code>horaire</code> contenant 2 propriétés <code>heures</code> et <code>minutes</code>.
-      </p>
+    <p>
+      Vous décidez de créer une fonction <code>afficherHoraire(horaire)</code> qui prend en paramètre un objet
+      <code>horaire</code> contenant 2 propriétés <code>heures</code> et <code>minutes</code>.
+    </p>
 
-      <p>
-        Cette fonction devra retourner la phrase <code>L'horaire est 12 heures et 30 minutes.</code> pour un argument
-        <code>horaire</code> dont les propriétés <code>heures</code> et <code>minutes</code> vaudraient respectivement
-        <code>12</code> et <code>30</code>.
-      </p>
+    <p>
+      Cette fonction devra retourner la phrase <code>L'horaire est 12 heures et 30 minutes.</code> pour un argument
+      <code>horaire</code> dont les propriétés <code>heures</code> et <code>minutes</code> vaudraient respectivement
+      <code>12</code> et <code>30</code>.
+    </p>
 
-      <div class="message"></div>
-    </div>
+    <div class="message"></div>
+  </div>
 
-    <div class="enonce" id="enonce-2">
-      <h2>Exercice 2</h2>
+  <div class="enonce" id="enonce-2">
+    <h2>Exercice 2</h2>
 
-      <p>
-        Cherchons maintenant à modifier les propriétés d'un objet...
-      </p>
+    <p>
+      Cherchons maintenant à modifier les propriétés d'un objet...
+    </p>
 
-      <p>
-        Créez une nouvelle fonction <code>avancerDe20Minutes(horaire)</code> qui ajoute 20 minutes à l'horaire passé en
-        argument. Cet horaire est toujours un objet composé de 2 propriétés <code>heures</code> et <code>minutes</code>.
-      </p>
+    <p>
+      Créez une nouvelle fonction <code>avancerDe20Minutes(horaire)</code> qui ajoute 20 minutes à l'horaire passé en
+      argument. Cet horaire est toujours un objet composé de 2 propriétés <code>heures</code> et <code>minutes</code>.
+    </p>
 
-      <p>
-        Exemple avec un <code>horaire</code> de <code>{ heures: 12, minutes: 30 }</code>, la fonction devra renvoyer :
-      </p>
+    <p>
+      Exemple avec un <code>horaire</code> de <code>{ heures: 12, minutes: 30 }</code>, la fonction devra renvoyer :
+    </p>
 
-      <code>{ heures: 12, minutes: 50 }</code>
+    <code>{ heures: 12, minutes: 50 }</code>
 
-      <p>
-        Notez que vous devez gérer les cas particuliers, par exemple ajouter 20 minutes à 12h50 doit retourner 13h10 et
-        pas 12h70 😉. Pareil, pour 23h50, cela devra retourner 00h10.
-      </p>
+    <p>
+      Notez que vous devez gérer les cas particuliers, par exemple ajouter 20 minutes à 12h50 doit retourner 13h10 et
+      pas 12h70 😉. Pareil, pour 23h50, cela devra retourner 00h10.
+    </p>
 
-      <div class="message"></div>
-    </div>
+    <div class="message"></div>
+  </div>
 
-    <div class="enonce" id="enonce-3">
-      <h2>Exercice 3 — Refactoring</h2>
+  <div class="enonce" id="enonce-3">
+    <h2>Exercice 3 — Refactoring</h2>
 
-      <p>
-        Vous avez récupéré du code de vos débuts en JavaScript, à l'époque vous ne connaissiez pas encore les objets.
-        Alors vous aviez été obligé de faire une fonction à rallonge comme ça :
-        <code>validerRdv(debutRdvHeures, debutRdvMinutes, duree, finJourneeHeures, finJourneeMinutes)</code>
-      </p>
-      <p>Ça fait beaucoup de variables ! Pas super comme code...</p>
-      <p>
-        Alors vous décidez de mettre à jour cette fonction en utilisant des objets à la place des nombreuses variables.
-      </p>
+    <p>
+      Vous avez récupéré du code de vos débuts en JavaScript, à l'époque vous ne connaissiez pas encore les objets.
+      Alors vous aviez été obligé de faire une fonction à rallonge comme ça :
+      <code>validerRdv(debutRdvHeures, debutRdvMinutes, duree, finJourneeHeures, finJourneeMinutes)</code>
+    </p>
+    <p>Ça fait beaucoup de variables ! Pas super comme code...</p>
+    <p>
+      Alors vous décidez de mettre à jour cette fonction en utilisant des objets à la place des nombreuses variables.
+    </p>
 
-      <p>Voici les étapes qu'il faudra faire pour améliorer votre code :</p>
+    <p>Voici les étapes qu'il faudra faire pour améliorer votre code :</p>
 
-      <ol>
-        <li>Remplacez les anciens paramètres de cette fonction par seulement 2 paramètres : <code>rdv</code> et <code>finJournee</code>. Ils permettront de connaître l'horaire de début du RDV et sa durée (dans <code>rdv</code>) et l'horaire de fin de journée (dans <code>finJournee</code>).<br>
-        Pour ce faire le paramètre <code>rdv</code> sera un objet qui va remplacer les variables <code>debutRdvHeures</code>, <code>debutRdvMinutes</code> et <code>duree</code>. Celui-ci contiendra 3 propriétés : <code>heures</code>, <code>minutes</code> et
+    <ol>
+      <li>Remplacez les anciens paramètres de cette fonction par seulement 2 paramètres : <code>rdv</code> et
+        <code>finJournee</code>. Ils permettront de connaître l'horaire de début du RDV et sa durée (dans
+        <code>rdv</code>) et l'horaire de fin de journée (dans <code>finJournee</code>).<br>
+        Pour ce faire le paramètre <code>rdv</code> sera un objet qui va remplacer les variables
+        <code>debutRdvHeures</code>, <code>debutRdvMinutes</code> et <code>duree</code>. Celui-ci contiendra 3
+        propriétés : <code>heures</code>, <code>minutes</code> et
         <code>duree</code>.
-        </li>
-        <li>Remplacez les variables <code>debutRdvHeures</code>, <code>debutRdvMinutes</code> et <code>duree</code> par l'utilisation des propriétés <code>heures</code>, <code>minutes</code> et
-          <code>duree</code> de l'objet <code>rdv</code>.</li>
-        <li>Enfin le paramètre <code>finJournee</code> permettra de remplacer <code>finJourneeHeures</code> et <code>finJourneeMinutes</code>, il contiendra 2 propriétés : <code>heures</code> et <code>minutes</code>.<br>
-        Remplacer les variables <code>finJourneeHeures</code> et <code>finJourneeMinutes</code> par l'utilisation des propriétés de <code>finJournee</code>.</li>
-      </ol>
+      </li>
+      <li>Remplacez les variables <code>debutRdvHeures</code>, <code>debutRdvMinutes</code> et <code>duree</code> par
+        l'utilisation des propriétés <code>heures</code>, <code>minutes</code> et
+        <code>duree</code> de l'objet <code>rdv</code>.</li>
+      <li>Enfin le paramètre <code>finJournee</code> permettra de remplacer <code>finJourneeHeures</code> et
+        <code>finJourneeMinutes</code>, il contiendra 2 propriétés : <code>heures</code> et <code>minutes</code>.<br>
+        Remplacer les variables <code>finJourneeHeures</code> et <code>finJourneeMinutes</code> par l'utilisation des
+        propriétés de <code>finJournee</code>.</li>
+    </ol>
 
-      <p>C'est parti pour une séance de <em>refactoring</em> !</p>
+    <p>C'est parti pour une séance de <em>refactoring</em> !</p>
 
-      <div class="attention">Pensez à ouvrir votre console développeur dans Chrome pour pouvoir voir les erreurs au début du remaniement du code car vous allez en avoir pas mal !</div>
-      <br />
+    <div class="attention">Pensez à ouvrir votre console développeur dans Chrome pour pouvoir voir les erreurs au début
+      du remaniement du code car vous allez en avoir pas mal !</div>
+    <br />
 
-      <div class="message"></div>
-    </div>
+    <div class="message"></div>
+  </div>
 
-    <footer>
-      Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
-      <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
-    </footer>
+  <footer>
+    Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+    <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+  </footer>
 
-    <script src="../commun/mes-outils.js"></script>
-    <script src="../commun/init.js"></script>
-    <script src="exercices.js"></script>
-    <script src="validateur/tests.js"></script>
-  </body>
+  <script src="../commun/mes-outils.js"></script>
+  <script src="../commun/init.js"></script>
+  <script src="exercices.js"></script>
+  <script src="validateur/tests.js"></script>
+</body>
+
 </html>

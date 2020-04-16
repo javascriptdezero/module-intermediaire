@@ -1,245 +1,240 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Raccourcis d'opérateurs, puissance et modulo - Exercices</title>
-    <link rel="stylesheet" type="text/css" href="../commun/style.css" />
-    <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
-  </head>
 
-  <body>
-    <h1>Raccourcis d'opérateurs, puissance et modulo</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Raccourcis d'opérateurs, puissance et modulo - Exercices</title>
+  <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+  <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+</head>
+
+<body>
+  <h1>Raccourcis d'opérateurs, puissance et modulo</h1>
+  <p>
+    Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+  </p>
+  <p>Vous êtes bloqué ? <a href="https://javascriptdezero.slack.com">Demandez de l'aide sur Slack</a>.</p>
+
+  <h2>Documentation</h2>
+  <ul>
+    <li>
+      <a class="mdn"
+        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_d_affectation"
+        target="_blank">Consulter la doc MDN sur les raccourcis d'opérateurs</a>
+    </li>
+    <li>
+      <a class="mdn"
+        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_arithm%C3%A9tiques"
+        target="_blank">Consulter la doc MDN sur les opérateurs arithmétiques (+, -, *, /, **, % etc.)</a>
+    </li>
+  </ul>
+
+  <div class="objectifs">
+    <h2>Objectifs</h2>
+    <ul>
+      <li>Comprendre le fonctionnement des raccourcis d'opérateurs et de puissance et modulo.</li>
+      <li>Savoir utiliser ces opérateurs correctement pour rendre le code plus compact.</li>
+      <li>Détecter et corriger des bogues dûs à une mauvaise utilisation de ces opérateurs.</li>
+    </ul>
+  </div>
+
+  <div class="attention">
+    Ne vous laissez pas décourager par le côté "mathématiques" de ces exercices. <br /><br />Comme on travaille sur
+    des opérateurs de nombres, il faut bien faire un peu de maths, mais c'est le seul moment où vous devrez en faire
+    dans la formation, alors courage !<br /><br />
+    PS : J'ai rendu les énoncés le plus simple possible pour les allergiques aux maths 😎.
+  </div>
+
+  <div class="enonce" id="enonce-0">
+    <h2>Exercice 0</h2>
+
     <p>
-      Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+      Maintenant que vous savez comment marche l'opérateur modulo, vous vous attaquez au problème de la conversion de
+      semaines qui ne tombe pas "pile".
     </p>
-    <p>Vous êtes bloqué ? <a href="https://javascriptdezero.slack.com">Demandez de l'aide sur Slack</a>.</p>
 
-    <h2>Documentation</h2>
+    <p>
+      Pour rappel, il faut écrire une fonction <code>convertirEnSemainesEtJours(nombreDeJours)</code> qui devra
+      retourner, pour l'appel de fonction <code>convertirEnSemainesEtJours(19)</code> le texte suivant :
+    </p>
+
+    <p class="code">
+      19 jour(s), c'est équivalent à 2 semaine(s) et 5 jour(s)
+    </p>
+
+    <p>
+      On ne gérera pas les pluriels car ce n'est pas l'objectif ici, on indiquera simplement <code>(s)</code> à la fin
+      des mots susceptibles de devoir prendre un 's'. N'hésitez pas à utiliser les template strings !
+    </p>
+
+    <p>
+      Petite difficulté supplémentaire : vous devrez utiliser une division pour calculer le nombre de semaines (et pas
+      une boucle). Pour continuer sur l'exemple, vous devrez faire : <code>(19 - 5) / 7 = 2 semaines</code>.
+    </p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-1">
+    <h2>Exercice 1</h2>
+
+    <p>
+      Hugo veut organiser une fête pour sa future campagne marketing. Il a choisi une salle avec des tables rondes car
+      c'est tendance.
+    </p>
+
+    <p>
+      Il veut faire faire sur mesure des nappes avec un tissu qu'il choisira. Mais comme il est serré niveau budget,
+      il souhaite choisir des tables un peu plus petites ou utiliser moins de tables pour avoir moins de tissu à
+      acheter.
+    </p>
+
+    <p>
+      Pour l'aider dans ses calculs, vous décidez de rédiger une fonction
+      <code>calculPrixNappes(nombreDeTables, diametreTable, prixTissu)</code> qui renvoie le prix total que coûtera le
+      tissu à acheter pour habiller <code>nombreDeTables</code> tables ayant toute un même diamètre de
+      <code>diametreTable</code> mètres avec un tissu coûtant <code>prixTissu</code> € le mètre carré.
+    </p>
+
+    <p>Ci-dessous, vous trouverez un exemple de calcul et de solution, mais avant, quelques simplifications :</p>
+
     <ul>
       <li>
-        <a
-        class="mdn"
-        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_d_affectation"
-        target="_blank"
-        >Consulter la doc MDN sur les raccourcis d'opérateurs</a
-      >
-      </li>
-      <li>
-        <a
-        class="mdn"
-        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateurs_arithm%C3%A9tiques"
-        target="_blank"
-        >Consulter la doc MDN sur les opérateurs arithmétiques (+, -, *, /, **, % etc.)</a
-      >
+        On considère qu'il faut un carré de tissu de largeur de <code>diametreTable</code> pour faire une nappe. La
+        surface du tissu pour une table est donc calculée avec la formule
+        <code>surface = diametreTable<sup>2</sup></code>. La valeur <code>diametreTable<sup>2</sup></code> est
+        simplement <code>diametreTable</code> à la puissance
+        2.
       </li>
     </ul>
 
-    <div class="objectifs">
-      <h2>Objectifs</h2>
-      <ul>
-        <li>Comprendre le fonctionnement des raccourcis d'opérateurs et de puissance et modulo.</li>
-        <li>Savoir utiliser ces opérateurs correctement pour rendre le code plus compact.</li>
-        <li>Détecter et corriger des bogues dûs à une mauvaise utilisation de ces opérateurs.</li>
-      </ul>
-    </div>
+    <p class="attention">
+      Si vous êtes à l'aise avec les maths, ne regardez pas l'exemple ci-dessous et essayez de le faire seul.
+    </p>
 
-    <div class="attention">
-      Ne vous laissez pas décourager par le côté "mathématiques" de ces exercices. <br /><br />Comme on travaille sur
-      des opérateurs de nombres, il faut bien faire un peu de maths, mais c'est le seul moment où vous devrez en faire
-      dans la formation, alors courage !<br /><br />
-      PS : J'ai rendu les énoncés le plus simple possible pour les allergiques aux maths 😎.
-    </div>
+    <p>
+      Pour <code>nombreDeTables = 5</code>, <code>diametreTable = 2</code> et <code>prixTissu = 3</code>, voici les
+      étapes à effectuer :
+    </p>
 
-    <div class="enonce" id="enonce-0">
-      <h2>Exercice 0</h2>
+    <ul>
+      <li>
+        Surface de tissu pour une table : <code>surface = diametreTable<sup>2</sup></code>, <code>diametreTable</code>
+        vaut <code>2</code> donc ça fait <code>2<sup>2</sup></code>, c'est-à-dire <code>4</code> mètres carrés.
+      </li>
+      <li>
+        On multiplie le nombre de tables par cette surface : <code>surfaceTotale = surface * nombreDeTables</code>.
+        <code>surface</code> vaut <code>4</code> et <code>nombreDeTables</code> vaut <code>5</code> ce qui donne
+        <code>4 * 5 = 20</code> mètres carrés.
+      </li>
+      <li>
+        Il faut acheter <code>20</code> mètres carrés de tissu à <code>3</code> € le mètre carré. Ce qui revient à un
+        prix total de <code>prix = 20 * 3 = 60</code> €.
+      </li>
+      <li>La fonction devra donc retourner la valeur <code>60</code>.</li>
+    </ul>
 
-      <p>
-        Maintenant que vous savez comment marche l'opérateur modulo, vous vous attaquez au problème de la conversion de
-        semaines qui ne tombe pas "pile".
-      </p>
+    <div class="message"></div>
+  </div>
 
-      <p>
-        Pour rappel, il faut écrire une fonction <code>convertirEnSemainesEtJours(nombreDeJours)</code> qui devra
-        retourner, pour l'appel de fonction <code>convertirEnSemainesEtJours(19)</code> le texte suivant :
-      </p>
+  <div class="enonce" id="enonce-2">
+    <h2>Exercice 2</h2>
 
-      <p class="code">
-        19 jour(s), c'est équivalent à 2 semaine(s) et 5 jour(s)
-      </p>
+    <p>
+      Hugo connaît le vendeur de tissu et celui-ci lui propose un tarif dégressif : plus il en achète, moins ça coûte
+      cher ! Il vous demande d'ajuster votre fonction pour prendre en compte ce tarif dégressif.
+    </p>
 
-      <p>
-        On ne gérera pas les pluriels car ce n'est pas l'objectif ici, on indiquera simplement <code>(s)</code> à la fin
-        des mots susceptibles de devoir prendre un 's'. N'hésitez pas à utiliser les template strings !
-      </p>
+    <p>
+      Créez une nouvelle fonction <code>calculPrixNappesDegressif(nombreDeTables, diametreTable, prixTissu)</code> qui
+      prend en compte la nouvelle tarification expliquée ci-dessous. N'hésitez pas à copier-coller le contenu de la
+      fonction précédente pour ne pas repartir de zéro.
+    </p>
 
-      <p>
-        Petite difficulté supplémentaire : vous devrez utiliser une division pour calculer le nombre de semaines (et pas
-        une boucle). Pour continuer sur l'exemple, vous devrez faire : <code>(19 - 5) / 7 = 2 semaines</code>.
-      </p>
+    <ul>
+      <li>À partir de 20 m<sup>2</sup> achetés, on applique une réduction de 10%.</li>
+      <li>À partir de 30 m<sup>2</sup> achetés, on applique une réduction de 20%.</li>
+      <li>À partir de 50 m<sup>2</sup> achetés, on applique une réduction de 30%.</li>
+      <li>À partir de 100 m<sup>2</sup> achetés, on applique une réduction de 50%.</li>
+    </ul>
 
-      <div class="message"></div>
-    </div>
+    <p>
+      Par exemple, supposons qu'on achète <code>30</code> m<sup>2</sup> de tissu qui coûte <code>5</code> € le mètre
+      carré, ça fait <code>30 * 5 = 150</code> €. On applique la réduction de 20%, ce qui fait
+      <code>150 * (1 - 20 / 100) = 120</code> €.
+    </p>
 
-    <div class="enonce" id="enonce-1">
-      <h2>Exercice 1</h2>
+    <p>Votre nouvelle fonction devra donc retourner la valeur <code>120</code>.</p>
 
-      <p>
-        Hugo veut organiser une fête pour sa future campagne marketing. Il a choisi une salle avec des tables rondes car
-        c'est tendance.
-      </p>
+    <div class="message"></div>
+  </div>
 
-      <p>
-        Il veut faire faire sur mesure des nappes avec un tissu qu'il choisira. Mais comme il est serré niveau budget,
-        il souhaite choisir des tables un peu plus petites ou utiliser moins de tables pour avoir moins de tissu à
-        acheter.
-      </p>
+  <div class="enonce devinette" id="enonce-3">
+    <h2>Exercice 3 (devinette)</h2>
 
-      <p>
-        Pour l'aider dans ses calculs, vous décidez de rédiger une fonction
-        <code>calculPrixNappes(nombreDeTables, diametreTable, prixTissu)</code> qui renvoie le prix total que coûtera le
-        tissu à acheter pour habiller <code>nombreDeTables</code> tables ayant toute un même diamètre de
-        <code>diametreTable</code> mètres avec un tissu coûtant <code>prixTissu</code> € le mètre carré.
-      </p>
+    <p>
+      Vous savez que c'est une bonne pratique de lire du code d'autrui, alors vous surfez sur des dépôts GitHub en
+      JavaScript et vous tombez sur ces lignes de code :
+    </p>
 
-      <p>Ci-dessous, vous trouverez un exemple de calcul et de solution, mais avant, quelques simplifications :</p>
+    <p class="code">
+      let nombre = 42;<br />
+      nombre = nombre++ + nombre;
+    </p>
 
-      <ul>
-        <li>
-          On considère qu'il faut un carré de tissu de largeur de <code>diametreTable</code> pour faire une nappe. La
-          surface du tissu pour une table est donc calculée avec la formule
-          <code>surface = diametreTable<sup>2</sup></code
-          >. La valeur <code>diametreTable<sup>2</sup></code> est simplement <code>diametreTable</code> à la puissance
-          2.
-        </li>
-      </ul>
+    <p>Sans exécuter ce code, à votre avis, quelle est la nouvelle valeur de <code>nombre</code> ?</p>
 
-      <p class="attention">
-        Si vous êtes à l'aise avec les maths, ne regardez pas l'exemple ci-dessous et essayez de le faire seul.
-      </p>
+    <p>Depuis la console développeur de Google Chrome, copiez-collez ce code pour avoir la réponse !</p>
 
-      <p>
-        Pour <code>nombreDeTables = 5</code>, <code>diametreTable = 2</code> et <code>prixTissu = 3</code>, voici les
-        étapes à effectuer :
-      </p>
+    <p>
+      Testez votre compréhension des subtilités des opérateurs d'incrémentation et de décrementation avec ces
+      nouvelles lignes, devinez les valeurs de <code>dix</code>, <code>vingt</code> et <code>trente</code> :
+    </p>
 
-      <ul>
-        <li>
-          Surface de tissu pour une table : <code>surface = diametreTable<sup>2</sup></code
-          >, <code>diametreTable</code> vaut <code>2</code> donc ça fait <code>2<sup>2</sup></code
-          >, c'est-à-dire <code>4</code> mètres carrés.
-        </li>
-        <li>
-          On multiplie le nombre de tables par cette surface : <code>surfaceTotale = surface * nombreDeTables</code>.
-          <code>surface</code> vaut <code>4</code> et <code>nombreDeTables</code> vaut <code>5</code> ce qui donne
-          <code>4 * 5 = 20</code> mètres carrés.
-        </li>
-        <li>
-          Il faut acheter <code>20</code> mètres carrés de tissu à <code>3</code> € le mètre carré. Ce qui revient à un
-          prix total de <code>prix = 20 * 3 = 60</code> €.
-        </li>
-        <li>La fonction devra donc retourner la valeur <code>60</code>.</li>
-      </ul>
+    <p class="code">
+      let dix = 10;<br />
+      dix = ++dix + dix; <br /><br />
+      let vingt = 20;<br />
+      vingt = vingt-- + vingt; <br /><br />
+      let trente = 30;<br />
+      trente = --trente + trente;
+    </p>
 
-      <div class="message"></div>
-    </div>
+    <p>Vérifiez à chaque fois que vous aviez vu juste grâce à la console développeur de Google Chrome.</p>
+  </div>
 
-    <div class="enonce" id="enonce-2">
-      <h2>Exercice 2</h2>
+  <div class="enonce bogue" id="enonce-4">
+    <h2>Chassez le bogue ! 0</h2>
+    <img alt="insecte" src="../../images/insecte-ricane.png" />
 
-      <p>
-        Hugo connaît le vendeur de tissu et celui-ci lui propose un tarif dégressif : plus il en achète, moins ça coûte
-        cher ! Il vous demande d'ajuster votre fonction pour prendre en compte ce tarif dégressif.
-      </p>
+    <p>
+      Tom s'entraîne comme vous sur les raccourcis d'opérateurs. Il a créé une fonction
+      <code>repeter(mot, nombreDeRepetitions)</code> qui renvoie un mot répété plusieurs fois de suite.
+    </p>
 
-      <p>
-        Créez une nouvelle fonction <code>calculPrixNappesDegressif(nombreDeTables, diametreTable, prixTissu)</code> qui
-        prend en compte la nouvelle tarification expliquée ci-dessous. N'hésitez pas à copier-coller le contenu de la
-        fonction précédente pour ne pas repartir de zéro.
-      </p>
+    <p>Par exemple l'appel de fonction <code>repeter("cou", 2)</code> renvoie <code>coucou</code>.</p>
 
-      <ul>
-        <li>À partir de 20 m<sup>2</sup> achetés, on applique une réduction de 10%.</li>
-        <li>À partir de 30 m<sup>2</sup> achetés, on applique une réduction de 20%.</li>
-        <li>À partir de 50 m<sup>2</sup> achetés, on applique une réduction de 30%.</li>
-        <li>À partir de 100 m<sup>2</sup> achetés, on applique une réduction de 50%.</li>
-      </ul>
+    <p>
+      Il utilise une boucle et des opérateurs d'incrémentation et des raccourcis d'opérateurs mais son code est bogué
+      ! Comme au bon vieux temps, il vient vous demander de l'aide.
+    </p>
 
-      <p>
-        Par exemple, supposons qu'on achète <code>30</code> m<sup>2</sup> de tissu qui coûte <code>5</code> € le mètre
-        carré, ça fait <code>30 * 5 = 150</code> €. On applique la réduction de 20%, ce qui fait
-        <code>150 * (1 - 20 / 100) = 120</code> €.
-      </p>
+    <p>Aidez-le à corriger tout ça !</p>
 
-      <p>Votre nouvelle fonction devra donc retourner la valeur <code>120</code>.</p>
+    <div class="message"></div>
+  </div>
 
-      <div class="message"></div>
-    </div>
+  <footer>
+    Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+    <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+  </footer>
 
-    <div class="enonce devinette" id="enonce-3">
-      <h2>Exercice 3 (devinette)</h2>
+  <script src="../commun/mes-outils.js"></script>
+  <script src="../commun/init.js"></script>
+  <script src="exercices.js"></script>
+  <script src="validateur/tests.js"></script>
+</body>
 
-      <p>
-        Vous savez que c'est une bonne pratique de lire du code d'autrui, alors vous surfez sur des dépôts GitHub en
-        JavaScript et vous tombez sur ces lignes de code :
-      </p>
-
-      <p class="code">
-        let nombre = 42;<br />
-        nombre = nombre++ + nombre;
-      </p>
-
-      <p>Sans exécuter ce code, à votre avis, quelle est la nouvelle valeur de <code>nombre</code> ?</p>
-
-      <p>Depuis la console développeur de Google Chrome, copiez-collez ce code pour avoir la réponse !</p>
-
-      <p>
-        Testez votre compréhension des subtilités des opérateurs d'incrémentation et de décrementation avec ces
-        nouvelles lignes, devinez les valeurs de <code>dix</code>, <code>vingt</code> et <code>trente</code> :
-      </p>
-
-      <p class="code">
-        let dix = 10;<br />
-        dix = ++dix + dix; <br /><br />
-        let vingt = 20;<br />
-        vingt = vingt-- + vingt; <br /><br />
-        let trente = 30;<br />
-        trente = --trente + trente;
-      </p>
-
-      <p>Vérifiez à chaque fois que vous aviez vu juste grâce à la console développeur de Google Chrome.</p>
-    </div>
-
-    <div class="enonce bogue" id="enonce-4">
-      <h2>Chassez le bogue ! 0</h2>
-      <img alt="insecte" src="../../images/insecte-ricane.png" />
-
-      <p>
-        Tom s'entraîne comme vous sur les raccourcis d'opérateurs. Il a créé une fonction
-        <code>repeter(mot, nombreDeRepetitions)</code> qui renvoie un mot répété plusieurs fois de suite.
-      </p>
-
-      <p>Par exemple l'appel de fonction <code>repeter("cou", 2)</code> renvoie <code>coucou</code>.</p>
-
-      <p>
-        Il utilise une boucle et des opérateurs d'incrémentation et des raccourcis d'opérateurs mais son code est bogué
-        ! Comme au bon vieux temps, il vient vous demander de l'aide.
-      </p>
-
-      <p>Aidez-le à corriger tout ça !</p>
-
-      <div class="message"></div>
-    </div>
-
-    <footer>
-      Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
-      <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
-    </footer>
-
-    <script src="../commun/mes-outils.js"></script>
-    <script src="../commun/init.js"></script>
-    <script src="exercices.js"></script>
-    <script src="validateur/tests.js"></script>
-  </body>
 </html>
