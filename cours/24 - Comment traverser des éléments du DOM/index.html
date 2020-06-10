@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Comment traverser des éléments du DOM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Comment traverser des éléments du DOM</h1>
+
+  <ul>
+    <li>Anciennes propriétés (bas niveau, arbre de nœuds) :
+      <ol id="liste-anciennes-proprietes">
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes">Node.childNodes</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild">Node.firstChild</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/lastChild">Node.lastChild</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/previousSibling">Node.previousSibling</a>
+        </li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nextSibling">Node.nextSibling</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">Node.parentNode</a></li>
+      </ol>
+    </li>
+    <li>Nouvelles propriétés (haut niveau, arbre d'éléments HTML) :
+      <ol id="liste-nouvelles-proprietes">
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children">Element.children</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/firstElementChild">Element.firstElementChild</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/lastElementChild">Element.lastElementChild</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling">Element.previousElementSibling</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling">Element.nextElementSibling</a></li>
+      </ol>
+    </li>
+  </ul>
+
+  <script src="projet.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+body {
+  margin: 1em;
+  line-height: 1.5;
+}
+
+a:visited {
+  color: #0000EE;
+}
+
+.selection {
+  background-color: rgba(24, 140, 228, 0.1);
+}
+
+.entourer {
+  outline: 6px solid salmon;
+}
