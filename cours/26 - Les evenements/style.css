@@ -1,0 +1,45 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bleu: #4bcfff;
+  --bleu-clair: #9ae2fc;
+  --bleu-fonce: hsl(196, 54%, 39%);
+}
+
+body {
+  margin: 1em;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+a:visited {
+  color: #0000EE;
+}
+
+.bouton {
+  border: none;
+  box-shadow: 0 6px 0 0 var(--bleu-fonce);
+  border-radius: 16px;
+  background-color: var(--bleu);
+  font-size: 2rem;
+  padding: .5em 1em;
+  cursor: pointer;
+  outline: none;
+}
+
+.bouton:hover,
+.bouton:focus {
+  box-shadow: 0 10px 0 0 var(--bleu-fonce);
+  transform: translateY(-4px);
+  transition-property: box-shadow, transform, background-color;
+  transition-duration: 200ms;
+  background-color: var(--bleu-clair);
+}
+
+.bouton:active {
+  box-shadow: none;
+  transform: translateY(4px);
+  transition: none;
+}
