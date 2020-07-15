@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Compteur de clics</title>
+  <!-- On ajoute la fonte Roboto depuis le service Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Notification du haut -->
+  <div class="notification" id="notification">
+    <p id="notification-texte"></p>
+  </div>
+
+  <!-- Contrôle de la limite haute du compteur -->
+  <h2 class="titre">Limite haute</h2>
+  <input type="number" name="limite-haute" id="limite-haute" class="limite" value="3">
+  
+  <!-- Compteur principal avec les contrôles d'incrémentation et de décrémentation -->
+  <div class="conteneur-compteur">
+    <div>
+      <button class="bouton-inc-dec" id="bouton-moins">-</button>
+      <input type="number" name="valeur-dec" id ="valeur-dec" class="valeur-inc-dec" value="1" min="0">
+    </div>
+    <p class="compteur" id="compteur">0</p>
+    <div>
+      <button class="bouton-inc-dec" id="bouton-plus">+</button>
+      <input type="number" name="valeur-inc" id ="valeur-inc" class="valeur-inc-dec" value="1" min="0">
+    </div>
+  </div>
+  
+  <!-- Contrôle de la limite basse du compteur -->
+  <h2 class="titre">Limite basse</h2>
+  <input type="number" name="limite-basse" id="limite-basse" class="limite" value="-3">
+
+  <!-- Bouton de remise à zéro du compteur -->
+  <button class="bouton-reset" id="bouton-reset">Reset</button>
+
+  <!-- Zone de clic pour raccourcis via la souris -->
+  <h2 class="titre">Zone de clic</h2>
+  <div class="zone-de-clic" id="zone-de-clic">Clic gauche : incrémentation<br>Clic droit : décrémentation</div>
+
+  <script src="projet.js"></script>
+</body>
+
+</html>
