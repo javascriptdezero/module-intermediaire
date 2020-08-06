@@ -162,7 +162,7 @@ button:active {
 
 .zone-de-clic {
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   min-height: 240px;
   background-color: var(--couleur-fond-semi-transparent);
   border-radius: 16px;
