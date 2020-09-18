@@ -1,5 +1,22 @@
 /* Lire la valeur d'un élément input */
 
-// Attention : il n'y a pas de lien continu entre la variable et la valeur de l'input !
-// let v = input.value; => v ne changera pas quand on modifiera la valeur de l'input !
-// Il faudra relire la valeur à chaque fois
+// D'abord un petit tour dans la doc...
+const boutonMoins = document.querySelector('#bouton-moins');
+const compteur = document.querySelector('#compteur');
+const inputValeurDec = document.querySelector('#valeur-dec');
+
+/* Lire la valeur d'un élément HTML input */
+boutonMoins.addEventListener('click', function() {
+  // Affecter au compteur la valeur de l'input valeur-dec
+  compteur.textContent = "?";
+});
+
+/* Une erreur très fréquente */
+// const valeurDec = inputValeurDec.value;
+
+// boutonMoins.addEventListener('click', function() {
+//   // Affecter au compteur la valeur de l'input valeur-dec
+//   compteur.textContent = valeurDec;
+// });
+
+/* Prochain exercice */
