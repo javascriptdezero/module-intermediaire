@@ -9,47 +9,46 @@ const inputValeurDec = document.querySelector('#valeur-dec');
 const inputValeurInc = document.querySelector('#valeur-inc');
 const inputLimiteHaute = document.querySelector('#limite-haute');
 const inputLimiteBasse = document.querySelector('#limite-basse');
+const notificationTexte = document.querySelector('#notification-texte');
 const notification = document.querySelector('#notification');
-const texteNotification = document.querySelector('#notification-texte');
 
 let compteurDeClics = 0;
 
-// Fonction de modification de la valeur du compteur
+function afficherNotification(message) {
+  // Modifier le texte de la notification
+  notificationTexte.textContent = message;
+
+  // Afficher la notification pendant 3 secondes
+  notification.classList.add('afficher');
+  window.setTimeout(function() {
+    notification.classList.remove('afficher');
+  }, 3000);
+
+  // Faire vibrer le compteur
+  compteur.classList.add('limite-atteinte');
+}
+
 function modifierCompteur(nouvelleValeur) {
   compteurDeClics = nouvelleValeur;
 
-  const limiteHaute = +inputLimiteHaute.value;
+  const limiteHaute = Number(inputLimiteHaute.value);
+
   if (compteurDeClics >= limiteHaute) {
-    // Texte de la notification
-    texteNotification.textContent = `Limite haute (${limiteHaute}) atteinte`;
-
-    // Contrainte du compteur à la limite haute
     compteurDeClics = limiteHaute;
+    afficherNotification(`Limite haute (${limiteHaute}) atteinte`);
   }
 
-  const limiteBasse = +inputLimiteBasse.value;
+  const limiteBasse = Number(inputLimiteBasse.value);
+
   if (compteurDeClics <= limiteBasse) {
-    // Texte de la notification
-    texteNotification.textContent = `Limite basse (${limiteBasse}) atteinte`;
-    
-    // Contrainte du compteur à la limite basse
     compteurDeClics = limiteBasse;
+    afficherNotification(`Limite basse (${limiteBasse}) atteinte`);
   }
 
-  if (compteurDeClics >= limiteHaute || compteurDeClics <= limiteBasse) {
-    // Affichage temporaire de la notification
-    notification.classList.add('afficher');
-    setTimeout(function() {
-      notification.classList.remove('afficher');
-    }, 3000);
-  
-    // Compteur qui vibre en rouge
-    compteur.classList.add('limite-atteinte');
-  } else {
+  if (compteurDeClics < limiteHaute && compteurDeClics > limiteBasse) {
     compteur.classList.remove('limite-atteinte');
   }
 
-  // Mise à jour de la valeur du compteur
   compteur.textContent = compteurDeClics;
 }
 
@@ -70,7 +69,7 @@ boutonPlus.addEventListener('click', incrementerCompteur);
 boutonMoins.addEventListener('click', decrementerCompteur);
 
 /* Bouton reset (remise à zéro) */
-boutonReset.addEventListener('click', function() {
+boutonReset.addEventListener('click', function () {
   modifierCompteur(0);
 });
 
@@ -78,10 +77,10 @@ boutonReset.addEventListener('click', function() {
 zoneDeClic.addEventListener('click', incrementerCompteur);
 
 /* Décrémentation depuis la zone de clic */
-zoneDeClic.addEventListener('contextmenu', function(evenement) {
+zoneDeClic.addEventListener('contextmenu', function (evenement) {
   // Désactivation du menu contextuel
   evenement.preventDefault();
-  
+
   decrementerCompteur();
 });
 
