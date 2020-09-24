@@ -42,13 +42,13 @@ let compteurDeClics = 0;
 
 // Fonction d'incrémentation
 function incrementerCompteur() {
-  compteurDeClics += +inputValeurInc.value;
+  compteurDeClics += Number(inputValeurInc.value);
   compteur.textContent = compteurDeClics;
 }
 
 // Fonction de décrémentation
 function decrementerCompteur() {
-  compteurDeClics -= +inputValeurDec.value;
+  compteurDeClics -= inputValeurDec.value;
   compteur.textContent = compteurDeClics;
 }
 
