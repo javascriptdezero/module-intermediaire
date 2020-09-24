@@ -1,6 +1,6 @@
 /* 
- * Ci-dessous vous trouverez une solution possible de l'exercice précédent
- * sur le bouton incrémentation.
+ * Ci-dessous vous trouverez une solution possible de l'exercice 
+ * précédent sur le bouton incrémentation.
  * 
  * Complétez ce code pour ajouter les fonctionnalités suivantes :
  * 
@@ -9,10 +9,11 @@
  * 2. Bouton RESET : lorsqu'on clique sur le bouton 'Reset' le
  * compteur doit prendre la valeur zéro.
  * 
- * NOTE : Si vous souhaitez utiliser le code que vous avez produit pour
- * répondre à l'exercice précédent, vous pouvez bien sûr le faire !
- * Remplacez simplement le code ci-dessous par le vôtre puis complétez-le
- * pour ajouter les fonctionnalités demandées.
+ * NOTE : Si vous souhaitez utiliser le code que vous avez produit 
+ * pour répondre à l'exercice précédent, vous pouvez bien sûr le 
+ * faire !
+ * Remplacez simplement le code ci-dessous par le vôtre puis 
+ * complétez-le pour ajouter les fonctionnalités demandées.
  * 
  * Prenez votre temps et bon courage 😁
  */

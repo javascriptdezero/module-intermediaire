@@ -1,5 +1,6 @@
 /* 
- * Ci-dessous vous trouverez une solution possible des exercices précédents.
+ * Ci-dessous vous trouverez une solution possible des exercices 
+ * précédents.
  * 
  * Complétez ce code pour ajouter les fonctionnalités suivantes :
  * 
@@ -9,18 +10,20 @@
  * 2. Bouton de décrémentation : lorsqu'on clique sur le bouton
  * '-' le compteur doit être décrémenté de la quantité d'unités 
  * indiquée dans l'élément input possédant l'ID valeur-dec.
- * 3. Zone de clic (incrémentation) : lorsqu'on clique avec le bouton
- * gauche de la souris sur la zone de clic, le compteur doit être
- * incrémenté de la quantité d'unités indiquée dans l'élément input
- * possédant l'ID valeur-inc.
- * 4. Zone de clic (décrémentation) : lorsqu'on clique avec le bouton
- * droit de la souris sur la zone de clic, le compteur doit être
- * décrémenté de la quantité d'unités indiquée dans l'élément input
- * possédant l'ID valeur-dec.
+ * 3. Zone de clic (incrémentation) : lorsqu'on clique avec le 
+ * bouton gauche de la souris sur la zone de clic, le compteur doit 
+ * être incrémenté de la quantité d'unités indiquée dans l'élément 
+ * input possédant l'ID valeur-inc.
+ * 4. Zone de clic (décrémentation) : lorsqu'on clique avec le 
+ * bouton droit de la souris sur la zone de clic, le compteur doit 
+ * être décrémenté de la quantité d'unités indiquée dans l'élément 
+ * input possédant l'ID valeur-dec.
  * 
- * NOTE : Si vous souhaitez utiliser le code que vous avez produit pour
- * répondre aux exercices précédents, vous pouvez bien sûr le faire !
- * Remplacez simplement le code ci-dessous par le vôtre puis complétez-le
+ * NOTE : Si vous souhaitez utiliser le code que vous avez produit 
+ * pour répondre aux exercices précédents, vous pouvez bien sûr le 
+ * faire !
+ * Remplacez simplement le code ci-dessous par le vôtre puis 
+ * complétez-le
  * pour ajouter les fonctionnalités demandées.
  * 
  * Prenez votre temps et bon courage 😁

@@ -1,20 +1,21 @@
 /* 
- * Ci-dessous vous trouverez une solution possible des exercices précédents
- * sur le bouton incrémentation, décrémentation et reset.
+ * Ci-dessous vous trouverez une solution possible des exercices 
+ * précédents sur le bouton incrémentation, décrémentation et reset.
  * 
  * Complétez ce code pour ajouter les fonctionnalités suivantes :
  * 
- * 1. Zone de clic (incrémentation) : lorsqu'on clique avec le bouton
- * gauche de la souris sur la zone de clic, le compteur doit être
- * incrémenté d'1 unité.
- * 2. Zone de clic (décrémentation) : lorsqu'on clique avec le bouton
- * droit de la souris sur la zone de clic, le compteur doit être
- * décrémenté d'1 unité.
+ * 1. Zone de clic (incrémentation) : lorsqu'on clique avec le 
+ * bouton gauche de la souris sur la zone de clic, le compteur doit 
+ * être incrémenté d'1 unité.
+ * 2. Zone de clic (décrémentation) : lorsqu'on clique avec le 
+ * bouton droit de la souris sur la zone de clic, le compteur doit 
+ * être décrémenté d'1 unité.
  * 
- * NOTE : Si vous souhaitez utiliser le code que vous avez produit pour
- * répondre aux exercices précédents, vous pouvez bien sûr le faire !
- * Remplacez simplement le code ci-dessous par le vôtre puis complétez-le
- * pour ajouter les fonctionnalités demandées.
+ * NOTE : Si vous souhaitez utiliser le code que vous avez produit 
+ * pour répondre aux exercices précédents, vous pouvez bien sûr le 
+ * faire !
+ * Remplacez simplement le code ci-dessous par le vôtre puis 
+ * complétez-le pour ajouter les fonctionnalités demandées.
  * 
  * Prenez votre temps et bon courage 😁
  */
