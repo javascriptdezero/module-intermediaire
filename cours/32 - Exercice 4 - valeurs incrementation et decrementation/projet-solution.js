@@ -13,14 +13,14 @@ let compteurDeClics = 0;
 /* Fonctionnalité d'incrémentation */
 boutonPlus.addEventListener('click', function() {
   // Ajoute le bon nombre d'unités à compteurDeClics
-  compteurDeClics += +inputValeurInc.value;
+  compteurDeClics += Number(inputValeurInc.value);
   compteur.textContent = compteurDeClics;
 });
 
 /* Fonctionnalité de décrémentation */
 boutonMoins.addEventListener('click', function() {
   // Soustrait le bon nombre d'unités à compteurDeClics
-  compteurDeClics -= +inputValeurDec.value;
+  compteurDeClics -= inputValeurDec.value;
   compteur.textContent = compteurDeClics;
 });
 
@@ -32,7 +32,7 @@ boutonReset.addEventListener('click', function() {
 
 /* Incrémentation depuis la zone de clic */
 zoneDeClic.addEventListener('click', function() {
-  compteurDeClics += +inputValeurInc.value;
+  compteurDeClics += Number(inputValeurInc.value);
   compteur.textContent = compteurDeClics;
 });
 
@@ -41,7 +41,7 @@ zoneDeClic.addEventListener('contextmenu', function(evenement) {
   // Désactivation du menu contextuel
   evenement.preventDefault();
   
-  compteurDeClics -= +inputValeurDec.value;
+  compteurDeClics -= inputValeurDec.value;
   compteur.textContent = compteurDeClics;
 });
 
