@@ -16,13 +16,13 @@
  *    1.4 Appliquer la classe "limite-atteinte" au compteur pour le 
  * faire vibrer et qu'il devienne rouge
  *
- * 2. Une limite peut être atteinte lorsqu'on modifie la valeur du 
- * compteur via les boutons + et - mais également via la zone de 
- * clic et le bouton reset !
- *
- * 3. Lorsqu'on modifie la valeur du compteur et qu'aucune limite 
+ * 2. Lorsqu'on modifie la valeur du compteur et qu'aucune limite 
  * n'est atteinte il faut retirer la classe limite-atteinte du 
  * compteur pour lui redonner sa couleur blanche normale
+ * 
+ * 3. Une limite peut être atteinte lorsqu'on modifie la valeur du 
+ * compteur via les boutons + et - mais également via la zone de 
+ * clic et le bouton reset !
  * 
  * NOTE : Si vous souhaitez utiliser le code que vous avez produit 
  * pour répondre aux exercices précédents, vous pouvez bien sûr le 
