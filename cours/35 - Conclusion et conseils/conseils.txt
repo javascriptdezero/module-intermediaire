@@ -1,0 +1,14 @@
+Voici quelques conseils pour continuer à progresser à l'aide de ce projet et pour préparer les prochaines leçons !
+
+- Refaites les exercices que vous n'avez pas réussi au calme, chez vous pour bien les maîtriser et les comprendre
+- Créez de nouvelles fonctionnalités sur le compteur de clics, voici quelques idées :
+  - Utilisez les touches flèches haut / bas ou la molette de la souris pour incrémenter / décrémenter le compteur
+  - Utilisez la touche "i" et "d" pour augmenter les valeurs des inputs d'incrémentation et de décrémentation
+  - Utilisez la barre d'espace pour faire un reset du compteur
+  - Ajouter des vérifications dynamiques lorsque vous modifiez une limite haute ou basse pour vérifier que la limite basse est toujours inférieure à la limite haute. S'il y a un problème, déclenchez une notification !
+
+Lisez la documentation du MDN pour voir toutes les possibilités offertes pour piloter le compteur via le clavier ou la souris ! Soyez créatif !
+
+Enfin, essayez de refaire l'intégralité du compteur à partir de zéro, avec votre propre design (si vous le souhaitez) mais surtout avec votre propre code HTML, CSS et JavaScript ! Vous allez voir que vous allez apprendre beaucoup de choses !
+
+C'est comme ça qu'on assimile correctement les connaissances acquises, en refaisant en toute autonomie ce qu'on a appris dans ce module. C'est vraiment très important de le faire.
