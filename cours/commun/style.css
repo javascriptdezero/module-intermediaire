@@ -72,6 +72,11 @@ details {
   margin-left: 2rem;
 }
 
+.enonce details {
+  margin-left: 0;
+  margin-bottom: var(--dim-double);
+}
+
 summary {
   text-decoration: underline;
   cursor: pointer;

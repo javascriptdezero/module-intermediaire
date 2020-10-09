@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Les tableaux</title>
+  <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+  <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+</head>
+
+<body>
+  <h1>Les tableaux</h1>
+  <p>
+    Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+  </p>
+  <p>
+    Pensez à bien lire l'intégralité de <a
+      href="https://github.com/javascriptdezero/module-debutant/tree/master/cours#en-savoir-plus-sur-les-exercices"
+      target="_blank">la documentation pour faire les exercices</a> avant de commencer.
+  </p>
+  <p>
+    Dernier point, lorsque vous trouvez la solution d'un exercice par vous-même, allez tout de même voir la solution que
+    je propose :
+    vous apprendrez peut-être une autre façon de faire plus intéressante !
+  </p>
+
+  <h2>En cas de problèmes techniques</h2>
+  <p>Il se peut que vous rencontriez certains problèmes techniques pour valider les exercices.<br>
+    Lisez leur solution au moins une fois avant de commencer les exercices.</p>
+  <ul>
+    <li>
+      <p>Si certains exercices précédemment validés en vert redeviennent gris et "En attente de code à tester" : c'est
+        qu'il y
+        a une erreur de syntaxe dans votre code. Solution : ouvrez la console développeur pour trouver l'erreur.</p>
+      <details>
+        <summary>Cliquez ici pour savoir comment ouvrir la console développeur de Chrome</summary>
+        <p><strong>Sur Windows ou Linux</strong> : depuis Chrome, tapez <code>Ctrl + Shift + J</code> ou allez dans le
+          menu (les 3
+          petits points verticaux en haut à droite de la fenêtre de Chrome) puis allez dans Plus d'outils > Outils de
+          développement.</p>
+        <p><strong>Sur MacOS</strong> : depuis Chrome, tapez <code>⌘ + ⌥ + J</code> (Commande + Option + J) ou bien
+          allez dans le
+          menu Afficher > Options pour les développeurs > Console JavaScript.</p>
+        <p>Le message d'erreur apparaît en rouge et est en anglais, il faudra le traduire. L'erreur vient du fichier
+          noté sur la droite au numéro de ligne indiqué. Ouvrez ce fichier dans VSCode, rendez-vous à la ligne indiquée
+          et corrigez l'erreur.<br><br>
+          <img src="../../images/console-developpeur.jpg" alt="Onglet console de la console développeur"
+            style="width: 100%">
+        </p>
+      </details>
+    </li>
+    <li>
+      <p>Si la page web ne répond plus (les clics n'ont aucun effet) ou si l'icône dans l'onglet tourne indéfiniment :
+        c'est qu'il y a une boucle infinie dans votre code. Solution : corrigez votre code puis actualisez le site web.
+      </p>
+      <details>
+        <summary>Cliquez ici pour voir comment corriger une boucle infinie</summary>
+        <p>Si vous avez fait une boucle infinie, l'icône de votre onglet va tourner comme ça indéfiniment
+          :<br /><br /><img src="../../images/boucle-infinie.jpg" alt="page web en boucle infinie" width="400"></p>
+        <p>Voici à quoi peut ressembler une boucle infinie dans du code :</p>
+        <p class="code">
+          let poidsClient = prochainClient.mesurerPoids();<br><br>
+
+          while (poidsClient !== 0) {<br>
+          &nbsp;&nbsp;console.log(poidsClient);<br>
+          }
+        </p>
+        <p>Le problème ici, c'est que la condition de répétition de la boucle <code>poidsClient !== 0</code> est
+          toujours vraie ! En effet, on ne modifie pas la valeur de <code>poidsClient</code> à l'intérieur de la boucle,
+          par
+          conséquent celle-ci s'exécutera sans jamais s'arrêter : vous avez fait une boucle infinie !</p>
+        <p>Voici les étapes à respecter pour se sortir de ce problème :</p>
+        <ol>
+          <li>Dans le menu de Chrome (les 3 petits points verticaux en haut à droite de la fenêtre de Chrome), allez
+            dans Plus d'outils > Gestionnaire de tâches, sélectionnez l'onglet qui pose problème dans la liste puis
+            cliquez sur le bouton <code>Arrêter le processus</code> en bas à droite.
+            <br>
+            Vous pouvez également faire un clic droit sur la barre de titre de Chrome pour sélectionner plus rapidement
+            le gestionnaire de tâches.
+            <br><br>
+            <img src="../../images/clic-droit-gestionnaire-taches.jpg"
+              alt="clic droit pour accéder au gestionnaire de tâches" style="width: 100%"></li>
+          <li>Corrigez le bogue dans votre code depuis VSCode.</li>
+          <li>Actualisez à nouveau la page web qui a été précédemment arrêtée en cliquant sur la petite flèche à gauche
+            de la barre d'adresse.<br><br><img src="../../images/actualiser.jpg" alt="flèche à cliquer pour actualiser"
+              width="400"></li>
+        </ol>
+        <h3>Attention à la sauvegarde automatique dans VSCode !</h3>
+        <p>Dans les paramètres, je vous conseille d'utiliser l'option <code>onFocusChange</code> pour la sauvegarde
+          automatique.</p>
+        <img src="../../images/autosave.jpg" alt="configuration option sauvegarde automatique vscode"
+          style="width: 100%">
+        <p>En effet, si vous avez l'option <code>afterDelay</code> de sélectionnée, ça veut dire que VSCode va
+          sauvegarder votre code toutes les X secondes. Le site web va se recharger automatiquement à ce moment là et si
+          votre code actuel génère une boucle infinie, Chrome va planter !</p>
+        <p>Pour éviter ce problème, utilisez l'option <code>onFocusChange</code> qui indique à VSCode de sauvegarder
+          votre fichier seulement si vous changez de fenêtre ou d'onglet. Vous pouvez aussi sauvegarder manuellemment
+          avec <code>⌘ + S</code> sur MacOS ou <code>Ctrl + S</code> sur Windows ou Linux quand vous voulez vérifier que
+          votre code fonctionne.</p>
+      </details>
+    </li>
+    <li>
+      <p>Si vous souhaitez déboguer votre code, utilisez le débogueur de Chrome comme je l'explique <a
+          href="https://www.youtube.com/watch?v=_imeD5H-yCw&t=557" target="_blank">dans cette vidéo</a>.</p>
+    </li>
+    <li>
+      <p>Si vous êtes bloqué et qu'aucune solution mentionnée ne fonctionne, envoyez-moi un email sur <a
+          href="mailto:jeremy@javascriptdezero.com">jeremy@javascriptdezero.com</a> en précisant le numéro de la leçon
+        sur laquelle vous travaillez et le numéro de l'exercice qui pose problème.</p>
+    </li>
+  </ul>
+
+  <h2>Documentation</h2>
+  <ul>
+    <li>
+      <a class="mdn" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array"
+        target="_blank">Consulter la doc MDN sur les tableaux</a>
+    </li>
+  </ul>
+
+  <h2>Objectifs</h2>
+  <ul>
+    <li>Comprendre le fonctionnement général des tableaux</li>
+    <li>Savoir déclarer et utiliser les tableaux</li>
+    <li>Savoir utiliser les méthodes simples disponibles sur les tableaux et notamment :
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/concat" class="mdn" target="_blank">concat</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/fill" class="mdn" target="_blank">fill</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/includes" class="mdn" target="_blank">includes</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/indexOf" class="mdn" target="_blank">indexOf</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/join" class="mdn" target="_blank">join</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/lastIndexOf" class="mdn" target="_blank">lastIndexOf</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/pop" class="mdn" target="_blank">pop</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/push" class="mdn" target="_blank">push</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/reverse" class="mdn" target="_blank">reverse</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/shift" class="mdn" target="_blank">shift</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/slice" class="mdn" target="_blank">slice</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/splice" class="mdn" target="_blank">splice</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/unshift" class="mdn" target="_blank">unshift</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Structure des exercices</h2>
+  
+  <h3>Exercices d'échauffement</h3>
+  <p>Dans un premier temps, vous allez devoir utiliser les méthodes listées ci-dessus une par une, dans l'ordre, pour réaliser les exercices d'échauffement. Vous ferez quelques exercices sur <code>concat()</code>, puis quelques exercices sur <code>fill()</code>, puis <code>includes()</code> etc.</p>
+
+  <p>Même si ces exercices peuvent parfois être un peu rébarbatifs, faites-les au moins une fois. L'objectif est de vous familiariser avec chacune de ces méthodes pour retenir l'utilité principale de celles-ci.</p>
+  
+  <h3>Exercices finaux</h3>
+  <p>Une fois l'échauffement terminé, les exercices suivants vont devenir un peu plus difficiles : vous devrez utiliser plusieurs des méthodes vues précédemment pour répondre à l'énoncé.</p>
+  
+  <h3>Indices</h3>
+  <p>Pour les exercices finaux vous pourrez afficher un indice qui vous indiquera quelles méthodes utiliser pour répondre à l'énoncé. N'affichez l'indice que si vous avez passé au moins 30 min sur un exercice. Le but n'est pas d'aller le plus vite possible mais de faire un maximum d'exercices <strong>seul</strong>.</p>
+  <p>L'objectif est de vous apprendre à utiliser les nouveaux outils à votre disposition (les méthodes des tableaux) pour répondre à des exercices de plus en plus complexes.</p>
+  <p>Vous développerez votre sens logique et votre capacité à assembler des briques de base (les méthodes) entre elles pour répondre à des énoncés complexes.</p>
+
+  <h2>Fonctionnement des exercices</h2>
+
+  <p>Tous les exercices fonctionnent sur le même principe : vous devez rédiger une fonction à partir de zéro et celle-ci devra renvoyer (avec le mot-clé <code>return</code>) la solution de l'énoncé.</p>
+
+  <div class="enonce" id="enonce-0">
+    <h2>Exercice 0</h2>
+
+    <p>
+      Créez une fonction <code>concat0(tableau1, tableau2)</code> qui renvoie la concaténation des tableaux <code>tableau1</code> et <code>tableau2</code> dans cet ordre.
+    </p>
+
+    <p>Exemple : <code>concat0([1, 2, 3], [4, 5, 6])</code> renverra un tableau dont la valeur sera <code>[1, 2, 3, 4, 5, 6]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-1">
+    <h2>Exercice 1</h2>
+
+    <p>
+      Créez une fonction <code>concat1(tableau, valeur1, valeur2, valeur3)</code> qui renvoie la concaténation de <code>tableau</code> et <code>valeur1</code>, <code>valeur2</code> et <code>valeur3</code> dans cet ordre.
+    </p>
+
+    <p>Exemple : <code>concat1([1, 2, 3], 4, 5, 6)</code> renverra un tableau dont la valeur sera <code>[1, 2, 3, 4, 5, 6]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-2">
+    <h2>Exercice 2</h2>
+
+    <p>
+      Créez une fonction <code>fill0(tableau, valeur)</code> qui renvoie le <code>tableau</code> dont on aura remplacé tous les éléments par la valeur <code>valeur</code>.
+    </p>
+
+    <p>Exemple : <code>fill0([1, 2, 3], 0)</code> renverra un tableau dont la valeur sera <code>[0, 0, 0]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-3">
+    <h2>Exercice 3</h2>
+
+    <p>
+      Créez une fonction <code>fill1(tableau, valeur, index)</code> qui renvoie le <code>tableau</code> dont on aura remplacé tous les éléments par la valeur <code>valeur</code> à partir de l'index <code>index</code> et jusqu'à la fin du tableau.
+    </p>
+
+    <p>Exemple : <code>fill1([1, 2, 3], 0, 1)</code> renverra un tableau dont la valeur sera <code>[1, 0, 0]</code>.</p>
+
+    <p>Exemple : <code>fill1(['a','b','c','d','e'], 'z', 3)</code> renverra un tableau dont la valeur sera <code>['a','b','c','z','z']</code>.</p>
+    
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-4">
+    <h2>Exercice 4</h2>
+
+    <p>
+      Créez une fonction <code>fill2(tableau, valeur, debut, fin)</code> qui renvoie le <code>tableau</code> dont on aura remplacé tous les éléments par la valeur <code>valeur</code> à partir de l'index <code>debut</code> et jusqu'à l'index <code>fin</code> (inclus, attention, j'ai bien dit inclus !).
+    </p>
+
+    <p>Exemple : <code>fill2([1, 2, 3, 4, 5], 0, 1, 3)</code> renverra un tableau dont la valeur sera <code>[1, 0, 0, 0, 5]</code>.</p>
+    
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-5">
+    <h2>Exercice 5</h2>
+
+    <p>
+      Créez une fonction <code>fill3(tableau, valeur)</code> qui renvoie le <code>tableau</code> dont on aura remplacé les <code>3</code> derniers éléments par la valeur <code>valeur</code>.
+    </p>
+
+    <p>Exemple : <code>fill3([1, 2, 3, 4, 5], 42)</code> renverra un tableau dont la valeur sera <code>[1, 2, 42, 42, 42]</code>.</p>
+
+    <p>Exemple : <code>fill3(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 'z')</code> renverra un tableau dont la valeur sera <code>['a', 'b', 'c', 'd', 'z', 'z', 'z']</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>
+        Que se passe-t-il si vous utilisez une valeur négative pour l'index de début de <code>fill()</code> ?
+      </p>
+    </details>
+    
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-6">
+    <h2>Exercice 6</h2>
+
+    <p>
+      Créez une fonction <code>includes0(tableau, valeur)</code> qui renvoie <code>true</code> si <code>tableau</code> contient la valeur <code>valeur</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemple : <code>includes0([1, 2, 3, 4], 2)</code> renverra <code>true</code>.</p>
+
+    <p>Exemple : <code>includes0(['a', 'b', 'c', 'd', 'e'], 'z')</code> renverra <code>false</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-7">
+    <h2>Exercice 7</h2>
+
+    <p>
+      Créez une fonction <code>includes1(tableau, valeur, debut)</code> qui renvoie <code>true</code> si <code>tableau</code> contient la valeur <code>valeur</code> à partir de l'index <code>debut</code> (jusqu'à la fin du tableau) et <code>false</code> sinon.
+    </p>
+
+    <p>Exemple : <code>includes0([1, 2, 3, 4], 3, 1)</code> renverra <code>true</code>.</p>
+
+    <p>Exemple : <code>includes0(['a', 'b', 'c', 'd', 'e'], 'b', 2)</code> renverra <code>false</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-8">
+    <h2>Exercice 8</h2>
+
+    <p>
+      Créez une fonction <code>includes2(tableau, valeur)</code> qui renvoie <code>true</code> si <code>tableau</code> contient la valeur <code>valeur</code> dans les <code>4</code> derniers éléments du tableau et <code>false</code> sinon.
+    </p>
+
+    <p>Exemple : <code>includes0([1, 2, 3, 4, 5, 6], 5)</code> renverra <code>true</code>.</p>
+
+    <p>Exemple : <code>includes0(['a', 'b', 'c', 'd', 'e', 'f'], 'a')</code> renverra <code>false</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-9">
+    <h2>Exercice 9</h2>
+
+    <p>
+      Créez une fonction <code>indexOf0(tableau, valeur)</code> qui renvoie l'index de la valeur <code>valeur</code> dans le tableau <code>tableau</code> si elle est présente dans celui-ci et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemple : <code>indexOf0([1, 2, 3, 4, 5, 6], 5)</code> renverra <code>4</code>.</p>
+
+    <p>Exemple : <code>indexOf0(['a', 'b', 'c', 'd', 'e', 'f'], 'z')</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-10">
+    <h2>Exercice 10</h2>
+
+    <p>
+      Créez une fonction <code>indexOf1(tableau, valeur, debut)</code> qui renvoie l'index de la valeur <code>valeur</code> dans le tableau <code>tableau</code> si elle est présente dans celui-ci à partir de l'index <code>debut</code> du tableau (jusqu'à la fin du tableau) et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemple : <code>indexOf1([1, 2, 3, 4, 5, 6], 3, 2)</code> renverra <code>2</code>.</p>
+
+    <p>Exemple : <code>indexOf1(['a', 'b', 'c', 'd', 'e', 'f'], 'd', 4)</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-11">
+    <h2>Exercice 11</h2>
+
+    <p>
+      Créez une fonction <code>indexOf2(tableau, valeur)</code> qui renvoie l'index de la valeur <code>valeur</code> dans le tableau <code>tableau</code> si elle est présente dans les <code>2</code> derniers éléments de celui-ci et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemple : <code>indexOf2([1, 2, 3, 4, 5, 6], 5)</code> renverra <code>4</code>.</p>
+
+    <p>Exemple : <code>indexOf2(['a', 'b', 'c', 'd', 'e', 'f'], 'd')</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-12">
+    <h2>Exercice 12</h2>
+
+    <p>
+      Créez une fonction <code>join0(tableau)</code> qui renvoie une chaîne de caractères représentant la concaténation des éléments du tableau séparés par une virgule.
+    </p>
+
+    <p>Exemple : <code>join0(["pierre", "papier", "ciseaux"])</code> renverra <code>"pierre,papier,ciseaux"</code>.</p>
+
+    <p>Exemple : <code>join0([1,2,3,4])</code> renverra <code>"1,2,3,4"</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-13">
+    <h2>Exercice 13</h2>
+
+    <p>
+      Créez une fonction <code>join1(tableau, separateur)</code> qui renvoie une chaîne de caractères représentant la concaténation des éléments du tableau séparés par la valeur de <code>separateur</code>.
+    </p>
+
+    <p>Exemple : <code>join1(["pierre", "papier", "ciseaux"], " ou ")</code> renverra <code>"pierre ou papier ou ciseaux"</code>.</p>
+
+    <p>Exemple : <code>join1([1,2,3,4], " ")</code> renverra <code>"1 2 3 4"</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-14">
+    <h2>Exercice 14</h2>
+
+    <p>
+      Créez une fonction <code>lastIndexOf0(tableau, valeur)</code> qui renvoie l'index du dernier élément <code>valeur</code> du tableau ou <code>-1</code> si l'élément n'est pas présent.
+    </p>
+
+    <p>Exemple : <code>lastIndexOf0(['a','b','c','a','d'], 'a')</code> renverra <code>3</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf0([1,2,3,4,1,2,3,4], 2)</code> renverra <code>5</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf0([1,2,3,4,1,2,3,4], 12)</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-15">
+    <h2>Exercice 15</h2>
+
+    <p>
+      Créez une fonction <code>lastIndexOf1(tableau, valeur)</code> qui renvoie l'index du dernier élément <code>valeur</code> contenu dans les <code>4</code> premiers éléments du tableau ou <code>-1</code> si l'élément n'est pas présent.
+    </p>
+
+    <p>Exemple : <code>lastIndexOf1(['a','b','c','a','a'], 'a')</code> renverra <code>3</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf1([1,2,2,4,2,2,2], 2)</code> renverra <code>2</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf1([1,2,3,4,1,2,3,4], 12)</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-16">
+    <h2>Exercice 16</h2>
+
+    <p>
+      Créez une fonction <code>lastIndexOf2(tableau, valeur)</code> qui renvoie l'index du dernier élément <code>valeur</code> contenu dans le tableau sans prendre en compte les <code>2</code> derniers éléments du tableau ou <code>-1</code> si l'élément n'est pas présent.
+    </p>
+
+    <p>Exemple : <code>lastIndexOf1(['a','b','c','a','b'], 'a')</code> renverra <code>0</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf1([1,2,2,4,2,2,2], 2)</code> renverra <code>4</code>.</p>
+
+    <p>Exemple : <code>lastIndexOf1([1,2,3,4,1,2,3,4], 12)</code> renverra <code>-1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-17">
+    <h2>Exercice 17</h2>
+
+    <p>
+      Créez une fonction <code>pop0(tableau)</code> qui renvoie le dernier élément de <code>tableau</code>.
+    </p>
+
+    <p>Exemple : <code>pop0(['a','b','c','d','e'])</code> renverra <code>"e"</code>.</p>
+
+    <p>Exemple : <code>pop0([1,2,3,4])</code> renverra <code>4</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-18">
+    <h2>Exercice 18</h2>
+
+    <p>
+      Créez une fonction <code>pop1(tableau)</code> qui renvoie le <code>tableau</code> sans son dernier élément.
+    </p>
+
+    <p>Exemple : <code>pop1(['a','b','c','d','e'])</code> renverra <code>['a','b','c','d']</code>.</p>
+
+    <p>Exemple : <code>pop1([1,2,3,4])</code> renverra <code>[1,2,3]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-19">
+    <h2>Exercice 19</h2>
+
+    <p>
+      Créez une fonction <code>push0(tableau, valeur)</code> qui ajoute <code>valeur</code> à la fin de <code>tableau</code> et renvoie celui-ci.
+    </p>
+
+    <p>Exemple : <code>push0(['a','b','c','d','e'], 'f')</code> renverra <code>['a','b','c','d','e','f']</code>.</p>
+
+    <p>Exemple : <code>push0([1,2,3,4], 5)</code> renverra <code>[1,2,3,4,5]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-20">
+    <h2>Exercice 20</h2>
+
+    <p>
+      Créez une fonction <code>push1(tableau, valeur1, valeur2)</code> qui ajoute <code>valeur1</code> et <code>valeur2</code> à la fin de <code>tableau</code> et renvoie celui-ci.
+    </p>
+
+    <p>Exemple : <code>push1(['a','b','c','d','e'], 'f', 'g')</code> renverra <code>['a','b','c','d','e','f','g']</code>.</p>
+
+    <p>Exemple : <code>push1([1,2,3,4], 5, 6)</code> renverra <code>[1,2,3,4,5,6]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-21">
+    <h2>Exercice 21</h2>
+
+    <p>
+      Créez une fonction <code>reverse0(tableau)</code> qui renvoie <code>tableau</code> avec tous ses éléments dans l'ordre inverse.
+    </p>
+
+    <p>Exemple : <code>reverse0(['a','b','c','d','e'])</code> renverra <code>['e','d','c','b','a']</code>.</p>
+
+    <p>Exemple : <code>reverse0([1,2,3,4])</code> renverra <code>[4,3,2,1]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-22">
+    <h2>Exercice 22</h2>
+
+    <p>
+      Créez une fonction <code>shift0(tableau)</code> qui renvoie le premier élément de <code>tableau</code>.
+    </p>
+
+    <p>Exemple : <code>shift0(['a','b','c','d','e'])</code> renverra <code>"a"</code>.</p>
+
+    <p>Exemple : <code>shift0([1,2,3,4])</code> renverra <code>1</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-23">
+    <h2>Exercice 23</h2>
+
+    <p>
+      Créez une fonction <code>shift1(tableau, debut)</code> qui renvoie le <code>tableau</code> sans son premier élément.
+    </p>
+
+    <p>Exemple : <code>shift1(['a','b','c','d','e'])</code> renverra <code>['b','c','d','e']</code>.</p>
+
+    <p>Exemple : <code>shift1([1,2,3,4])</code> renverra <code>[2,3,4]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-24">
+    <h2>Exercice 24</h2>
+
+    <p>
+      Créez une fonction <code>slice0(tableau, debut, fin)</code> qui renvoie un tableau contenant tous les éléments du <code>tableau</code> à partir de l'index <code>debut</code> jusqu'à la fin du tableau.
+    </p>
+
+    <p>Exemple : <code>slice0(['a','b','c','d','e'], 2)</code> renverra <code>['c','d','e']</code>.</p>
+
+    <p>Exemple : <code>slice0([1,2,3,4], 2)</code> renverra <code>[3,4]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-25">
+    <h2>Exercice 25</h2>
+
+    <p>
+      Créez une fonction <code>slice1(tableau, debut, fin)</code> qui renvoie un tableau contenant tous les éléments du <code>tableau</code> à partir de l'index <code>debut</code> jusqu'à l'index <code>fin</code> (exclus).
+    </p>
+
+    <p>Exemple : <code>slice1(['a','b','c','d','e'], 1, 4)</code> renverra <code>['b','c','d']</code>.</p>
+
+    <p>Exemple : <code>slice1([1,2,3,4,5,6,7], 2, 5)</code> renverra <code>[3,4,5]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-26">
+    <h2>Exercice 26</h2>
+
+    <p>
+      Créez une fonction <code>slice2(tableau)</code> qui renvoie un tableau contenant les <code>3</code> derniers éléments du <code>tableau</code>.
+    </p>
+
+    <p>Exemple : <code>slice2(['a','b','c','d','e'])</code> renverra <code>['c','d','e']</code>.</p>
+
+    <p>Exemple : <code>slice2([1,2,3,4,5,6,7])</code> renverra <code>[5,6,7]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-27">
+    <h2>Exercice 27</h2>
+
+    <p>
+      Créez une fonction <code>slice3(tableau)</code> qui renvoie un tableau contenant tous les éléments du <code>tableau</code> sauf les <code>2</code> premiers et les <code>2</code> derniers.
+    </p>
+
+    <p>Exemple : <code>slice3(['a','b','c','d','e'])</code> renverra <code>['c']</code>.</p>
+
+    <p>Exemple : <code>slice3([1,2,3,4,5,6,7])</code> renverra <code>[3,4,5]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-28">
+    <h2>Exercice 28</h2>
+
+    <p>
+      Créez une fonction <code>splice0(tableau)</code> qui renvoie le <code>tableau</code> après avoir supprimé l'élément à l'index 2 de celui-ci.
+    </p>
+
+    <p>Exemple : <code>splice0(['a','b','c','d','e'])</code> renverra <code>['a','b','d','e']</code>.</p>
+
+    <p>Exemple : <code>splice0([1,2,3,4,5,6,7,8])</code> renverra <code>[1,2,4,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-29">
+    <h2>Exercice 29</h2>
+
+    <p>
+      Créez une fonction <code>splice1(tableau)</code> qui renvoie le <code>tableau</code> après avoir supprimé les <code>3</code> éléments aux index <code>1</code>, <code>2</code> et <code>3</code> de celui-ci.
+    </p>
+
+    <p>Exemple : <code>splice1(['a','b','c','d','e'])</code> renverra <code>['a','e']</code>.</p>
+
+    <p>Exemple : <code>splice1([1,2,3,4,5,6,7,8])</code> renverra <code>[1,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-30">
+    <h2>Exercice 30</h2>
+
+    <p>
+      Créez une fonction <code>splice2(tableau)</code> qui renvoie le <code>tableau</code> après avoir supprimé les <code>2</code> éléments qui viennent avant le dernier élément, c'est-à-dire l'avant-avant-dernier et l'avant-dernier élément.
+    </p>
+
+    <p>Exemple : <code>splice2(['a','b','c','d','e'])</code> renverra <code>['a','b','e']</code>.</p>
+
+    <p>Exemple : <code>splice2([1,2,3,4,5,6,7,8])</code> renverra <code>[1,2,3,4,5,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-31">
+    <h2>Exercice 31</h2>
+
+    <p>
+      Créez une fonction <code>splice3(tableau, debut, valeur)</code> qui insère la valeur <code>valeur</code> dans le tableau à l'index <code>debut</code>.
+    </p>
+
+    <p>Exemple : <code>splice3(['a','b','c','d','e'], 2, 'z')</code> renverra <code>['a','b','z','c','d','e']</code>.</p>
+
+    <p>Exemple : <code>splice3([1,2,3,4,5,6,7,8], 3, 42)</code> renverra <code>[1,2,3,42,4,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-32">
+    <h2>Exercice 32</h2>
+
+    <p>
+      Créez une fonction <code>splice4(tableau, debut, valeur1, valeur2)</code> qui insère les valeurs <code>valeur1</code> et <code>valeur2</code> dans le tableau à l'index <code>debut</code>.
+    </p>
+
+    <p>Exemple : <code>splice4(['a','b','c','d','e'], 3, 'z', 'Z')</code> renverra <code>['a','b','c','z','Z','d','e']</code>.</p>
+
+    <p>Exemple : <code>splice4([1,2,3,4,5,6,7,8], 1, 42, 1337)</code> renverra <code>[1,42,1337,2,3,4,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-33">
+    <h2>Exercice 33</h2>
+
+    <p>
+      Créez une fonction <code>splice5(tableau, valeur1, valeur2)</code> qui insère les valeurs <code>valeur1</code> et <code>valeur2</code> dans le tableau à l'avant-dernier index de celui-ci.
+    </p>
+
+    <p>Exemple : <code>splice5(['a','b','c','d','e'], 'z', 'Z')</code> renverra <code>['a','b','c','z','Z','d','e']</code>.</p>
+
+    <p>Exemple : <code>splice5([1,2,3,4,5,6,7,8], 42, 1337)</code> renverra <code>[1,2,3,4,5,6,42,1337,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-34">
+    <h2>Exercice 34</h2>
+
+    <p>
+      Créez une fonction <code>splice6(tableau, valeur1, valeur2)</code> qui supprime <code>3</code> éléments à partir de l'index <code>1</code> et insère les valeurs <code>valeur1</code> et <code>valeur2</code> dans le tableau à ce même index.
+    </p>
+
+    <p>Exemple : <code>splice6(['a','b','c','d','e'], 'z', 'Z')</code> renverra <code>['a','z','Z','e']</code>.</p>
+
+    <p>Exemple : <code>splice6([1,2,3,4,5,6,7,8], 42, 1337)</code> renverra <code>[1,42,1337,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-35">
+    <h2>Exercice 35</h2>
+
+    <p>
+      Créez une fonction <code>unshift0(tableau, valeur)</code> qui ajoute la valeur <code>valeur</code> au début du tableau.
+    </p>
+
+    <p>Exemple : <code>unshift0(['a','b','c','d','e'], 'z')</code> renverra <code>['z','a','b','c','d','e']</code>.</p>
+
+    <p>Exemple : <code>unshift0([1,2,3,4,5,6,7,8], 42)</code> renverra <code>[42,1,2,3,4,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-36">
+    <h2>Exercice 36</h2>
+
+    <p>
+      Créez une fonction <code>unshift1(tableau, valeur1, valeur2)</code> qui ajoute <code>valeur1</code> et <code>valeur2</code> dans cet ordre au début du tableau.
+    </p>
+
+    <p>Exemple : <code>unshift1(['a','b','c','d','e'], 'z', 'Z')</code> renverra <code>['z','Z','a','b','c','d','e']</code>.</p>
+
+    <p>Exemple : <code>unshift1([1,2,3,4,5,6,7,8], 42, 1337)</code> renverra <code>[42,1337,1,2,3,4,5,6,7,8]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <h2>🎉 Félicitations vous avez fini l'échauffement ! 🎉</h2>
+
+  <p>Maintenant on va passer aux exercices finaux, ceux qui vont vous faire réfléchir 🤯.</p>
+
+  <p>L'objectif est de vous entraîner à exploiter les différentes méthodes vues jusqu'à présent pour résoudre les énoncés. Quelques conseils supplémentaires :</p>
+
+  <ul>
+    <li>Faites les exercices dans l'ordre, leur difficulté est croissante.</li>
+
+    <li>N'affichez pas les indices avant d'avoir planché sur l'exercice pendant 30 min au moins.</li>
+
+    <li>Vous pouvez/devrez utiliser tout ce qu'on a vu jusqu'à présent : variables, boucles, conditions, etc. et bien sûr les méthodes disponibles sur les tableaux !</li>
+
+    <li>Il faudra parfois utiliser plusieurs méthodes ensemble pour répondre à l'énoncé.</li>
+
+    <li>Prenez votre temps, il vaut mieux réussir un exercice en ayant passé 1h dessus que d'afficher l'indice trop vite ou de regarder la solution.</li>
+  </ul>
+
+  <p>Bon courage !</p>
+
+  <h2>Exercices finaux</h2>
+
+  <div class="enonce" id="enonce-37">
+    <h2>Exercice 0 — Demi-tour</h2>
+
+    <p>
+      Créez une fonction <code>demitour(tableau1, tableau2)</code> qui renvoie un tableau contenant tous les éléments de <code>tableau1</code> et <code>tableau2</code> à l'envers.
+    </p>
+
+    <p>Exemple : <code>demitour([1,2,3], ['a','b','c'])</code> renverra <code>['c','b','a',3,2,1]</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>reverse()</code> et <code>concat()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-38">
+    <h2>Exercice 1 — Remplissage</h2>
+
+    <p>
+      Créez une fonction <code>remplissage(mot, taille)</code> qui renvoie une chaîne de caractères de longueur <code>taille</code> contenant les caractères de <code>mot</code> précédés du caractère <code>#</code>.
+    </p>
+
+    <p>Exemple : <code>remplissage(['c','o','d','e'], 8)</code> renverra <code>####code</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>unshift()</code> et <code>join()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-39">
+    <h2>Exercice 2 — Extraction</h2>
+
+    <p>
+      Créez une fonction <code>extraction(transmission, sequence)</code> qui renvoie un tableau contenant le code secret du tableau <code>transmission</code>. Ce code secret est compris entre les 2 éléments de valeur <code>sequence</code>.
+    </p>
+
+    <p>Il est garanti qu'il n'existe qu'un seul code secret dans la transmission.</p>
+    <p>Il est garanti qu'il existe exactement 2 éléments ayant la valeur <code>sequence</code> dans le tableau <code>transmission</code>.</p>
+
+    <p>Exemple : <code>extraction(['a','r','#','c','o','d','e','#','g','h','t'], '#')</code> renverra <code>['c','o','d','e']</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>indexOf()</code> et <code>lastIndexOf()</code> avec <code>slice()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-40">
+    <h2>Exercice 3 — Camouflage</h2>
+
+    <p>
+      Créez une fonction <code>camouflage(transmission, sequence)</code> qui renvoie un tableau contenant tous les éléments du tableau <code>transmission</code> mais dont le code secret aura été camouflé par le caractère <code>#</code>.
+    </p>
+
+    <p>Il est garanti qu'il n'existe qu'un seul code secret dans la transmission.</p>
+    <p>Il est garanti qu'il existe exactement 2 éléments ayant la valeur <code>sequence</code> dans le tableau <code>transmission</code>.</p>
+
+    <p>Exemple : <code>camouflage(['a','r','#','c','o','d','e','#','g','h','t'], '#')</code> renverra <code>['a','r','#','#','#','#','#','#','g','h','t']</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>indexOf()</code> et <code>lastIndexOf()</code> avec <code>fill()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-41">
+    <h2>Exercice 4 — Suppression</h2>
+
+    <p>
+      Créez une fonction <code>suppression(transmission, sequence)</code> qui renvoie un tableau contenant tous les éléments du tableau <code>transmission</code> mais dont le code secret aura été supprimé.
+    </p>
+
+    <p>Il est garanti qu'il n'existe qu'un seul code secret dans la transmission.</p>
+    <p>Il est garanti qu'il existe exactement 2 éléments ayant la valeur <code>sequence</code> dans le tableau <code>transmission</code>.</p>
+
+    <p>Exemple : <code>suppression(['a','r','#','c','o','d','e','#','g','h','t'], '#')</code> renverra <code>['a','r','#','#','g','h','t']</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>indexOf()</code> et <code>lastIndexOf()</code> avec <code>splice()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-42">
+    <h2>Exercice 5 — Entrelacement</h2>
+
+    <p>
+      Créez une fonction <code>entrelacement(tableau1, tableau2)</code> qui renvoie un tableau contenant tous les éléments du <code>tableau1</code> et du <code>tableau2</code> entrelacés un sur deux.
+    </p>
+
+    <p>Il est garanti que <code>tableau1</code> et <code>tableau2</code> auront toujours la même longueur.</p>
+
+    <p>Exemple : <code>entrelacement(['a','b','c'], [1,2,3])</code> renverra <code>['a',1,'b',2,'c',3]</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez une boucle à l'aide de la méthode <code>push()</code> pour construire le tableau final.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-43">
+    <h2>Exercice 6 — Duplication</h2>
+
+    <p>
+      Créez une fonction <code>duplication(quantites, valeurs)</code> qui renvoie un tableau contenant chaque valeur du tableau <code>valeurs</code> dupliquées N fois. Le nombre de copies N à faire est indiqué dans le tableau <code>quantites</code>.
+    </p>
+
+    <p>Il est garanti que <code>quantites</code> et <code>valeurs</code> auront toujours la même longueur.</p>
+
+    <p>Exemple : <code>duplication([1,2,3], ['a','b','c'])</code> renverra <code>['a','b','b','c','c','c']</code>.</p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez une boucle imbriquée (une boucle dans une boucle). Boucle 1 : lisez les valeurs <code>quantites</code> une par une, pour chacune d'entre elles, ajoutez plusieurs fois (boucle 2) à l'aide de la méthode <code>push()</code> la valeur correspondante pour construire le tableau final.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-44">
+    <h2>Exercice 7 — Sélection</h2>
+
+    <p>
+      Créez une fonction <code>selection(selecteur, liste)</code> qui renvoie un tableau de résultats contenant certains éléments de <code>liste</code> dans un certain ordre. Voici comment procéder pour créer ce tableau de résultats.
+    </p>
+
+    <p>Pour chaque élément dans <code>selecteur</code> :</p>
+    <ul>
+      <li>Si celui-ci se trouve dans le tableau <code>liste</code>, on ajoutera au tableau de résultats le <strong>premier</strong> élément de <code>liste</code>. Ce premier élément sera supprimé de <code>liste</code>.</li>
+      <li>Si celui-ci ne se trouve pas dans le tableau <code>liste</code> on ajoutera au tableau de résultats le <strong>dernier</strong> élément de <code>liste</code>. Ce dernier élément sera supprimé de <code>liste</code>.</li>
+      <li>À chaque fois qu'on passe au sélecteur suivant la <code>liste</code> aura rétrécit car on lui retire soit le premier élément, soit le dernier !</li>
+    </ul>
+
+    <p>Exemple : <code>selection([1,2,3,4,5], [10,20,3,6,70,50,4])</code> renverra <code>[4,50,10,70,6]</code>.</p>
+    <p>Détails des étapes :</p>
+    <ol>
+      <li>Est-ce que <code>1</code> est dans <code>[10,20,3,6,70,50,4]</code> ?</li>
+      <li>Non, alors on ajoute le dernier élément <code>4</code> au tableau de résultats et on retire cet élément de la liste !</li>
+      <li>Est-ce que <code>2</code> est dans <code>[10,20,3,6,70,50]</code> ?</li>
+      <li>Non, alors on ajoute le dernier élément <code>50</code> au tableau de résultats et on retire cet élément de la liste !</li>
+      <li>Est-ce que <code>3</code> est dans <code>[10,20,3,6,70]</code> ?</li>
+      <li>Oui, alors on ajoute le premier élément <code>10</code> au tableau de résultats et on retire cet élément de la liste !</li>
+      <li>Est-ce que <code>4</code> est dans <code>[20,3,6,70]</code> ?</li>
+      <li>Non, alors on ajoute le dernier élément <code>70</code> au tableau de résultats et on retire cet élément de la liste !</li>
+      <li>Est-ce que <code>5</code> est dans <code>[20,3,6]</code> ?</li>
+      <li>Non, alors on ajoute le dernier élément <code>6</code> au tableau de résultats et on retire cet élément de la liste !</li>
+      <li>Le résultat est donc <code>[4,50,10,70,6]</code>.</li>
+    </ol>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez les méthodes <code>includes()</code>, <code>shift()</code> et <code>pop()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-45">
+    <h2>Exercice 8 — Extraction multiple (difficile)</h2>
+
+    <p>
+      Créez une fonction <code>extractionMultiple(transmission, sequence)</code> qui renvoie un tableau contenant tous les codes secrets extraits du tableau <code>transmission</code>. Un code secret est compris entre 2 éléments de valeur <code>sequence</code>.
+    </p>
+
+    <p>Il peut y avoir 0, 1 ou plusieurs codes secrets dans la transmission.</p>
+    <p>S'il n'y a aucun code secret, renvoyez un tableau vide. S'il y a plusieurs codes secrets, cumulez-les dans le tableau renvoyé.</p>
+
+    <p>Il est garanti que les codes secrets sont toujours complets, c'est-à-dire qu'il existe toujours un élément de valeur <code>sequence</code> avant et après le code secret qu'il faut extraire.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>extractionMultiple(['a','r','c','o','d','e','t'], '#')</code> renverra <code>[]</code>.</li>
+      <li><code>extractionMultiple(['a','r','#','c','o','d','e','#','g','h','t'], '#')</code> renverra <code>['c','o','d','e']</code>.</li>
+      <li><code>extractionMultiple(['a','#','c','o','#','r','#','d','e','#','g'], '#')</code> renverra <code>['c','o','d','e']</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez la méthode <code>indexOf()</code> avec un index de début qui vous permettra de chercher le prochain caractère <code>sequence</code>. Utilisez <code>slice()</code> pour extraire le code secret et <code>concat()</code> pour le cumuler au résultat.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+
+  <div class="enonce" id="enonce-46">
+    <h2>Exercice 9 — Extraction multiple incomplète (difficile)</h2>
+
+    <p>
+      Créez une fonction <code>extractionMultipleIncomplete(transmission, sequence)</code> qui renvoie un tableau contenant tous les codes secrets extraits du tableau <code>transmission</code>. Un code secret est compris entre 2 éléments de valeur <code>sequence</code>.
+    </p>
+
+    <p>Il peut y avoir 0, 1 ou plusieurs codes secrets dans la transmission.</p>
+    <p>S'il n'y a aucun code secret, renvoyez un tableau vide. S'il y a plusieurs codes secrets, cumulez-les dans le tableau renvoyé.</p>
+
+    <p>Cette fois-ci, la transmission a pu être coupée en plein milieu d'un code. Le dernier code secret n'a donc peut-être pas sa séquence de fin ! Il faudra donc extraire ce code secret jusqu'à la fin de la transmission si c'est le cas.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>extractionMultipleIncomplete(['a','#','c','o','d'], '#')</code> renverra <code>['c','o','d']</code>.</li>
+      <li><code>extractionMultipleIncomplete(['a','#','c','o','#','g','#','d'], '#')</code> renverra <code>['c','o','d']</code>.</li>
+      <li><code>extractionMultipleIncomplete(['a','#','c','o','#','r','#','d','e','#','#'], '#')</code> renverra <code>['c','o','d','e']</code>.</li>
+      <li><code>extractionMultipleIncomplete(['#','c','o','#','r','#','d','e'], '#')</code> renverra <code>['c','o','d','e']</code>.</li>
+    </ul>
+
+    <p class="attention">Vous pouvez repartir du code de l'exercice précédent, mais attention il va provoquer une boucle infinie pour <code>extractionMultipleIncomplete(['a','#','c','o','d'], '#')</code></p>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Même chose que l'exercice précédent mais il faut vérifier s'il existe un caractère <code>sequence</code> de fin, pour ça il faut vérifier si <code>indexOf()</code> renvoie <code>-1</code> !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <footer>
+    Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+    <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+  </footer>
+
+  <script src="../commun/mes-outils.js"></script>
+  <script src="../commun/init.js"></script>
+  <script src="exercices.js"></script>
+  <script src="validateur/tests.js"></script>
+</body>
+
+</html>
