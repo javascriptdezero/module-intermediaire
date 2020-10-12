@@ -151,6 +151,7 @@ pre.valeur {
   display: inline-block;
   margin: 8px 0;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 pre.inline {
