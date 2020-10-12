@@ -153,6 +153,10 @@ pre.valeur {
   white-space: pre-wrap;
 }
 
+pre.inline {
+  display: inline;
+}
+
 p.code {
   padding: var(--dim-base) var(--dim-double);
   margin-top: 0;

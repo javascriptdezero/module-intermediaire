@@ -52,7 +52,7 @@ const enonces = {
     }
     const { valeurRecue, valeurAttendue } = valeurs;
     message.innerHTML = debutMessageEchec(valeurRecue);
-    message.innerHTML += `<p>▶︎ Alors qu'elle devrait renvoyer :</p><pre class="valeur">${valeurAttendue}</pre>
+    message.innerHTML += `<p>▶︎ Alors qu'elle devrait renvoyer :</p><pre class="valeur">${formaterPourLeHtml(valeurAttendue)}</pre>
     <p style="margin-top: var(--dim-triple)">${this.echec}</p>`;
   },
   liste: [],
@@ -62,7 +62,7 @@ function debutMessageEchec(valeurRecue) {
   if (valeurRecue === undefined) {
     return `<p>▶︎ Votre fonction ne renvoie rien (undefined) !</p> <p>Êtes-vous sûr d'avoir utilisé l'instruction <code>return</code> ?</p>`
   } else {
-    return `<p>▶︎ Votre fonction renvoie :</p><pre class="valeur">${valeurRecue}</pre>`
+    return `<p>▶︎ Votre fonction renvoie :</p><pre class="valeur">${formaterPourLeHtml(valeurRecue)}</pre>`
   }
 }
 

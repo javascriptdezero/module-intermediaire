@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>String et wrappers</title>
+  <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+  <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+</head>
+
+<body>
+  <h1>String et wrappers</h1>
+  <p>
+    Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+  </p>
+  <p>
+    Pensez à bien lire l'intégralité de <a
+      href="https://github.com/javascriptdezero/module-debutant/tree/master/cours#exercices"
+      target="_blank">la documentation pour faire les exercices</a> avant de commencer.
+  </p>
+  <p>
+    Dernier point, lorsque vous trouvez la solution d'un exercice par vous-même, allez tout de même voir la solution que
+    je propose :
+    vous apprendrez peut-être une autre façon de faire plus intéressante !
+  </p>
+
+  <h2>En cas de problèmes techniques</h2>
+  <p>Il se peut que vous rencontriez certains problèmes techniques pour valider les exercices.<br>
+    Lisez leur solution au moins une fois avant de commencer les exercices.</p>
+  <ul>
+    <li>
+      <p>Si certains exercices précédemment validés en vert redeviennent gris et "En attente de code à tester" : c'est
+        qu'il y
+        a une erreur de syntaxe dans votre code. Solution : ouvrez la console développeur pour trouver l'erreur.</p>
+      <details>
+        <summary>Cliquez ici pour savoir comment ouvrir la console développeur de Chrome</summary>
+        <p><strong>Sur Windows ou Linux</strong> : depuis Chrome, tapez <code>Ctrl + Shift + J</code> ou allez dans le
+          menu (les 3
+          petits points verticaux en haut à droite de la fenêtre de Chrome) puis allez dans Plus d'outils > Outils de
+          développement.</p>
+        <p><strong>Sur MacOS</strong> : depuis Chrome, tapez <code>⌘ + ⌥ + J</code> (Commande + Option + J) ou bien
+          allez dans le
+          menu Afficher > Options pour les développeurs > Console JavaScript.</p>
+        <p>Le message d'erreur apparaît en rouge et est en anglais, il faudra le traduire. L'erreur vient du fichier
+          noté sur la droite au numéro de ligne indiqué. Ouvrez ce fichier dans VSCode, rendez-vous à la ligne indiquée
+          et corrigez l'erreur.<br><br>
+          <img src="../../images/console-developpeur.jpg" alt="Onglet console de la console développeur"
+            style="width: 100%">
+        </p>
+      </details>
+    </li>
+    <li>
+      <p>Si la page web ne répond plus (les clics n'ont aucun effet) ou si l'icône dans l'onglet tourne indéfiniment :
+        c'est qu'il y a une boucle infinie dans votre code. Solution : corrigez votre code puis actualisez le site web.
+      </p>
+      <details>
+        <summary>Cliquez ici pour voir comment corriger une boucle infinie</summary>
+        <p>Si vous avez fait une boucle infinie, l'icône de votre onglet va tourner comme ça indéfiniment
+          :<br /><br /><img src="../../images/boucle-infinie.jpg" alt="page web en boucle infinie" width="400"></p>
+        <p>Voici à quoi peut ressembler une boucle infinie dans du code :</p>
+        <p class="code">
+          let poidsClient = prochainClient.mesurerPoids();<br><br>
+
+          while (poidsClient !== 0) {<br>
+          &nbsp;&nbsp;console.log(poidsClient);<br>
+          }
+        </p>
+        <p>Le problème ici, c'est que la condition de répétition de la boucle <code>poidsClient !== 0</code> est
+          toujours vraie ! En effet, on ne modifie pas la valeur de <code>poidsClient</code> à l'intérieur de la boucle,
+          par
+          conséquent celle-ci s'exécutera sans jamais s'arrêter : vous avez fait une boucle infinie !</p>
+        <p>Voici les étapes à respecter pour se sortir de ce problème :</p>
+        <ol>
+          <li>Dans le menu de Chrome (les 3 petits points verticaux en haut à droite de la fenêtre de Chrome), allez
+            dans Plus d'outils > Gestionnaire de tâches, sélectionnez l'onglet qui pose problème dans la liste puis
+            cliquez sur le bouton <code>Arrêter le processus</code> en bas à droite.
+            <br>
+            Vous pouvez également faire un clic droit sur la barre de titre de Chrome pour sélectionner plus rapidement
+            le gestionnaire de tâches.
+            <br><br>
+            <img src="../../images/clic-droit-gestionnaire-taches.jpg"
+              alt="clic droit pour accéder au gestionnaire de tâches" style="width: 100%"></li>
+          <li>Corrigez le bogue dans votre code depuis VSCode.</li>
+          <li>Actualisez à nouveau la page web qui a été précédemment arrêtée en cliquant sur la petite flèche à gauche
+            de la barre d'adresse.<br><br><img src="../../images/actualiser.jpg" alt="flèche à cliquer pour actualiser"
+              width="400"></li>
+        </ol>
+        <h3>Attention à la sauvegarde automatique dans VSCode !</h3>
+        <p>Dans les paramètres, je vous conseille d'utiliser l'option <code>onFocusChange</code> pour la sauvegarde
+          automatique.</p>
+        <img src="../../images/autosave.jpg" alt="configuration option sauvegarde automatique vscode"
+          style="width: 100%">
+        <p>En effet, si vous avez l'option <code>afterDelay</code> de sélectionnée, ça veut dire que VSCode va
+          sauvegarder votre code toutes les X secondes. Le site web va se recharger automatiquement à ce moment là et si
+          votre code actuel génère une boucle infinie, Chrome va planter !</p>
+        <p>Pour éviter ce problème, utilisez l'option <code>onFocusChange</code> qui indique à VSCode de sauvegarder
+          votre fichier seulement si vous changez de fenêtre ou d'onglet. Vous pouvez aussi sauvegarder manuellemment
+          avec <code>⌘ + S</code> sur MacOS ou <code>Ctrl + S</code> sur Windows ou Linux quand vous voulez vérifier que
+          votre code fonctionne.</p>
+      </details>
+    </li>
+    <li>
+      <p>Si vous souhaitez déboguer votre code, utilisez le débogueur de Chrome comme je l'explique <a
+          href="https://www.youtube.com/watch?v=_imeD5H-yCw&t=557" target="_blank">dans cette vidéo</a>.</p>
+    </li>
+    <li>
+      <p>Si vous êtes bloqué et qu'aucune solution mentionnée ne fonctionne, envoyez-moi un email sur <a
+          href="mailto:jeremy@javascriptdezero.com">jeremy@javascriptdezero.com</a> en précisant le numéro de la leçon
+        sur laquelle vous travaillez et le numéro de l'exercice qui pose problème.</p>
+    </li>
+  </ul>
+
+  <h2>Documentation</h2>
+  <ul>
+    <li>
+      <a class="mdn" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String"
+        target="_blank">Consulter la doc MDN sur le type String</a>
+    </li>
+  </ul>
+
+  <h2>Objectifs</h2>
+  <ul>
+    <li>Comprendre le fonctionnement général du type String</li>
+    <li>Savoir déclarer et utiliser les Strings</li>
+    <li>Savoir utiliser les méthodes simples disponibles sur les Strings et notamment :
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/charAt" class="mdn" target="_blank">charAt</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/concat" class="mdn" target="_blank">concat</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/includes" class="mdn" target="_blank">includes</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" class="mdn" target="_blank">endsWith</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" class="mdn" target="_blank">indexOf</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf" class="mdn" target="_blank">lastIndexOf</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare" class="mdn" target="_blank">localCompare</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd" class="mdn" target="_blank">padEnd</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" class="mdn" target="_blank">padStart</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/repeat" class="mdn" target="_blank">repeat</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/replace" class="mdn" target="_blank">replace</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll" class="mdn" target="_blank">replaceAll</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/slice" class="mdn" target="_blank">slice</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/split" class="mdn" target="_blank">split</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" class="mdn" target="_blank">startsWith</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" class="mdn" target="_blank">toLowerCase</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" class="mdn" target="_blank">toUpperCase</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/trim" class="mdn" target="_blank">trim</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/trimStart" class="mdn" target="_blank">trimStart</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/trimEnd" class="mdn" target="_blank">trimEnd</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Structure des exercices</h2>
+  
+  <h3>Exercices d'échauffement</h3>
+  <p>Dans un premier temps, vous allez devoir utiliser les méthodes listées ci-dessus une par une, dans l'ordre, pour réaliser les exercices d'échauffement. Vous ferez quelques exercices sur <code>charAt()</code>, puis quelques exercices sur <code>concat()</code>, puis <code>includes()</code> etc.</p>
+
+  <p>Même si ces exercices peuvent parfois être un peu rébarbatifs, faites-les au moins une fois. L'objectif est de vous familiariser avec chacune de ces méthodes pour retenir l'utilité principale de celles-ci.</p>
+  
+  <h3>Exercices finaux</h3>
+  <p>Une fois l'échauffement terminé, les exercices suivants vont devenir un peu plus difficiles : vous devrez utiliser plusieurs des méthodes vues précédemment pour répondre à l'énoncé.</p>
+  
+  <h3>Indices</h3>
+  <p>Pour les exercices finaux vous pourrez afficher un indice qui vous indiquera quelles méthodes utiliser pour répondre à l'énoncé. N'affichez l'indice que si vous avez passé au moins 30 min sur un exercice. Le but n'est pas d'aller le plus vite possible mais de faire un maximum d'exercices <strong>seul</strong>.</p>
+  <p>L'objectif est de vous apprendre à utiliser les nouveaux outils à votre disposition (les méthodes des Strings) pour répondre à des exercices de plus en plus complexes.</p>
+  <p>Vous développerez votre sens logique et votre capacité à assembler des briques de base (les méthodes) entre elles pour répondre à des énoncés complexes.</p>
+
+  <h2>Fonctionnement des exercices</h2>
+
+  <p>Tous les exercices fonctionnent sur le même principe : vous devez rédiger une fonction à partir de zéro et celle-ci devra renvoyer (avec le mot-clé <code>return</code>) la solution de l'énoncé.</p>
+
+  <div class="enonce" id="enonce-0">
+    <h2>Exercice 0</h2>
+
+    <p>
+      Créez une fonction <code>charAt0(chaine, index)</code> qui renvoie le caractère à l'index <code>index</code> de la chaîne <code>chaine</code>.
+    </p>
+
+    <p>Il est garanti que la longueur de <code>chaine</code> est toujours supérieure à <code>index</code>.</p>
+
+    <p>Exemple : <code>charAt0("JavaScript", 4)</code> renverra <code>"S"</code>.</p>
+
+    <p class="information">La méthode <code>charAt()</code> est équivalente à l'utilisation de la notation avec les crochets <code>[]</code>.</p>
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-1">
+    <h2>Exercice 1</h2>
+
+    <p>
+      Créez une fonction <code>concat0(chaine1, chaine2)</code> qui renvoie la concaténation de <code>chaine1</code> et <code>chaine2</code> dans cet ordre.
+    </p>
+
+    <p>Exemple : <code>concat0("Java", "Script")</code> renverra <code>"JavaScript"</code>.</p>
+
+    <p class="information">La méthode <code>concat()</code> est équivalente à l'utilisation de l'opérateur <code>+</code> avec la notation <code>chaine1 + chaine2</code>.</p>
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-2">
+    <h2>Exercice 2</h2>
+
+    <p>
+      Créez une fonction <code>concat1(chaine1, chaine2, chaine3)</code> qui renvoie la concaténation de <code>chaine1</code> et <code>chaine2</code> et <code>chaine3</code> dans cet ordre.
+    </p>
+
+    <p>Exemple : <code>concat1("Les Strings", " c'est ", "facile !")</code> renverra <code>"Les Strings c'est facile !"</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-3">
+    <h2>Exercice 3</h2>
+
+    <p>
+      Créez une fonction <code>concat2(chaine1, chaine2, chaine3)</code> qui renvoie la concaténation de <code>chaine3</code> et <code>chaine2</code> et <code>chaine1</code> dans cet ordre.
+    </p>
+
+    <p>Exemple : <code>concat2("Yoda", " parle ", "Comme ça")</code> renverra <code>"Comme ça parle Yoda"</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-4">
+    <h2>Exercice 4</h2>
+
+    <p>
+      Créez une fonction <code>includes0(chaine, caractere)</code> qui renvoie <code>true</code> si le <code>caractere</code> est présent dans la <code>chaine</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>includes0("JavaScript", "S")</code> renverra <code>true</code>.</li>
+      <li><code>includes0("JavaScript", "s")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-5">
+    <h2>Exercice 5</h2>
+
+    <p>
+      Créez une fonction <code>includes1(chaine, motif)</code> qui renvoie <code>true</code> si la chaîne de caractères <code>motif</code> est présente dans la <code>chaine</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>includes1("JavaScript", "Script")</code> renverra <code>true</code>.</li>
+      <li><code>includes1("JavaScript", "script")</code> renverra <code>false</code>.</li>
+      <li><code>includes1("Un peu de texte", "texte")</code> renverra <code>true</code>.</li>
+      <li><code>includes1("Un peu de texte", "detexte")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-6">
+    <h2>Exercice 6</h2>
+
+    <p>
+      Créez une fonction <code>includes2(chaine, caractere)</code> qui renvoie <code>true</code> si le <code>caractere</code> se trouve dans les <code>2</code> derniers caractères de <code>chaine</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>includes2("JavaScript", "p")</code> renverra <code>true</code>.</li>
+      <li><code>includes2("JavaScript", "t")</code> renverra <code>true</code>.</li>
+      <li><code>includes2("JavaScript", "i")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <p class="information">Contrairement à la méthode <code>Array.prototype.includes()</code> (sur les tableaux donc !), il n'est pas possible d'utiliser d'index négatif avec la méthode <code>String.prototype.includes()</code> ! Mais vous pouvez facilement contourner cette limitation en utilisant <code>chaine.length</code>...</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-7">
+    <h2>Exercice 7</h2>
+
+    <p>
+      Créez une fonction <code>endsWith0(chaine, caractere)</code> qui renvoie <code>true</code> si la <code>chaine</code> se termine par <code>caractere</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>endsWith0("JavaScript", "t")</code> renverra <code>true</code>.</li>
+      <li><code>endsWith0("JavaScript", "p")</code> renverra <code>false</code>.</li>
+      <li><code>endsWith0("JavaScript", "i")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-8">
+    <h2>Exercice 8</h2>
+
+    <p>
+      Créez une fonction <code>endsWith1(chaine, fin)</code> qui renvoie <code>true</code> si la <code>chaine</code> se termine par la chaîne de caractères <code>fin</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>endsWith1("JavaScript", "Script")</code> renverra <code>true</code>.</li>
+      <li><code>endsWith1("JavaScript", "Scrip")</code> renverra <code>false</code>.</li>
+      <li><code>endsWith1("JavaScript", "script")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-9">
+    <h2>Exercice 9</h2>
+
+    <p>
+      Créez une fonction <code>endsWith2(chaine, fin)</code> qui renvoie <code>true</code> si la <code>chaine</code> moins les <code>3</code> derniers caractères de celle-ci se termine par la chaîne de caractères <code>fin</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>endsWith2("JavaScript###", "Script")</code> renverra <code>true</code>.</li>
+      <li><code>endsWith2("JavaScript####", "Script")</code> renverra <code>false</code>.</li>
+      <li><code>endsWith2("JavaScript##", "Script")</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-10">
+    <h2>Exercice 10</h2>
+
+    <p>
+      Créez une fonction <code>indexOf0(chaine, motif)</code> qui renvoie l'index du début du premier <code>motif</code> trouvé dans la <code>chaine</code> s'il est présent et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>indexOf0("Java et JavaScript sont très différents", "Java")</code> renverra <code>0</code>.</li>
+      <li><code>indexOf0("Java et JavaScript sont très différents", "JavaScript")</code> renverra <code>8</code>.</li>
+      <li><code>indexOf0("Java et JavaScript sont très différents", "java")</code> renverra <code>-1</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-11">
+    <h2>Exercice 11</h2>
+
+    <p>
+      Créez une fonction <code>indexOf1(chaine, motif)</code> qui renvoie l'index du début du premier <code>motif</code> trouvé à partir de l'index <code>5</code> de la <code>chaine</code> s'il est présent et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>indexOf1("Java... et JavaScript sont très différents", "Java")</code> renverra <code>8</code>.</li>
+      <li><code>indexOf1("Java... et JavaScript sont très différents", ".")</code> renverra <code>5</code>.</li>
+      <li><code>indexOf1("Java... et JavaScript sont très différents", "java")</code> renverra <code>-1</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-12">
+    <h2>Exercice 12</h2>
+
+    <p>
+      Créez une fonction <code>indexOf2(chaine, motif)</code> qui renvoie l'index du début du premier <code>motif</code> trouvé dans les <code>15</code> derniers caractères de la <code>chaine</code> s'il est présent et <code>-1</code> sinon.
+    </p>
+
+    <p>Il est garanti que la <code>chaine</code> fait plus de 15 caractères.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>indexOf2("Java ou... JavaScript ?", "Java")</code> renverra <code>11</code>.</li>
+      <li><code>indexOf2("Java ou... JavaScript ?", ".")</code> renverra <code>8</code>.</li>
+      <li><code>indexOf2("Java ou... JavaScript ?", "java")</code> renverra <code>-1</code>.</li>
+    </ul>
+
+    <p class="information">Contrairement à la méthode <code>Array.prototype.indexOf()</code> (sur les tableaux donc !), il n'est pas possible d'utiliser d'index négatif avec la méthode <code>String.prototype.indexOf()</code> ! Mais vous pouvez facilement contourner cette limitation en utilisant <code>chaine.length</code>...</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-13">
+    <h2>Exercice 13</h2>
+
+    <p>
+      Créez une fonction <code>lastIndexOf0(chaine, motif)</code> qui renvoie l'index du début du dernier <code>motif</code> trouvé dans la <code>chaine</code> s'il est présent et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>lastIndexOf0("Java et JavaScript sont très différents", "Java")</code> renverra <code>8</code>.</li>
+      <li><code>lastIndexOf0("Java et JavaScript sont très différents", "t")</code> renverra <code>37</code>.</li>
+      <li><code>lastIndexOf0("Java et JavaScript sont très différents", "java")</code> renverra <code>-1</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-14">
+    <h2>Exercice 14</h2>
+
+    <p>
+      Créez une fonction <code>lastIndexOf1(chaine, motif)</code> qui renvoie l'index du début du dernier <code>motif</code> trouvé à partir du début de <code>chaine</code> jusqu'à l'index <code>19</code> de la <code>chaine</code> s'il est présent et <code>-1</code> sinon.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>lastIndexOf1("Java ou JavaScript... Plutôt JavaScript !", "Java")</code> renverra <code>8</code>.</li>
+      <li><code>lastIndexOf1("Java ou JavaScript... Plutôt JavaScript !", ".")</code> renverra <code>19</code>.</li>
+      <li><code>lastIndexOf1("Java ou JavaScript... Plutôt JavaScript !", "java")</code> renverra <code>-1</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-15">
+    <h2>Exercice 15</h2>
+
+    <p>
+      Créez une fonction <code>localeCompare0(mot1, mot2)</code> qui renvoie <code>-1</code> si <code>mot1</code> vient avant <code>mot2</code> dans l'ordre lexicographique, <code>1</code> si c'est l'inverse et <code>0</code> si les mots sont identiques.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>localeCompare0("apprendre", "apprentissage")</code> renverra <code>-1</code>.</li>
+      <li><code>localeCompare0("apprendre", "apprendre")</code> renverra <code>0</code>.</li>
+      <li><code>localeCompare0("apprendre", "appareil")</code> renverra <code>1</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-16">
+    <h2>Exercice 16</h2>
+
+    <p>
+      Créez une fonction <code>padEnd0(chaine, longueur)</code> qui retourne la <code>chaine</code> complétée du caractère <code>#</code> jusqu'à atteindre la <code>longueur</code> donnée.
+    </p>
+
+    <p>Il est garanti que la <code>longueur</code> donnée est toujours supérieure à la longueur de <code>chaine</code>.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>padEnd0("JavaScript", 12)</code> renverra <code>JavaScript##</code>.</li>
+      <li><code>padEnd0("Java", 8)</code> renverra <code>Java####</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-17">
+    <h2>Exercice 17</h2>
+
+    <p>
+      Créez une fonction <code>padEnd1(chaine, longueur)</code> qui retourne la <code>chaine</code> complétée du mot <code>OUI</code> (qui se répète si nécessaire) jusqu'à atteindre la <code>longueur</code> donnée.
+    </p>
+
+    <p>Il est garanti que la <code>longueur</code> donnée est toujours supérieure à la longueur de <code>chaine</code>.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>padEnd1("JavaScript", 20)</code> renverra <code>JavaScriptOUIOUIOUIO</code>.</li>
+      <li><code>padEnd1("JavaScript", 12)</code> renverra <code>JavaScriptOU</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-18">
+    <h2>Exercice 18</h2>
+
+    <p>
+      Créez une fonction <code>padStart0(chaine, longueur)</code> qui retourne la <code>chaine</code> complétée (par le début) du caractère <code>#</code> jusqu'à atteindre la <code>longueur</code> donnée.
+    </p>
+
+    <p>Il est garanti que la <code>longueur</code> donnée est toujours supérieure à la longueur de <code>chaine</code>.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>padStart0("JavaScript", 12)</code> renverra <code>##JavaScript</code>.</li>
+      <li><code>padStart0("Java", 8)</code> renverra <code>####Java</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-19">
+    <h2>Exercice 19</h2>
+
+    <p>
+      Créez une fonction <code>padStart1(chaine, longueur)</code> qui retourne la <code>chaine</code> complétée (par le début) du mot <code>OUI</code> jusqu'à atteindre la <code>longueur</code> donnée.
+    </p>
+
+    <p>Il est garanti que la <code>longueur</code> donnée est toujours supérieure à la longueur de <code>chaine</code>.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>padStart1("JavaScript", 20)</code> renverra <code>OUIOUIOUIOJavaScript</code>.</li>
+      <li><code>padStart1("JavaScript", 12)</code> renverra <code>OUJavaScript</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-20">
+    <h2>Exercice 20</h2>
+
+    <p>
+      Créez une fonction <code>repeat0(caractere, longueur)</code> qui retourne une chaine contenant le <code>caractere</code> répété <code>longueur</code> fois.
+    </p>
+
+    <p>Exemple : <code>repeat0("X", 5)</code> renverra <code>XXXXX</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-21">
+    <h2>Exercice 21</h2>
+
+    <p>
+      Créez une fonction <code>repeat1(chaine, repetitions)</code> qui retourne la chaine répétée <code>repetitions</code> fois.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>repeat1("JavaScript", 2)</code> renverra <code>JavaScriptJavaScript</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-22">
+    <h2>Exercice 22</h2>
+
+    <p>
+      Créez une fonction <code>replace0(chaine, motif, remplacement)</code> qui retourne la <code>chaine</code> dont on aura remplacé le <code>motif</code> par <code>remplacement</code>.
+    </p>
+
+    <p>Il est garanti qu'il n'y a qu'un seul motif à remplacer dans la chaîne de caractères.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>replace0("Java est génial !", "Java", "JavaScript")</code> renverra <code>JavaScript est génial !</code>.</li>
+      <li><code>replace0("C++ est super !", "C++", "JavaScript")</code> renverra <code>JavaScript est super !</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-23">
+    <h2>Exercice 23</h2>
+
+    <p>
+      Créez une fonction <code>replaceAll0(chaine, motif, remplacement)</code> qui retourne la <code>chaine</code> dont on aura remplacé tous les <code>motif</code> par <code>remplacement</code>.
+    </p>
+
+    <p>Exemple : <code>replaceAll0("Java biensûr ! C'est le Java mon langage préféré !", "Java", "JavaScript")</code> renverra <code>JavaScript biensûr ! C'est le JavaScript mon langage préféré !</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-24">
+    <h2>Exercice 24</h2>
+
+    <p>
+      Créez une fonction <code>slice0(chaine, debut)</code> qui retourne la <code>chaine</code> à partir de l'index <code>debut</code> et jusqu'à la fin de celle-ci.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice0("Les méthodes de String sont pratiques !", 6)</code> renverra <code>thodes de String sont pratiques !</code>.</li>
+      <li><code>slice0("Les méthodes de String sont pratiques !", 17)</code> renverra <code>String sont pratiques !</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-25">
+    <h2>Exercice 25</h2>
+
+    <p>
+      Créez une fonction <code>slice1(chaine, debut, fin)</code> qui retourne la <code>chaine</code> à partir de l'index <code>debut</code> et jusqu'à l'index <code>fin</code> non inclus.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice1("Les méthodes de String sont pratiques !", 6, 12)</code> renverra <code>méthodes</code>.</li>
+      <li><code>slice1("Les méthodes de String sont pratiques !", 16, 22)</code> renverra <code>String</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-26">
+    <h2>Exercice 26</h2>
+
+    <p>
+      Créez une fonction <code>slice2(chaine, nombre)</code> qui retourne les <code>nombre</code> derniers caractères de la <code>chaine</code>.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice2("fichier.html", 4)</code> renverra <code>html</code>.</li>
+      <li><code>slice2("script.js", 2)</code> renverra <code>js</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-27">
+    <h2>Exercice 27</h2>
+
+    <p>
+      Créez une fonction <code>slice3(chaine)</code> qui retourne la <code>chaine</code> sans ces <code>3</code> premiers et derniers caractères.
+    </p>
+
+    <p>Il est garanti que la longueur de <code>chaine</code> est toujours supérieure ou égale à 7.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice3("JavaScript")</code> renverra <code>aScr</code>.</li>
+      <li><code>slice3("Persévérance")</code> renverra <code>sévéra</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-28">
+    <h2>Exercice 28</h2>
+
+    <p>
+      Créez une fonction <code>slice4(chaine, debut)</code> qui retourne la <code>chaine</code> à partir de l'index <code>debut</code> jusqu'à l'avant-dernier caractère de celle-ci.
+    </p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice4("JavaScript", 2)</code> renverra <code>vaScrip</code>.</li>
+      <li><code>slice4("Persévérance", 3)</code> renverra <code>sévéranc</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-29">
+    <h2>Exercice 29</h2>
+
+    <p>
+      Créez une fonction <code>slice5(chaine)</code> qui retourne les <code>3</code> derniers caractères de <code>chaine</code> juste avant l'avant-dernier caractère de celle-ci.
+    </p>
+
+    <p>Il est garanti que la longueur de <code>chaine</code> est toujours supérieure ou égale à 5.</p>
+
+    <p>Exemples : </p>
+    <ul>
+      <li><code>slice5("Crier")</code> renverra <code>Cri</code>.</li>
+      <li><code>slice5("Persévérance")</code> renverra <code>ran</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-30">
+    <h2>Exercice 30</h2>
+
+    <p>
+      Créez une fonction <code>split0(chaine)</code> qui retourne un tableau dont chaque élément contient un caractère de la <code>chaine</code>.
+    </p>
+
+    <p>Exemple : <code>split0("JavaScript")</code> renverra <code>['J','a','v','a','S','c','r','i','p','t']</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-31">
+    <h2>Exercice 31</h2>
+
+    <p>
+      Créez une fonction <code>split1(chaine)</code> qui retourne un tableau dont chaque élément contient un mot de la <code>chaine</code>.
+    </p>
+
+    <p>Exemple : <code>split1("Split est très pratique pour convertir une phrase en tableau")</code> renverra <code>["Split","est","très","pratique","pour","convertir","une","phrase","en","tableau"]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-32">
+    <h2>Exercice 32</h2>
+
+    <p>
+      Créez une fonction <code>split2(chaine, max)</code> qui retourne un tableau des <code>max</code> premiers mots de la <code>chaine</code>.
+    </p>
+
+    <p>Exemple : <code>split2("Split est très pratique pour convertir une phrase en tableau", 4)</code> renverra <code>["Split","est","très","pratique"]</code>.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-33">
+    <h2>Exercice 33</h2>
+
+    <p>
+      Créez une fonction <code>split3(csv, separateur)</code> qui retourne un tableau des valeurs contenues dans la chaîne <code>csv</code> au format CSV. Le format CSV est un ensemble de valeurs séparées par une virgule (ou parfois un point-virgule).
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>split3("12,14,20,16,8,17", ',')</code> renverra <code>['12','14','20','16','8','17']</code>.</li>
+      <li><code>split3("Janvier;Février;Mars;Avril;Mai;Juin", ';')</code> renverra <code>["Janvier","Février","Mars","Avril","Mai","Juin"]</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-34">
+    <h2>Exercice 34</h2>
+
+    <p>
+      Créez une fonction <code>startsWith0(chaine, motif)</code> qui retourne <code>true</code> si la <code>chaine</code> commence par <code>motif</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>startsWith0("JavaScript", 'Java')</code> renverra <code>true</code>.</li>
+      <li><code>startsWith0("JavaScript", 'java')</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-35">
+    <h2>Exercice 35</h2>
+
+    <p>
+      Créez une fonction <code>startsWith1(chaine, motif)</code> qui retourne <code>true</code> si la chaîne de caractères qui commence à partir du <code>5ème</code> caractère de <code>chaine</code> commence par <code>motif</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>startsWith1("JavaScript", 'Script')</code> renverra <code>true</code>.</li>
+      <li><code>startsWith1("JavaScript", 'script')</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-36">
+    <h2>Exercice 36</h2>
+
+    <p>
+      Créez une fonction <code>toLowerCase0(chaine)</code> qui retourne la <code>chaine</code> tout en minuscules.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toLowerCase0("JavaScript")</code> renverra <code>javascript</code>.</li>
+      <li><code>toLowerCase0("C++")</code> renverra <code>c++</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-37">
+    <h2>Exercice 37</h2>
+
+    <p>
+      Créez une fonction <code>toUpperCase0(chaine)</code> qui retourne la <code>chaine</code> tout en majuscules.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toUpperCase0("JavaScript")</code> renverra <code>JAVASCRIPT</code>.</li>
+      <li><code>toUpperCase0("c++")</code> renverra <code>C++</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-38">
+    <h2>Exercice 38</h2>
+
+    <p>
+      Créez une fonction <code>trim0(chaine)</code> qui retourne la <code>chaine</code> dont on aura enlevé les blancs en trop (espaces, tabulations, caractère nouvelle ligne etc.) au début et à la fin de celle-ci.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><pre class="inline"><code>trim0("   JavaScript ")</code></pre> renverra <code>JavaScript</code>.</li>
+      <li><pre class="inline"><code>trim0("    C++       ")</code></pre> renverra <code>C++</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-39">
+    <h2>Exercice 39</h2>
+
+    <p>
+      Créez une fonction <code>trimStart0(chaine)</code> qui retourne la <code>chaine</code> dont on aura enlevé les blancs en trop (espaces, tabulations, caractère nouvelle ligne etc.) au début (uniquement) de celle-ci.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><pre class="inline"><code>trimStart0("   JavaScript ")</code></pre> renverra <pre class="inline"><code>JavaScript </code></pre>.</li>
+      <li><pre class="inline"><code>trimStart0("    C++       ")</code></pre> renverra <pre class="inline"><code>C++       </code></pre>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-40">
+    <h2>Exercice 40</h2>
+
+    <p>
+      Créez une fonction <code>trimEnd0(chaine)</code> qui retourne la <code>chaine</code> dont on aura enlevé les blancs en trop (espaces, tabulations, caractère nouvelle ligne etc.) à la fin (uniquement) de celle-ci.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><pre class="inline"><code>trimEnd0("   JavaScript ")</code></pre> renverra <pre class="inline"><code>   JavaScript</code></pre>.</li>
+      <li><pre class="inline"><code>trimEnd0("    C++       ")</code></pre> renverra <pre class="inline"><code>    C++</code></pre>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <h2>🎉 Félicitations vous avez fini l'échauffement ! 🎉</h2>
+
+  <p>Maintenant on va passer aux exercices finaux, ceux qui vont vous faire réfléchir 🤯.</p>
+
+  <p>L'objectif est de vous entraîner à exploiter les différentes méthodes vues jusqu'à présent pour résoudre les énoncés. Quelques conseils supplémentaires :</p>
+
+  <ul>
+    <li>Faites les exercices dans l'ordre, leur difficulté est croissante.</li>
+
+    <li>N'affichez pas les indices avant d'avoir planché sur l'exercice pendant 30 min au moins.</li>
+
+    <li>Vous pouvez/devrez utiliser tout ce qu'on a vu jusqu'à présent : variables, boucles, conditions, etc. et bien sûr les méthodes disponibles sur les Strings <strong style="color: var(--jaune);">et les Arrays également !</strong></li>
+
+    <li>Il faudra parfois utiliser plusieurs méthodes ensemble pour répondre à l'énoncé.</li>
+
+    <li>Prenez votre temps, il vaut mieux réussir un exercice en ayant passé 1h dessus que d'afficher l'indice trop vite ou de regarder la solution.</li>
+  </ul>
+
+  <p>Bon courage !</p>
+
+  <h2>Exercices finaux</h2>
+
+  <div class="enonce" id="enonce-41">
+    <h2>Exercice 0 — Vérification de jauge</h2>
+
+    <p>
+      Créez une fonction <code>verifierJauge(jauge)</code> qui renverra <code>true</code> si la <code>jauge</code> est remplie à au moins 50% et <code>false</code> sinon. La <code>jauge</code> est une chaîne de caractères composée d'espaces et du caractère <code>#</code> répété plusieurs fois.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><pre class="inline"><code>verifierJauge("####  ")</code></pre> renverra <code>true</code></li>
+      <li><pre class="inline"><code>verifierJauge("###   ")</code></pre> renverra <code>true</code></li>
+      <li><pre class="inline"><code>verifierJauge("##    ")</code></pre> renverra <code>false</code></li>
+      <li><pre class="inline"><code>verifierJauge("##            ")</code></pre> renverra <code>false</code></li>
+      <li><pre class="inline"><code>verifierJauge("#######  ")</code></pre> renverra <code>true</code></li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez <code>lastIndexOf()</code> et la <code>valeur.length</code> pour calculer le taux de remplissage de la jauge.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+
+  <div class="enonce" id="enonce-42">
+    <h2>Exercice 1 — Création de jauge</h2>
+
+    <p>
+      Créez une fonction <code>creerJauge(pourcentage)</code> qui renverra une chaîne de caractères de <code>10</code> caractères représentant le <code>pourcentage</code> avec des <code>#</code> complété par des <code>espaces</code>.
+    </p>
+
+    <p>Le pourcentage est forcément un multiple de <code>10</code>.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><pre class="inline"><code>creerJauge(0)</code></pre> renverra <pre class="inline"><code>          </code></pre>(10 espaces)</li>
+      <li><pre class="inline"><code>creerJauge(10)</code></pre> renverra <pre class="inline"><code>#         </code></pre></li>
+      <li><pre class="inline"><code>creerJauge(50)</code></pre> renverra <pre class="inline"><code>#####     </code></pre></li>
+      <li><pre class="inline"><code>creerJauge(80)</code></pre> renverra <pre class="inline"><code>########  </code></pre></li>
+      <li><pre class="inline"><code>creerJauge(100)</code></pre> renverra <pre class="inline"><code>##########</code></pre></li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez la fonction <code>repeat()</code> et <code>padEnd()</code> pour générer la jauge facilement.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-43">
+    <h2>Exercice 2 — Compteur de voyelles</h2>
+
+    <p>
+      Créez une fonction <code>compteurVoyelles(phrase)</code> qui renvoie le nombre de voyelles <code>(a,e,i,o,u,y)</code> contenues dans la <code>phrase</code> qui sera toujours écrite en minuscules.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>compteurVoyelles("apprendre pour progresser")</code> renverra <code>8</code>.</li>
+      <li><code>compteurVoyelles("la cle, c'est de perseverer")</code> renverra <code>8</code>.</li>
+      <li><code>compteurVoyelles("un peu chaque jour pour memoriser")</code> renverra <code>14</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Lisez chaque lettre pour voir si c'est une voyelle et incrémentez un compteur. Pour vérifier qu'une lettre est une voyelle, on peut utiliser l'astuce <code>"aeiouy".includes(lettre)</code> !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-44">
+    <h2>Exercice 3 — Compteur de consonnes</h2>
+
+    <p>
+      Créez une fonction <code>compteurConsonnes(phrase)</code> qui renvoie le nombre de consonnes, soit toutes les lettres sauf <code>a,e,i,o,u,y</code> contenues dans la <code>phrase</code> qui sera toujours écrite en minuscules.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>compteurConsonnes("apprendre pour progresser")</code> renverra <code>15</code>.</li>
+      <li><code>compteurConsonnes("la cle, c'est de perseverer")</code> renverra <code>13</code>.</li>
+      <li><code>compteurConsonnes("un peu chaque jour pour memoriser")</code> renverra <code>14</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Même chose que l'exercice précédent mais il suffit de changer la liste des voyelles pour les consonnes !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-45">
+    <h2>Exercice 4 — Kebab case</h2>
+
+    <p>
+      Créez une fonction <code>kebabCase(chaine)</code> qui renvoie une chaîne de caractères contenant tous les mots écrits dans la <code>chaine</code> au format kebab-case.
+    </p>
+
+    <p>Pour rappel, un nom au format kebab-case est entièrement en minuscules et les espaces sont remplacés par des tirets.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>kebabCase("liste noeuds HTML")</code> renverra <code>liste-noeuds-html</code>.</li>
+      <li><code>kebabCase("Liste des items selection")</code> renverra <code>liste-des-items-selection</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez d'abord <code>toLowerCase()</code> puis <code>replaceAll()</code> !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-46">
+    <h2>Exercice 5 — Camel case</h2>
+
+    <p>
+      Créez une fonction <code>camelCase(chaine)</code> qui renvoie une chaîne de caractères contenant tous les mots écrits dans la <code>chaine</code> au format camelCase et concaténés ensemble.
+    </p>
+
+    <p>Pour rappel, un nom au format camelCase commence par une minuscule puis chaque première lettre de chaque mot est en majuscules.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>camelCase("liste noeuds HTML")</code> renverra <code>listeNoeudsHtml</code>.</li>
+      <li><code>camelCase("Liste des items selection")</code> renverra <code>listeDesItemsSelection</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Commencez par découper la chaîne sous la forme d'un tableau de mots avec <code>split()</code>, puis pour chaque mot sauf le 1er, extraire la 1ère lettre, la mettre en majuscule avec <code>toUpperCase()</code> et utilisez <code>slice()</code> pour récupérer le reste du mot. Concaténez tout ça à une chaîne de résultat.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-47">
+    <h2>Exercice 6 — Tri de mots</h2>
+
+    <p>
+      Créez une fonction <code>triDeMots(liste)</code> qui renvoie une chaîne de caractères contenant uniquement les mots qui se trouvent dans la <code>liste</code> commençant et terminant par une voyelle <code>a,e,i,o,u,y</code>.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>triDeMots("air,eau,feu,terre,oui,non,ame")</code> renverra <code>eau,oui,ame</code>.</li>
+      <li><code>triDeMots("exercice,courage,volley,penny,amy")</code> renverra <code>exercice,amy</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Dans un premier temps il faut utiliser <code>Array.prototype.split()</code> pour créer un tableau contenant chaque mot de la phrase. À partir de là, on boucle sur chaque mot, on vérifie qu'il respecte les conditions puis on le concatène dans une chaîne de caractères de résultat.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-48">
+    <h2>Exercice 7 — Légumes</h2>
+
+    <p>
+      Créez une fonction <code>legumes(liste)</code> qui renvoie une chaîne de caractères contenant uniquement les légumes qui se trouvent dans la <code>liste</code>.
+    </p>
+
+    <p>La liste des légumes possibles : <code>carotte,haricot,chou,aubergine</code></p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>legumes("carotte,pomme,cerise,haricot,chou,poire")</code> renverra <code>carotte,haricot,chou</code>.</li>
+      <li><code>legumes("pomme,aubergine,chou,haricot,pomme,poire")</code> renverra <code>aubergine,chou,haricot</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Même chose que l'exercice précédent, on pourra également utiliser l'astuce avec <code>"carotte,haricot,chou,aubergine".includes(mot)</code> pour détecter si le <code>mot</code> est un légume ou pas.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-49">
+    <h2>Exercice 8 — Décodeur</h2>
+
+    <p>
+      Créez une fonction <code>decodeur(secret)</code> qui renvoie une chaîne de caractères contenant le message clair contenu dans <code>secret</code>.
+    </p>
+
+    <p>Le message clair est contenu entre 2 séquences <code>##</code> et il faut remplacer tous les <code>-</code> par des espaces.</p>
+
+    <p>Il est garanti qu'il n'existe qu'un seul message clair dans le <code>secret</code>.</p>
+
+    <p>Ensuite il faut convertir chaque chiffre suivant par une lettre : </p>
+    
+    <ul>
+      <li><code>1 → i</code></li>
+      <li><code>3 → e</code></li>
+      <li><code>4 → a</code></li>
+      <li><code>5 → s</code></li>
+      <li><code>8 → b</code></li>
+      <li><code>0 → o</code></li>
+    </ul>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>decodeur("fsihgE24TfsE#Efsf##L3-J4v45cr1pt,-c'35t-834u-!##fSH345Zgze")</code> renverra <code>Le Javascript, c'est beau !</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Utilisez <code>indexOf()</code> et <code>lastIndexOf()</code> pour extraire le contenu intéressant avec <code>slice()</code>. Ensuite utilisez <code>replaceAll()</code> pour déchiffrer le message !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-50">
+    <h2>Exercice 9 — Extraction de noms</h2>
+
+    <p>
+      Créez une fonction <code>extraireNoms(liste)</code> qui renvoie une chaîne de caractères contenant tous les noms écrits en majuscules de la <code>liste</code> et séparés par une virgule, dans l'ordre où ils apparaissent dans <code>liste</code>.
+    </p>
+
+    <p>La <code>liste</code> est une chaîne de caractère au format CSV <code>nom:redocemia;prénom:tom,nom:dusse;prénom:jean-claude</code></p>
+
+    <p>Attention l'ordre du nom et du prénom n'est pas garanti, <code>liste</code> pourrait également contenir : <code>prénom:tom;nom:redocemia,nom:dusse;prénom:jean-claude</code></p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>extraireNoms("nom:redocemia;prénom:tom,nom:dusse;prénom:jean-claude")</code> renverra <code>REDOCEMIA,DUSSE</code>.</li>
+      <li><code>extraireNoms("prénom:tom;nom:redocemia,nom:dusse;prénom:jean-claude")</code> renverra <code>REDOCEMIA,DUSSE</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Découpez avec <code>split()</code> pour extraire chaque couple "nom;prénom" puis redécoupez avec <code>split()</code> et cherchez si le préfixe <code>nom:</code> est présent avec <code>startsWith()</code>. Si oui, extrayez le nom, mettez-le en majuscules avec <code>toUpperCase()</code> et ajouter ça au résultat !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-51">
+    <h2>Exercice 10 — Tableur (difficile)</h2>
+
+    <p>
+      Créez une fonction <code>tableur(liste)</code> qui renvoie une chaîne de caractères contenant une liste des prénoms et noms contenus dans <code>liste</code> alignés sur la droite comme dans un tableur. Un en-tête sera présent avec les mots <code>Prénom</code> et <code>NOM</code>. Les colonnes seront séparées de <code>3</code> espaces.
+    </p>
+
+    <p>Pour créer un retour à la ligne dans la chaîne de caractères renvoyée, utilisez le caractère d'échappement <code>\n</code>.</p>
+
+    <p>Le contenu de la <code>liste</code> respectera toujours l'ordre <code>Prénom NOM,Prénom NOM, etc.</code>.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>aligner("Tom REDOCEMIA,Jean-Claude DUSSE")</code> renverra <pre><code>     Prénom         NOM
+        Tom   REDOCEMIA
+Jean-Claude       DUSSE</code></pre></li>
+      <li><code>aligner("Linus TORVALDS,Bill GATES,Ada LOVELACE")</code> renverra <pre><code>Prénom        NOM
+ Linus   TORVALDS
+  Bill      GATES
+   Ada   LOVELACE</code></pre></li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Prenez votre temps, décortiquez chaque étape tranquillement. Utilisez <code>padStart()</code> pour créer facilement les espaces dont vous aurez besoin pour le formatage. Notez bien qu'il faudra dans un premier temps calculer la longueur max des prénoms et des noms car ce sont ces longueurs qui vont déterminer les largeurs des colonnes Prénom et NOM. Utilisez <code>\n</code> pour faire des nouvelles lignes dans la chaîne de caractères que vous devez renvoyer. Bon courage !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-52">
+    <h2>Exercice 11 — Ville ou pays ? (difficile)</h2>
+
+    <p>
+      Créez une fonction <code>villeOuPays(liste)</code> qui renvoie une chaîne de caractères contenant tous les mots écrits dans la <code>liste</code> en les préfixant de <code>VILLE:</code> ou <code>PAYS:</code> en fonction de si le mot est le nom d'une ville ou d'un pays. Cette fonction corrigera également le formatage des noms : un nom correctement formaté est écrit tout en minuscules avec seule sa première lettre en majuscule.
+    </p>
+
+    <p>Les villes possibles sont : <code>Paris, Londres, Rome, Berlin</code>.</p>
+    <p>Les pays possibles sont : <code>France, Royaume-Uni, Italie, Allemagne</code>.</p>
+
+    <p>Le contenu de <code>liste</code> n'est pas très bien formaté. Il y a parfois des espaces en trop et des majuscules un peu n'importe où ! Il faudra corriger tout ça au passage !</p>
+
+    <p>C'est un problème classique ces histoires de formatage... Une astuce consiste à convertir au préalable les 2 chaînes qu'on veut comparer en minuscules (ou majuscules). Pour comparer <code>France</code> et <code>franCE</code> on met tout en minuscules et on compare pour voir que ça correspond !</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>villeOuPays("parIS, royaume-UNI,ITALIE ,berlin,franCE")</code> renverra <code>VILLE:Paris,PAYS:Royaume-Uni,PAYS:Italie,VILLE:Berlin,PAYS:France</code>.</li>
+      <li><code>villeOuPays("roME, AlleMagne , londres, BERLIN")</code> renverra <code>VILLE:Rome,PAYS:Allemagne,VILLE:Londres,VILLE:Berlin</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Prenez votre temps, décortiquez chaque étape tranquillement. Utilisez 2 tableaux de référence pour stocker les noms des villes et pays. Faites vos comparaisons avec toutes les valeurs en minuscules (grâce à <code>toLowerCase()</code>) pour éviter les soucis de formatage des lettres. Ensuite concaténez le préfixe qui va bien avec le nom récupéré dans les tableaux de référence et mettez tout ça dans le résultat. Bon courage !</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <footer>
+    Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+    <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+  </footer>
+
+  <script src="../commun/mes-outils.js"></script>
+  <script src="../commun/init.js"></script>
+  <script src="exercices.js"></script>
+  <script src="validateur/tests.js"></script>
+</body>
+
+</html>
