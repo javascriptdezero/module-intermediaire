@@ -1,6 +1,6 @@
 /*
  * Si vous rencontrez un bogue, contactez-moi par email à l'adresse
- * jeremy@javascriptdezero.com ou via slack : https://javascriptdezero.slack.com.
+ * jeremy@javascriptdezero.com
  */
 
 /*****************************************************************************
