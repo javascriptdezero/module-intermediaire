@@ -4,13 +4,13 @@ Vous trouverez ici tout le contenu du module intermédiaire de la formation [Jav
 
 ## Cours vidéo
 
-💰 Les cours du module intermédiaire sont payants.
+💰 Les [cours du module intermédiaire](https://www.javascriptdezero.com/module-intermediaire) sont payants.
 
 ❤️ Merci de votre compréhension et de votre soutien financier.
 
-Connectez-vous sur [javascriptdezero.com](https://www.javascriptdezero.com) et achetez le module intermédiaire pour y accéder.
+✅ Si vous souhaitez voir des cours gratuits, vous pouvez regarder gratuitement [l'intégralité du module débutant](https://www.javascriptdezero.com/module-debutant) (20 vidéos — 4h20 de contenu).
 
-✅ Si vous souhaitez voir des cours vidéos gratuits, vous pouvez regarder [l'intégralité du module débutant](https://www.youtube.com/watch?v=JeqZNiAhnlE&list=PLyj4q0fkISxAPXLZqNq5gCKcCVLBqL9nB) (20 vidéos — 4h20 de contenu) et des extraits des modules payants sur la [chaîne YouTube JavaScript de Zéro](https://www.youtube.com/javascriptdezero).
+Vous pouvez aussi voir quelques extraits gratuits du module intermédiaire sur cette [playlist YouTube](https://www.youtube.com/watch?v=-8eHKlJMnw8&list=PLyj4q0fkISxD4HVVfar6wLPTCRM7kB3_j).
 
 ## Exercices
 
