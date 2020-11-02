@@ -238,7 +238,7 @@ function extraction(transmission, sequence) {
   // On récupère ce qu'il y a entre ces 2 caractères, attention
   // indexDebut et indexFin correspondent à la position du
   // caractère sequence ! Il faut donc commencer 1 position après
-  // indexFin (d'où le + 1). En revanche indexFin n'est pas inclus
+  // indexDebut (d'où le + 1). En revanche indexFin n'est pas inclus
   // quand on fait slice, donc pas besoin de mettre (indexFin - 1) !
   return transmission.slice(indexDebut + 1, indexFin);
 }
