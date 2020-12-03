@@ -4,6 +4,7 @@
 // Expressions régulières === Expressions rationnelles
 // Abréviation : "RegEx" ou "RegExp"
 // Modèle / motif => Pattern 🇬🇧
+// Drapeaux / marqueurs => Flag(s) 🇬🇧
 // Correspondance(s) => Match / Matches 🇬🇧
 
 /* À quoi ça sert ? */
@@ -35,10 +36,11 @@ let jsRegExpLitteral = /JavaScript/gi;
 let jsRegExp = new RegExp("JavaScript", "gi");
 
 /* Tester un formatage */
-// let regExpCodePostal = /^\d{5}$/;
-// // 🚨 Attention aux échappements !
-// // let regExpCodePostal = new RegExp("^\d{5}$");
-// let codePostaux = ["123", "   12345", "12345", "12345  ", "12 345", "45297"];
+let regExpCodePostal = /^\d{5}$/;
+let codePostaux = ["123", "   12345", "12345", "12345  ", "12a345", "45297"];
+
+// 🚨 Attention aux échappements !
+// regExpCodePostal = new RegExp("^\d{5}$");
 
 // for (let i = 0; i < codePostaux.length; i++) {
 //   let codePostal = codePostaux[i];
@@ -52,13 +54,19 @@ let jsRegExp = new RegExp("JavaScript", "gi");
 /* Les groupes de capture */
 // Extraction de données
 // let texte = "Téléphone : 0123456789 (fixe)";
-// let regExpTel = /(\d{10})/;
+// let regExpTel = /Téléphone : (\d{10})/;
 // let telephone = regExpTel.exec(texte);
 // console.log(telephone);
-// console.log(`N° de tél. extrait : ${telephone[0]}`);
+// console.log(`N° de tél. extrait : ${telephone[1]}`);
 
 /* Remplacement de données */
-// console.log(texte.replace(regExpTel, `<a href="tel:$1">$1</a>`));
+// console.log(texte.replace(regExpTel, `Téléphone : <a href="tel:$1">$1</a>`));
 
 /* Les erreurs fréquentes */
 // Attention au moteur de RegEx utilisé !
+
+/* Les méthodes simples à connaître */
+
+/* Pas d'exercices ! */
+
+/* Prochaine leçon */
