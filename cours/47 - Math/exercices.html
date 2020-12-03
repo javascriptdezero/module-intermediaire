@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Number</title>
+  <link rel="stylesheet" type="text/css" href="../commun/style.css" />
+  <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
+</head>
+
+<body>
+  <h1>Number</h1>
+  <p>
+    Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
+  </p>
+  <p>
+    Pensez à bien lire l'intégralité de <a
+      href="https://github.com/javascriptdezero/module-debutant/tree/master/cours#exercices"
+      target="_blank">la documentation pour faire les exercices</a> avant de commencer.
+  </p>
+  <p>
+    Dernier point, lorsque vous trouvez la solution d'un exercice par vous-même, allez tout de même voir la solution que
+    je propose :
+    vous apprendrez peut-être une autre façon de faire plus intéressante !
+  </p>
+
+  <h2>En cas de problèmes techniques</h2>
+  <p>Il se peut que vous rencontriez certains problèmes techniques pour valider les exercices.<br>
+    Lisez leur solution au moins une fois avant de commencer les exercices.</p>
+  <ul>
+    <li>
+      <p>Si certains exercices précédemment validés en vert redeviennent gris et "En attente de code à tester" : c'est
+        qu'il y
+        a une erreur de syntaxe dans votre code. Solution : ouvrez la console développeur pour trouver l'erreur.</p>
+      <details>
+        <summary>Cliquez ici pour savoir comment ouvrir la console développeur de Chrome</summary>
+        <p><strong>Sur Windows ou Linux</strong> : depuis Chrome, tapez <code>Ctrl + Shift + J</code> ou allez dans le
+          menu (les 3
+          petits points verticaux en haut à droite de la fenêtre de Chrome) puis allez dans Plus d'outils > Outils de
+          développement.</p>
+        <p><strong>Sur MacOS</strong> : depuis Chrome, tapez <code>⌘ + ⌥ + J</code> (Commande + Option + J) ou bien
+          allez dans le
+          menu Afficher > Options pour les développeurs > Console JavaScript.</p>
+        <p>Le message d'erreur apparaît en rouge et est en anglais, il faudra le traduire. L'erreur vient du fichier
+          noté sur la droite au numéro de ligne indiqué. Ouvrez ce fichier dans VSCode, rendez-vous à la ligne indiquée
+          et corrigez l'erreur.<br><br>
+          <img src="../../images/console-developpeur.jpg" alt="Onglet console de la console développeur"
+            style="width: 100%">
+        </p>
+      </details>
+    </li>
+    <li>
+      <p>Si la page web ne répond plus (les clics n'ont aucun effet) ou si l'icône dans l'onglet tourne indéfiniment :
+        c'est qu'il y a une boucle infinie dans votre code. Solution : corrigez votre code puis actualisez le site web.
+      </p>
+      <details>
+        <summary>Cliquez ici pour voir comment corriger une boucle infinie</summary>
+        <p>Si vous avez fait une boucle infinie, l'icône de votre onglet va tourner comme ça indéfiniment
+          :<br /><br /><img src="../../images/boucle-infinie.jpg" alt="page web en boucle infinie" width="400"></p>
+        <p>Voici à quoi peut ressembler une boucle infinie dans du code :</p>
+        <p class="code">
+          let poidsClient = prochainClient.mesurerPoids();<br><br>
+
+          while (poidsClient !== 0) {<br>
+          &nbsp;&nbsp;console.log(poidsClient);<br>
+          }
+        </p>
+        <p>Le problème ici, c'est que la condition de répétition de la boucle <code>poidsClient !== 0</code> est
+          toujours vraie ! En effet, on ne modifie pas la valeur de <code>poidsClient</code> à l'intérieur de la boucle,
+          par
+          conséquent celle-ci s'exécutera sans jamais s'arrêter : vous avez fait une boucle infinie !</p>
+        <p>Voici les étapes à respecter pour se sortir de ce problème :</p>
+        <ol>
+          <li>Dans le menu de Chrome (les 3 petits points verticaux en haut à droite de la fenêtre de Chrome), allez
+            dans Plus d'outils > Gestionnaire de tâches, sélectionnez l'onglet qui pose problème dans la liste puis
+            cliquez sur le bouton <code>Arrêter le processus</code> en bas à droite.
+            <br>
+            Vous pouvez également faire un clic droit sur la barre de titre de Chrome pour sélectionner plus rapidement
+            le gestionnaire de tâches.
+            <br><br>
+            <img src="../../images/clic-droit-gestionnaire-taches.jpg"
+              alt="clic droit pour accéder au gestionnaire de tâches" style="width: 100%"></li>
+          <li>Corrigez le bogue dans votre code depuis VSCode.</li>
+          <li>Actualisez à nouveau la page web qui a été précédemment arrêtée en cliquant sur la petite flèche à gauche
+            de la barre d'adresse.<br><br><img src="../../images/actualiser.jpg" alt="flèche à cliquer pour actualiser"
+              width="400"></li>
+        </ol>
+        <h3>Attention à la sauvegarde automatique dans VSCode !</h3>
+        <p>Dans les paramètres, je vous conseille d'utiliser l'option <code>onFocusChange</code> pour la sauvegarde
+          automatique.</p>
+        <img src="../../images/autosave.jpg" alt="configuration option sauvegarde automatique vscode"
+          style="width: 100%">
+        <p>En effet, si vous avez l'option <code>afterDelay</code> de sélectionnée, ça veut dire que VSCode va
+          sauvegarder votre code toutes les X secondes. Le site web va se recharger automatiquement à ce moment là et si
+          votre code actuel génère une boucle infinie, Chrome va planter !</p>
+        <p>Pour éviter ce problème, utilisez l'option <code>onFocusChange</code> qui indique à VSCode de sauvegarder
+          votre fichier seulement si vous changez de fenêtre ou d'onglet. Vous pouvez aussi sauvegarder manuellemment
+          avec <code>⌘ + S</code> sur MacOS ou <code>Ctrl + S</code> sur Windows ou Linux quand vous voulez vérifier que
+          votre code fonctionne.</p>
+      </details>
+    </li>
+    <li>
+      <p>Si vous souhaitez déboguer votre code, utilisez le débogueur de Chrome comme je l'explique <a
+          href="https://www.youtube.com/watch?v=_imeD5H-yCw&t=557" target="_blank">dans cette vidéo</a>.</p>
+    </li>
+    <li>
+      <p>Si vous êtes bloqué et qu'aucune solution mentionnée ne fonctionne, envoyez-moi un email sur <a
+          href="mailto:jeremy@javascriptdezero.com">jeremy@javascriptdezero.com</a> en précisant le numéro de la leçon
+        sur laquelle vous travaillez et le numéro de l'exercice qui pose problème.</p>
+    </li>
+  </ul>
+
+  <h2>Documentation</h2>
+  <ul>
+    <li>
+      <a class="mdn" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number"
+        target="_blank">Consulter la doc MDN sur le type Number</a>
+    </li>
+  </ul>
+
+  <h2>Objectifs</h2>
+  <ul>
+    <li>Comprendre le fonctionnement général du type Number.</li>
+    <li>Savoir déclarer et utiliser les Numbers.</li>
+    <li>Savoir utiliser les méthodes simples disponibles sur les Numbers et notamment :
+      <ul>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isNaN" class="mdn" target="_blank">Number.isNaN</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isFinite" class="mdn" target="_blank">Number.isFinite</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isInteger" class="mdn" target="_blank">Number.isInteger</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isSafeInteger" class="mdn" target="_blank">Number.isSafeInteger</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseFloat" class="mdn" target="_blank">Number.parseFloat</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseInt" class="mdn" target="_blank">Number.parseInt</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toFixed" class="mdn" target="_blank">toFixed</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toString" class="mdn" target="_blank">toString</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Structure des exercices</h2>
+  
+  <h3>Exercices d'échauffement</h3>
+  <p>Dans un premier temps, vous allez devoir utiliser les méthodes listées ci-dessus une par une, dans l'ordre, pour réaliser les exercices d'échauffement. Vous ferez quelques exercices sur <code>isNaN()</code>, puis quelques exercices sur <code>isFinite()</code>, puis <code>isInteger()</code> etc.</p>
+
+  <p>Même si ces exercices peuvent parfois être un peu rébarbatifs, faites-les au moins une fois. L'objectif est de vous familiariser avec chacune de ces méthodes pour retenir l'utilité principale de celles-ci.</p>
+  
+  <h3>Exercices finaux</h3>
+  <p>Une fois l'échauffement terminé, les exercices suivants vont devenir un peu plus difficiles : vous devrez utiliser plusieurs des méthodes vues précédemment pour répondre à l'énoncé.</p>
+  
+  <h3>Indices</h3>
+  <p>Pour les exercices finaux vous pourrez afficher un indice qui vous indiquera quelles méthodes utiliser pour répondre à l'énoncé. N'affichez l'indice que si vous avez passé au moins 30 min sur un exercice. Le but n'est pas d'aller le plus vite possible mais de faire un maximum d'exercices <strong>seul</strong>.</p>
+  <p>L'objectif est de vous apprendre à utiliser les nouveaux outils à votre disposition (les méthodes des Numbers) pour répondre à des exercices de plus en plus complexes.</p>
+  <p>Vous développerez votre sens logique et votre capacité à assembler des briques de base (les méthodes) entre elles pour répondre à des énoncés complexes.</p>
+
+  <h2>Fonctionnement des exercices</h2>
+
+  <p>Tous les exercices fonctionnent sur le même principe : vous devez rédiger une fonction à partir de zéro et celle-ci devra renvoyer (avec le mot-clé <code>return</code>) la solution de l'énoncé.</p>
+
+  <div class="enonce" id="enonce-0">
+    <h2>Exercice 0</h2>
+
+    <p>
+      Créez une fonction <code>isNaN0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> vaut <code>NaN</code> et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>isNaN0("JavaScript")</code> renverra <code>false</code>.</li>
+      <li><code>isNaN0("NaN")</code> renverra <code>false</code>.</li>
+      <li><code>isNaN0(NaN)</code> renverra <code>true</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-1">
+    <h2>Exercice 1</h2>
+
+    <p>
+      Créez une fonction <code>isFinite0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre fini (c'est-à-dire un nombre valide, à virgule ou pas, qui n'est pas l'infini) et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>isFinite0("0")</code> renverra <code>false</code>.</li>
+      <li><code>isFinite0(0)</code> renverra <code>true</code>.</li>
+      <li><code>isFinite0(5/2)</code> renverra <code>true</code>.</li>
+      <li><code>isFinite0(Infinity)</code> renverra <code>false</code>.</li>
+      <li><code>isFinite0(NaN)</code> renverra <code>false</code>.</li>
+      <li><code>isFinite0(-Infinity)</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-2">
+    <h2>Exercice 2</h2>
+
+    <p>
+      Créez une fonction <code>isInteger0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre entier (c'est-à-dire un nombre valide et pas à virgule) et <code>false</code> sinon.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>isInteger0("0")</code> renverra <code>false</code>.</li>
+      <li><code>isInteger0(0)</code> renverra <code>true</code>.</li>
+      <li><code>isInteger0(5/2)</code> renverra <code>false</code>.</li>
+      <li><code>isInteger0(42.1337)</code> renverra <code>false</code>.</li>
+      <li><code>isInteger0(NaN)</code> renverra <code>false</code>.</li>
+      <li><code>isInteger0(Infinity)</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-3">
+    <h2>Exercice 3</h2>
+
+    <p>
+      Créez une fonction <code>isSafeInteger0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre entier "safe" et <code>false</code> sinon. Un entier "safe" est un entier dont on peut stocker la valeur dans un programme JavaScript et la relire sans perdre en précision.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>isSafeInteger0("0")</code> renverra <code>false</code>.</li>
+      <li><code>isSafeInteger0(0)</code> renverra <code>true</code>.</li>
+      <li><code>isSafeInteger0(-256443645756)</code> renverra <code>true</code>.</li>
+      <li><code>isSafeInteger0(256443645756)</code> renverra <code>true</code>.</li>
+      <li><code>isSafeInteger0(9007199254740991)</code> renverra <code>true</code>.</li>
+      <li><code>isSafeInteger0(-9007199254740991)</code> renverra <code>true</code>.</li>
+      <li><code>isSafeInteger0(9007199254740992)</code> renverra <code>false</code>.</li>
+      <li><code>isSafeInteger0(-9007199254740992)</code> renverra <code>false</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-4">
+    <h2>Exercice 4</h2>
+
+    <p>
+      Créez une fonction <code>parseFloat0(chaine)</code> qui renvoie le nombre à virgule au début de la <code>chaine</code> et <code>NaN</code> si cette <code>chaine</code> ne commence pas par une nombre.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>parseFloat0("8.4°C ce matin...")</code> renverra <code>8.4</code>.</li>
+      <li><code>parseFloat0("La réponse est 42... ou NaN")</code> renverra <code>NaN</code>.</li>
+      <li><code>parseFloat0("2 buts en 30 min !")</code> renverra <code>2</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-5">
+    <h2>Exercice 5</h2>
+
+    <p>
+      Créez une fonction <code>parseInt0(chaine)</code> qui renvoie le nombre entier au début de la <code>chaine</code> et <code>NaN</code> si cette <code>chaine</code> ne commence pas par une nombre.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>parseInt0("8.4°C ce matin...")</code> renverra <code>8</code>.</li>
+      <li><code>parseInt0("La réponse est 42... ou NaN")</code> renverra <code>NaN</code>.</li>
+      <li><code>parseInt0("2 buts en 30 min !")</code> renverra <code>2</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-6">
+    <h2>Exercice 6</h2>
+
+    <p>
+      Créez une fonction <code>parseInt1(binaire)</code> qui convertit le nombre <code>binaire</code> écrit en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_binaire" class="mdn" target="_blank">base binaire (base 2)</a> en une valeur décimale (base 10).
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>parseInt1("101010")</code> renverra <code>42</code>.</li>
+      <li><code>parseInt1("10100111001")</code> renverra <code>1337</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-7">
+    <h2>Exercice 7</h2>
+
+    <p>
+      Créez une fonction <code>parseInt2(hexa)</code> qui convertit le nombre <code>hexa</code> écrit en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal" class="mdn" target="_blank">base hexadécimale (base 16)</a> en une valeur décimale (base 10).
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>parseInt2("2a")</code> renverra <code>42</code>.</li>
+      <li><code>parseInt2("539")</code> renverra <code>1337</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-8">
+    <h2>Exercice 8</h2>
+
+    <p>
+      Créez une fonction <code>toFixed0(valeur)</code> qui renvoie une chaîne de caractères avec le nombre à virgule <code>valeur</code> formaté à <code>3</code> chiffres max après la virgule (en arrondissant à l'entier le plus proche si besoin).
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toFixed0(42.1337)</code> renverra <code>"42.134"</code>.</li>
+      <li><code>toFixed0(356.23553)</code> renverra <code>"356.236"</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-9">
+    <h2>Exercice 9</h2>
+
+    <p>
+      Créez une fonction <code>toString0(valeur)</code> qui renvoie le nombre <code>valeur</code> sous la forme d'une chaîne de caractères.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toString0(42)</code> renverra <code>"42"</code>.</li>
+      <li><code>toString0(1337)</code> renverra <code>"1337"</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-10">
+    <h2>Exercice 10</h2>
+
+    <p>
+      Créez une fonction <code>toString1(nombre)</code> qui convertit le <code>nombre</code> entier décimal en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_binaire" class="mdn" target="_blank">binaire (base 2)</a>. La représentation binaire de ce nombre sera renvoyée sur la forme d'une chaîne de caractères.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toString1(42)</code> renverra <code>"101010"</code>.</li>
+      <li><code>toString1(1337)</code> renverra <code>"10100111001"</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-11">
+    <h2>Exercice 11</h2>
+
+    <p>
+      Créez une fonction <code>toString2(nombre)</code> qui convertit le <code>nombre</code> entier décimal en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal" class="mdn" target="_blank">hexadécimal (base 16)</a>. La représentation hexadécimale de ce nombre sera renvoyée sur la forme d'une chaîne de caractères.
+    </p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>toString2(42)</code> renverra <code>"2a"</code>.</li>
+      <li><code>toString2(1337)</code> renverra <code>"539"</code>.</li>
+    </ul>
+
+    <div class="message"></div>
+  </div>
+
+  <h2>🎉 Félicitations vous avez fini l'échauffement ! 🎉</h2>
+
+  <p>Maintenant on va passer aux exercices finaux, ceux qui vont vous faire réfléchir 🤯.</p>
+
+  <p>L'objectif est de vous entraîner à exploiter les différentes méthodes vues jusqu'à présent pour résoudre les énoncés. Quelques conseils supplémentaires :</p>
+
+  <ul>
+    <li>Faites les exercices dans l'ordre, leur difficulté est croissante.</li>
+
+    <li>N'affichez pas les indices avant d'avoir planché sur l'exercice pendant 30 min au moins.</li>
+
+    <li>Vous pouvez/devrez utiliser tout ce qu'on a vu jusqu'à présent : variables, boucles, conditions, etc. et bien sûr les méthodes disponibles <strong style="color: var(--jaune);">sur les Strings, les Arrays et les Numbers bien sûr !</strong></li>
+
+    <li>Il faudra parfois utiliser plusieurs méthodes ensemble pour répondre à l'énoncé.</li>
+
+    <li>Prenez votre temps, il vaut mieux réussir un exercice en ayant passé 1h dessus que d'afficher l'indice trop vite ou de regarder la solution.</li>
+  </ul>
+
+  <p>Bon courage !</p>
+
+  <h2>Exercices finaux</h2>
+
+  <div class="enonce" id="enonce-12">
+    <h2>Exercice 0 - Décodeur</h2>
+
+    <p>
+      Créez une fonction <code>decodeur(secret)</code> qui décode le message <code>secret</code>. Celui-ci est une chaîne de caractères composée uniquement de 0 et de 1 qui représentent le message original.
+    </p>
+
+    <p>Par exemple, supposons que <code>secret</code> vaut <code>0110011001110010</code>.</p>
+
+    <p>Pour décoder ce secret, vous devrez suivre les étapes suivantes :</p>
+    <ol>
+      <li>Découpez la chaîne en blocs de 8 chiffres consécutifs. Chaque bloc de 8 chiffres représente un nombre au format binaire.</li>
+      <li>Convertissez ce nombre en décimal. Ici, le 1<sup>er</sup> bloc est <code>01100110</code> et vaut <code>102</code>. Le 2<sup>ème</sup> bloc est <code>01110010</code> et vaut <code>114</code>.</li>
+      <li>Convertissez chaque nombre en son caractère associé selon la <a href="https://fr.wikibooks.org/wiki/Les_ASCII_de_0_%C3%A0_127/La_table_ASCII#Table_des_128_caract%C3%A8res_ASCII" target="_blank">table de correspondances ASCII</a>. La méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/fromCharCode" target="_blank" class="mdn">String.fromCharCode(nombre)</a> vous permet de faire ça facilement !</li>
+      <li>Le nombre <code>102</code> correspond à la lettre <code>f</code>.</li>
+      <li>Le nombre <code>114</code> correspond à la lettre <code>r</code>.</li>
+      <li>Le message clair était donc <code>fr</code>.</li>
+    </ol>
+
+    <p>Il est garanti que la longueur de <code>secret</code> est toujours un multiple de 8.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>decodeur("0110011001110010")</code> renverra <code>"fr"</code>.</li>
+      <li><code style="overflow-wrap: anywhere;">decodeur("01001010011000010111011001100001010100110110001101110010011010010111000001110100")</code> renverra <code>"539"</code>.</li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Pour découpez chaque bloc de 8 chiffres, utilisez une boucle avec <code>slice()</code>. Faites les conversions nécessaires avec <code>parseInt()</code> et la base qui va bien puis <code>String.fromCharCode()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-13">
+    <h2>Exercice 1 - Encodeur</h2>
+
+    <p>
+      Créez une fonction <code>encodeur(message)</code> qui encode le <code>message</code> sous la forme du <code>secret</code> de l'exercice précédent.
+    </p>
+
+    <p>Par exemple, supposons que le message à encoder soit <code>JavaScript</code>.</p>
+
+    <p>Pour encoder ce message, vous devrez suivre les étapes suivantes :</p>
+    <ol>
+      <li>Pour chaque caractère dans le message, convertissez-le en son nombre décimal équivalent selon la <a href="https://fr.wikibooks.org/wiki/Les_ASCII_de_0_%C3%A0_127/La_table_ASCII#Table_des_128_caract%C3%A8res_ASCII" target="_blank">table de correspondances ASCII</a>. La méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/charCodeAt" target="_blank" class="mdn">charCodeAt()</a> vous permet de faire ça facilement !</li>
+      <li>La lettre <code>J</code> correspond au nombre <code>74</code></li>
+      <li>Convertissez chaque nombre en son équivalent binaire grâce à la méthode <code>toString()</code>. Le nombre <code>74</code> devient <code>01001010</code>. Attention, la représentation binaire doit être sur 8 chiffres, il faudra compléter avec des <code>0</code> au début si besoin.</li>
+      <li>Concaténez le tout en une seule chaîne de caractères qu'il faut renvoyer !</li>
+    </ol>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>encodeur("fr")</code> renverra <code>"0110011001110010"</code>.</li>
+      <li><code>decodeur("JavaScript")</code> renverra <code style="overflow-wrap: anywhere;">"01001010011000010111011001100001010100110110001101110010011010010111000001110100"</code></li>
+    </ul>
+
+    <details>
+      <summary>Indice</summary>
+      <p>Lisez chaque caractère du message avec une boucle et récupérez le nombre correspondant à ce caractère avec <code>charCodeAt()</code>. Faites les conversions nécessaires avec <code>toString()</code> et la base qui va bien puis complétez avec les 0 nécessaires devant la représentation binaire grâce à <code>padStart()</code>.</p>
+    </details>
+
+    <div class="message"></div>
+  </div>
+
+  <div class="enonce" id="enonce-14">
+    <h2>Exercice 2 - Panier de fruits (difficile)</h2>
+
+    <p>
+      Créez une fonction <code>totalPanier(commandes)</code> qui retourne une chaîne de caractères représentant la somme de toutes les <code>commandes</code> passées par plusieurs clients.
+    </p>
+
+    <p>Les commandes sont au format CSV, sous la forme d'une chaîne de caractères, par exemple : <code>10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes</code>.</p>
+
+    <p>La fonction devra calculer la somme totale de fruits à vendre et retourner cette somme dans une chaîne de caractères comme ceci : <code>45 pommes,50 cerises,18 bananes</code>.</p>
+
+    <p>L'ordre des fruits devra être le même que celui rencontré dans les commandes.</p>
+
+    <p>Pour simplifier l'exercice, il est garanti que le nom du fruit est toujours écrit au pluriel, par exemple, dans la commande, il peut être écrit <code>0 bananes,1 bananes</code>.</p>
+
+    <p>Si la somme des commandes d'un certain fruit vaut <code>0</code>, on ne l'indique pas du tout dans le total.</p>
+
+    <p>Exemples :</p>
+    <ul>
+      <li><code>totalPanier("10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes")</code> renverra <code>45 pommes,50 cerises,18 bananes</code></li>
+      <li><code>totalPanier("2 melons,12 oranges,35 pommes,1 melons,0 bananes,5 oranges,0 bananes,30 cerises")</code> renverra <code>3 melons,17 oranges,35 pommes,30 cerises</code></li>
+    </ul>
+
+    <details>
+      <summary>Indice 1</summary>
+      <p>L'astuce principale à exploiter pour cet exercice est d'utiliser un objet JavaScript (nommons-le <code>sommeCommandes</code> par exemple) pour stocker la somme des quantités de chaque fruit sous la forme <code>{ "pommes": 20, "cerises": 35 }</code>.</p><p>À chaque nouveau fruit qu'on rencontre on ajoute une nouvelle propriété dans cet objet qui aura pour nom le nom du fruit et pour valeur la quantité demandée.</p><p>Si on a déjà rencontré ce fruit, on ajoute la nouvelle quantité à la quantité déjà existante dans <code>sommeCommandes</code>. Par exemple si on avait <code>{ "pommes": 10 }</code> et qu'on lit <code>7 pommes</code> dans la liste des commandes, il faut modifier l'objet pour avoir <code>{ "pommes": 17 }</code> et ainsi de suite.</p>
+      <p>Utilisez la méthode <code>split()</code> pour découper la chaîne <code>commandes</code> et en extraire les quantités et le nom de chaque fruit facilement. Ensuite faites une boucle pour récupérer chaque commande de fruits séparément et alimenter l'objet <code>sommeCommandes</code>.</p>
+      <p>Dans un premier temps, essayez de construire cet objet <code>sommeCommandes</code> correctement, sans vous soucier du reste.</p>
+      <p>Ensuite il faudra trouver un moyen d'afficher dans l'ordre qu'il faut le contenu de <code>sommeCommandes</code>. Essayez de votre côté puis lisez l'indice 2 si vous n'y arrivez pas.</p>
+    </details>
+
+    <details>
+      <summary>Indice 2</summary>
+      <p>Pour retenir l'ordre des fruits, on peut utiliser un tableau <code>ordreDesFruits</code> qui contiendra la liste des noms de chaque fruit qu'on a lu dans <code>commandes</code>. À chaque fois qu'on lit un nouveau nom de fruit, on vérifie qu'il n'est pas déjà dans <code>ordreDesFruits</code> grâce à la méthode <code>includes()</code>. Si ce n'est pas le cas alors on l'ajoute à <code>ordreDesFruits</code> avec la méthode <code>push()</code>.</p>
+      <p>À la fin on obtient dans ce tableau la liste des noms des fruits comme ceci : <code>["pommes", "cerises", "oranges"]</code>. Il ne reste plus qu'à lire chaque nom de fruit dans ce tableau avec une boucle et à utiliser ce nom de fruit avec <code>sommeCommandes</code> pour afficher la quantité et le nom du fruit dans le bon ordre.</p>
+    </details>
+
+    <p class="attention">Cet exercice est très difficile. Vous aurez besoin d'utiliser les objets et les tableaux pour y arriver. N'hésitez pas à passer plusieurs heures sur celui-ci, ne vous découragez pas.</p>
+
+    <div class="message"></div>
+  </div>
+
+  <footer>
+    Exercices de la formation <a href="https://www.javascriptdezero.com">JavaScript de Zéro</a> par
+    <a href="https://twitter.com/JeremyMouzin">Jérémy Mouzin</a>
+  </footer>
+
+  <script src="../commun/mes-outils.js"></script>
+  <script src="../commun/init.js"></script>
+  <script src="exercices.js"></script>
+  <script src="validateur/tests.js"></script>
+</body>
+
+</html>
