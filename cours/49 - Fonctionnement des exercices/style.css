@@ -1,0 +1,41 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Variables CSS */
+:root {
+  /* Couleurs */
+  --bleu-200: #4bcfff;
+  --bleu-500: #00455E;
+  
+  --gris-100: #E5E5E5;
+  --gris-300: #949494;
+  --gris-500: #3E3E3E;
+
+  --rouge-500: #ff866e;
+  --vert-500: #a3ff6e;
+
+  /* Font sizes */
+  --font-size-normal: 1.5rem;
+  --font-size-large: 3rem;
+
+  /* Dimensions (sur une base de 16px) */
+  --dim-1: .25rem; /* (4px) */
+  --dim-2: .5rem;  /* (8px) */
+  --dim-3: 1rem;   /* (16px) */
+  --dim-4: 2rem;   /* (32px) */
+  --dim-5: 3rem;   /* (48px) */
+  --dim-6: 3.5rem; /* (56px) */
+  --dim-7: 7rem;   /* (112px) */
+
+  /* Autres */
+  --border-radius: 8px;
+  --box-shadow: 0 0 8px var(var(--box-shadow-color), rgba(0, 0, 0, 0.25));
+  --transition-duration: 200ms;
+}
+
