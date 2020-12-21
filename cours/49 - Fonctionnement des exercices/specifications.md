@@ -1,9 +1,5 @@
 > Vous pouvez afficher ce fichier sous une forme plus agréable à l'aide du raccourci clavier `CMD+Shift+V` (ou `Ctrl+Shift+V` sous Windows et Linux). Vous pouvez aussi faire un clic droit sur l'onglet puis `Ouvrir l'aperçu`. 
 
-# Intégration
-
-Vous pouvez effectuer l'intégration de ce projet en HTML / CSS. Pour en savoir plus, regardez dans le dossier `integration` le fichier `integration.md`.
-
 # Spécifications
 
 **Accessibilité** : toutes les fonctionnalités (sauf le changement d'ordre des items) devront fonctionner en utilisant uniquement le clavier (touche `TAB` pour se déplacer sur les différents éléments).
