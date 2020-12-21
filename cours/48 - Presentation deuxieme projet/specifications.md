@@ -127,14 +127,30 @@ Pour ce faire on pourra utiliser la fonction [JSON.parse()](https://developer.mo
 
 ## Modification d'un item
 
-# **TODO**
+Une fois qu'un item est ajouté, il faut pouvoir modifier ses informations facilement. À cause de contraintes sur le design, on a utilisé des éléments `<p>` pour le nom et la quantité de chaque item. Il va falloir transformer dynamiquement ces éléments en `<input>` lorsqu'ils obtiendront le `focus`.
 
-Une fois qu'un item est ajouté, il faut pouvoir modifier ses informations facilement.
+> Note : par défaut un élément `<p>` ne peut obtenir le `focus`que s'il possède l'attribut `tabindex="0"`.
 
-- Il faut pouvoir accéder aux différents champs `nom`, `quantite` et `unite` via la touche `TAB`
-- 
-- La quantité d'un item doit être comprise entre `1` et `999` inclus
-- Dès qu'on modifie un item en éditant un de ces champs, les nouvelles valeurs pour cet item doivent être sauvegardées dans le `localStorage`
+#### Exercice — Le champ nom
+
+- Lorsque le paragraphe de classe `nom` reçoit le `focus` (via le clavier ou un clic de souris) celui-ci doit se transformer en `<input>` de `type="text"` avec l'attribut `value` égal au contenu du paragraphe
+- Il devra aussi posséder les classes déjà présentes sur le paragraphe
+- **UX** : Il devra obtenir immédiatement le `focus`
+- Lorsqu'il perd le `focus` (évènement `blur`) ou qu'on appuie sur la touche `ENTREE`, l'`input` doit être retransformé à nouveau en élément `<p>` avec son contenu mis à jour suite aux modifications effectuées dans l'`input`
+- On doit pouvoir modifier sa valeur s'il reçoit le `focus` à nouveau
+
+#### Exercice — Le champ quantité
+
+- Lorsque le paragraphe de classe `quantite` reçoit le `focus` (via le clavier ou un clic de souris) celui-ci doit se transformer en `<input>` de `type="number"` avec l'attribut `value` égal au contenu du paragraphe.
+- Il devra aussi posséder les classes déjà présentes sur le paragraphe
+- **UX** : Il devra obtenir immédiatement le `focus`
+- De plus la quantité d'un item devra être comprise entre `1` et `999` inclus (utilisez des attributs HTML pour cela)
+- Lorsqu'il perd le `focus` (évènement `blur`) ou qu'on appuie sur la touche `ENTREE`, l'`input` doit être retransformé à nouveau en élément `<p>` avec son contenu mis à jour suite aux modifications effectuées dans l'`input`
+- On doit pouvoir modifier sa valeur s'il reçoit le `focus` à nouveau
+
+#### Exercice — Sauvegarde des données automatique
+
+- Dès qu'on modifie un item en éditant l'un de ces champs `nom`, `quantite` et `unite`, les nouvelles valeurs pour cet item doivent être immédiatement sauvegardées dans le `localStorage`
 
 ## Modification de la liste
 
@@ -144,7 +160,7 @@ Pour supprimer un item il suffit d'utiliser le bouton poubelle à droite de celu
 
 - Lorsque ce bouton est cliqué, l'item doit être supprimé de la liste et une sauvegarde de la nouvelle liste doit être faite dans `localStorage` pour refléter cette suppression
 - Une fois que c'est fait il faut également supprimer l'item `<li>` de la liste `<ul>`
-- **UX** : appliquez la classe `.suppression` avant de supprimer l'item de la liste pour effectuer une animation de suppression. Utilisez l'évènement `transitionend` pour détecter la fin de la suppression et supprimer l'item `<li>` de la liste `<ul>` à ce moment là
+- **UX** : appliquez la classe `.suppression` avant de supprimer l'item de la liste pour effectuer une animation de suppression. Utilisez l'évènement `transitionend` pour détecter la fin de l'animation de suppression et supprimer l'item `<li>` de la liste `<ul>` à ce moment là
 
 #### Exercice — Changement de l'ordre des items
 

@@ -6,7 +6,7 @@ const nomNouvelItem = document.querySelector('#nom-nouvel-item');
 const exporter = document.querySelector('#exporter');
 
 let listeItems = [];
-let reference, remplacement;
+let paragraphe;
 let sourceDragAndDrop;
 
 const UNITES_POSSIBLES = [];
@@ -28,10 +28,6 @@ if (donneesChargees !== null) {
   }
 }
 
-function log(...args) {
-  console.log(Date.now(), ...args);
-}
-
 nomNouvelItem.addEventListener('input', function (e) {
   if (!/[A-Za-z]{2}/.test(nomNouvelItem.value)) {
     nomNouvelItem.setCustomValidity("erreur");
@@ -43,7 +39,7 @@ nomNouvelItem.addEventListener('input', function (e) {
   nomNouvelItem.checkValidity();
 });
 
-nomNouvelItem.addEventListener('invalid', function() {
+nomNouvelItem.addEventListener('invalid', function () {
   if (nomNouvelItem.value === '') {
     nomNouvelItem.setCustomValidity("Vous devez indiquer les informations de l'item, exemple : 250 g chocolat");
   } else if (!/[A-Za-z]{2}/.test(nomNouvelItem.value)) {
@@ -93,6 +89,12 @@ function creerElementLi(objetItem) {
   // Transformation des paragraphes <p> en <input>
   nom.addEventListener('focus', remplacerParagrapheParInput);
   quantite.addEventListener('focus', remplacerParagrapheParInput);
+  unite.addEventListener('change', function(e) {
+    const select = e.currentTarget;
+    const index = indexDeLiDansListe(e.currentTarget);
+    listeItems[index].unite = select.value;
+    sauvegarder();
+  });
 
   // Gestion de la suppression
   poubelle.addEventListener('click', supprimerItem);
@@ -104,182 +106,89 @@ function creerElementLi(objetItem) {
   return nouvelItem;
 }
 
-
-// Drap and drop
-/*
-poignee.addEventListener("mousedown", demarrerDeplacement);
-
-function supprimerSeparateur() {
-  let separateur = liste.querySelector('.separateur');
-  if (separateur) separateur.remove();
-}
-
-function dragOver(event) {
-  let separateur = liste.querySelector('.separateur');
-  // On créé le séparateur une fois et on le réutilise
-  if (separateur === null) {
-    separateur = document.createElement('li');
-    // Le séparateur peut être une drop zone
-    separateur.addEventListener('drop', drop);
-    separateur.addEventListener('dragover', function (event) {
-      event.preventDefault();
-    });
-    separateur.classList.add('separateur');
-  }
-
-  if (event.offsetY <= event.currentTarget.clientHeight / 2) {
-    if (event.currentTarget.previousElementSibling !== separateur) {
-      event.currentTarget.before(separateur);
-    }
-  } else {
-    if (event.currentTarget.nextElementSibling !== separateur) {
-      event.currentTarget.after(separateur);
-    }
-  }
-
-  // Pour pouvoir avoir la drop zone !
-  event.preventDefault();
-}
-
-function dragStart(event) {
-  liste.classList.add('drag-en-cours');
-  event.currentTarget.removeEventListener('dragover', dragOver);
-  event.currentTarget.classList.add('drag-start');
-
-  event.dataTransfer.setData("text/plain", indexItemDansListe(event.currentTarget));
-}
-
-function dragEnd(event) {
-  log("dragend");
-
-  liste.classList.remove('drag-en-cours');
-  event.currentTarget.addEventListener('dragover', dragOver);
-
-  event.currentTarget.removeAttribute("draggable");
-  event.currentTarget.classList.remove("drag-start");
-
-  supprimerSeparateur();
-}
-
-function drop(event) {
-  log("drop");
-  event.preventDefault();
-
-  const separateur = liste.querySelector('.separateur');
-
-  const indexOriginal = Number(event.dataTransfer.getData('text/plain'));
-
-  const depuisIndex = indexItemDansListe(sourceDragAndDrop);
-  const versIndex = indexItemDansListe(separateur);
-
-  console.log("src: ", depuisIndex, "dst: ", versIndex, "diff:", depuisIndex - versIndex);
-
-  // Ne te remplace pas toi-même
-  if (Math.abs(depuisIndex - versIndex) !== 1) {
-    log("il faut deplacer");
-
-    const noeudSource = listeItems.splice(indexOriginal, 1)[0];
-    listeItems.splice(versIndex, 0, noeudSource);
-
-    sauvegarder();
-
-    // On va déplacer vers le bas l'item donc il faut remonter les autres entre
-    const aDeplacer = [];
-
-    // Si on doit déplacer l'item vers le bas
-    let deplacementVersLeBas = (depuisIndex < versIndex);
-    if (deplacementVersLeBas) {
-      for (let i = depuisIndex + 1; i < versIndex; i++) {
-        aDeplacer.push(liste.children[i]);
-      }
-    } else {
-      for (let i = versIndex + 1; i < depuisIndex; i++) {
-        aDeplacer.push(liste.children[i]);
-      }
-    }
-
-    let deplacementAutresItems = deplacementVersLeBas ? 'vers-le-haut' : 'vers-le-bas';
-
-    aDeplacer.forEach(function (li) {
-      li.classList.add(deplacementAutresItems)
-    });
-
-    sourceDragAndDrop.classList.add('deplacement');
-    const nombreItemsEntre = Math.abs(depuisIndex - versIndex) - 1;
-
-    sourceDragAndDrop.addEventListener('transitionend', function () {
-      log("remplacement effectué");
-      aDeplacer.forEach(function (li) {
-        li.classList.remove(deplacementAutresItems)
-      });
-      separateur.replaceWith(sourceDragAndDrop);
-    });
-
-    sourceDragAndDrop.style.transform =
-      `translateY(calc(${deplacementVersLeBas ? 1 : -1} * (${nombreItemsEntre * 100}% + ${nombreItemsEntre * 16}px)))`;
-  } else {
-    log("identique");
-  }
-}
-
-li.addEventListener('dragstart', dragStart);
-li.addEventListener('dragover', dragOver);
-li.addEventListener('dragend', dragEnd);
-li.addEventListener('drop', drop);
-
-function demarrerDeplacement(e) {
-sourceDragAndDrop = e.target.closest('li');
-sourceDragAndDrop.setAttribute("draggable", "true");
-}
-*/
-
-
 function remplacerParagrapheParInput(e) {
-  reference = e.target;
+  // Récupérer le contenu du paragraphe
+  paragraphe = e.target;
+  const contenu = paragraphe.textContent;
 
+  // Créer l'élément de remplacement <input>
   const input = document.createElement('input');
-  input.type = reference.classList.contains("nom") ? "text" : "number";
-  if (reference.classList.contains("quantite")) {
-    input.min = 0;
+
+  // Avec le type="text" pour le nom et type="number" pour la quantité
+  if (paragraphe.classList.contains("nom")) {
+    input.type = "text";
+  } else {
+    input.type = "number";
+    // La quantité doit être comprise entre 1 et 999
+    input.min = 1;
     input.max = 999;
   }
 
-  input.className = reference.className;
-  input.value = reference.textContent;
+  // L'attribut value doit être égal au contenu du paragraphe
+  input.value = contenu;
 
-  remplacement = input;
+  // Ajouter les mêmes classes que sur le paragraphe
+  input.className = paragraphe.className;
 
-  reference.replaceWith(input);
+  // Effectuer le remplacement du paragraphe par l'input
+  paragraphe.replaceWith(input);
 
+  // Obtenir immédiatement le focus
   input.focus();
 
-  const remplacerValeur = function () {
-    reference.textContent = remplacement.value;
-    remplacement.replaceWith(reference);
-  };
+  const remplacerInputParParagraphe = function (e) {
+    let input = e.currentTarget;
 
+    // Sauvegarde des données dans listeItems
+    // Connaître l'index de l'item modifié
+    const index = indexDeLiDansListe(input);
+
+    if (input.matches('.nom')) {
+      listeItems[index].nom = input.value;
+    } else if (input.matches('.quantite')) {
+      listeItems[index].quantite = Number(input.value);
+    }
+    sauvegarder();
+
+    // On utilise la nouvelle valeur de l'input
+    paragraphe.textContent = input.value;
+    // On remplace l'input par l'élément p
+    input.replaceWith(paragraphe);
+  }
+
+  // Lorsqu'on perd le focus, remplacer l'input par un paragraphe
   // Quand on quitte le champ
-  input.addEventListener('blur', function () {
-    remplacerValeur();
-  });
+  input.addEventListener('blur', remplacerInputParParagraphe);
+
   // Quand on appuie sur ENTREE
   input.addEventListener('keydown', function (e) {
-    if (e.key === "Enter") input.blur();
+    if (e.key === "Enter") {
+      input.removeEventListener('blur', remplacerInputParParagraphe);
+      remplacerInputParParagraphe(e);
+    }
   });
+}
+
+function indexDeLiDansListe(elementEnfant) {
+  const li = elementEnfant.closest('li');
+  const enfants = Array.from(liste.children);
+  return enfants.indexOf(li);
 }
 
 function supprimerItem(e) {
   // Quelle est la position de l'item <li> sur lequel j'ai cliqué ?
-  const li = e.currentTarget.closest('li');
-  const enfants = Array.from(liste.children);
-  const indexLi = enfants.indexOf(li);
+  const indexLi = indexDeLiDansListe(e.currentTarget);
+
   // Supprimer l'item à cette position de la listeItems
   listeItems.splice(indexLi, 1);
+
   // Sauvegarder les données dans localStorage
   sauvegarder();
 
+  // On récupère une référence sur le <li> de l'item
+  const li = e.currentTarget.closest('li');
+
   li.addEventListener('transitionend', function (e) {
-    console.log(e);
     if (e.propertyName === "height") {
       // Supprimer l'élément <li> de la liste
       li.remove();
@@ -339,7 +248,7 @@ function extraireDonnees(nomItem) {
 }
 
 /* Exporter les données */
-exporter.addEventListener('click', function(e) {
+exporter.addEventListener('click', function (e) {
   let exportation = "";
   for (let i = 0; i < listeItems.length; i++) {
     const item = listeItems[i];
@@ -348,3 +257,154 @@ exporter.addEventListener('click', function(e) {
   const url = `mailto:jeremy@javascriptdezero.com?subject=Liste de courses&body=${exportation}`;
   window.location = url;
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Drap and drop
+/*
+poignee.addEventListener("mousedown", demarrerDeplacement);
+
+function supprimerSeparateur() {
+  let separateur = liste.querySelector('.separateur');
+  if (separateur) separateur.remove();
+}
+
+function dragOver(event) {
+  let separateur = liste.querySelector('.separateur');
+  // On créé le séparateur une fois et on le réutilise
+  if (separateur === null) {
+    separateur = document.createElement('li');
+    // Le séparateur peut être une drop zone
+    separateur.addEventListener('drop', drop);
+    separateur.addEventListener('dragover', function (event) {
+      event.preventDefault();
+    });
+    separateur.classList.add('separateur');
+  }
+
+  if (event.offsetY <= event.currentTarget.clientHeight / 2) {
+    if (event.currentTarget.previousElementSibling !== separateur) {
+      event.currentTarget.before(separateur);
+    }
+  } else {
+    if (event.currentTarget.nextElementSibling !== separateur) {
+      event.currentTarget.after(separateur);
+    }
+  }
+
+  // Pour pouvoir avoir la drop zone !
+  event.preventDefault();
+}
+
+function dragStart(event) {
+  liste.classList.add('drag-en-cours');
+  event.currentTarget.removeEventListener('dragover', dragOver);
+  event.currentTarget.classList.add('drag-start');
+
+  event.dataTransfer.setData("text/plain", indexItemDansListe(event.currentTarget));
+}
+
+function dragEnd(event) {
+  console.log("dragend");
+
+  liste.classList.remove('drag-en-cours');
+  event.currentTarget.addEventListener('dragover', dragOver);
+
+  event.currentTarget.removeAttribute("draggable");
+  event.currentTarget.classList.remove("drag-start");
+
+  supprimerSeparateur();
+}
+
+function drop(event) {
+  console.log("drop");
+  event.preventDefault();
+
+  const separateur = liste.querySelector('.separateur');
+
+  const indexOriginal = Number(event.dataTransfer.getData('text/plain'));
+
+  const depuisIndex = indexItemDansListe(sourceDragAndDrop);
+  const versIndex = indexItemDansListe(separateur);
+
+  console.log("src: ", depuisIndex, "dst: ", versIndex, "diff:", depuisIndex - versIndex);
+
+  // Ne te remplace pas toi-même
+  if (Math.abs(depuisIndex - versIndex) !== 1) {
+    console.log("il faut deplacer");
+
+    const noeudSource = listeItems.splice(indexOriginal, 1)[0];
+    listeItems.splice(versIndex, 0, noeudSource);
+
+    sauvegarder();
+
+    // On va déplacer vers le bas l'item donc il faut remonter les autres entre
+    const aDeplacer = [];
+
+    // Si on doit déplacer l'item vers le bas
+    let deplacementVersLeBas = (depuisIndex < versIndex);
+    if (deplacementVersLeBas) {
+      for (let i = depuisIndex + 1; i < versIndex; i++) {
+        aDeplacer.push(liste.children[i]);
+      }
+    } else {
+      for (let i = versIndex + 1; i < depuisIndex; i++) {
+        aDeplacer.push(liste.children[i]);
+      }
+    }
+
+    let deplacementAutresItems = deplacementVersLeBas ? 'vers-le-haut' : 'vers-le-bas';
+
+    aDeplacer.forEach(function (li) {
+      li.classList.add(deplacementAutresItems)
+    });
+
+    sourceDragAndDrop.classList.add('deplacement');
+    const nombreItemsEntre = Math.abs(depuisIndex - versIndex) - 1;
+
+    sourceDragAndDrop.addEventListener('transitionend', function () {
+      console.log("remplacement effectué");
+      aDeplacer.forEach(function (li) {
+        li.classList.remove(deplacementAutresItems)
+      });
+      separateur.replaceWith(sourceDragAndDrop);
+    });
+
+    sourceDragAndDrop.style.transform =
+      `translateY(calc(${deplacementVersLeBas ? 1 : -1} * (${nombreItemsEntre * 100}% + ${nombreItemsEntre * 16}px)))`;
+  } else {
+    console.log("identique");
+  }
+}
+
+li.addEventListener('dragstart', dragStart);
+li.addEventListener('dragover', dragOver);
+li.addEventListener('dragend', dragEnd);
+li.addEventListener('drop', drop);
+
+function demarrerDeplacement(e) {
+sourceDragAndDrop = e.target.closest('li');
+sourceDragAndDrop.setAttribute("draggable", "true");
+}
+*/
