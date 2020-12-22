@@ -62,7 +62,7 @@ Si une contrainte n'est pas respectée, il faut expliquer clairement le problèm
 - Si le champ est vide on affichera : `Vous devez indiquer les informations de l'item, exemple : 250 g chocolat`
 - Si le champ contient des caractères interdits on affichera : `Les caractères spéciaux, les accents et autres lettres spécifiques ne sont pas autorisés`
 
-#### Exercice — Minimum 2 caractères
+#### Exercice — Minimum 2 lettres
 
 Pour être valide, un nom d'item devra être composé d'au moins 2 lettres côte à côte. Si ce n'est pas le cas il faudra afficher le message d'erreur personnalisé suivant : `Le nom de l'item doit faire 2 lettres minimum`.
 
