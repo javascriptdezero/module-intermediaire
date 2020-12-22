@@ -70,9 +70,9 @@ Pour être valide, un nom d'item devra être composé d'au moins 2 lettres côte
 
 L'utilisateur doit pouvoir indiquer par exemple `1 kg riz` ou `4 pommes` ou `pain` dans le champ `Nouvel item` et les quantités et unités doivent être automatiquement renseignées.
 
-Si aucune quantité n'est indiquée, on utilisera la valeur par défaut `1`.
+Si aucune quantité n'est indiquée, on conservera la quantité par défaut définie dans le HTML.
 
-Si aucune unité n'est précisée (comme dans `4 pommes`), on utilisera l'unité `u.` par défaut.
+Si aucune unité n'est précisée (comme dans `4 pommes`), on conservera l'unité par défaut définie dans le HTML.
 
 On ne traitera pas les cas particuliers comme `kg pommes`, `12 20 pommes` etc. et on supposera que les quantités sont toujours strictement supérieures à `0`.
 
@@ -93,6 +93,12 @@ Quelques valeurs qui doivent être reconnues :
 - `12 pommes granny` → quantité: `12`, unité: `u.`, nom: `Pommes granny`
 
 Attention il faut que la première lettre mise en majuscule soit toujours celle du produit et pas d'une éventuelle unité. Par exemple `1 kg riz` devra donner `1 kg Riz` et pas `1 Kg riz`.
+
+#### Exercice — Refactoring
+
+À partir du code réalisé précédemment, créez une fonction `extraireDonnees(nomItem)` qui renvoie un objet contenant 3 propriétés `nom`, `quantite`, `unite` représentant les informations du nouvel item à ajouter dans la liste.
+
+Le paramètre `nomItem` représente le texte indiqué dans le champ `Nouvel item`.
 
 #### Exercice — Réduire la maintenance
 
