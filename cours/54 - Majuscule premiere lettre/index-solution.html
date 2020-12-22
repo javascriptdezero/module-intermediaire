@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Liste de courses</title>
+  <!-- On ajoute la fonte Roboto depuis le service Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="conteneur">
+    <header>
+      <form>
+        <input type="text" name="nouvel-item" id="nouvel-item" placeholder="Nouvel item" title="Caractères autorisés : les 26 lettres en majuscules et minuscules, les espaces, les chiffres et les parenthèses (le mot doit faire minimum 2 lettres)" autofocus autocomplete="off">
+        <input id="ajouter" type="submit" class="bouton" value="Ajouter">
+      </form>
+    </header>
+
+    <ul id="liste"></ul>
+  </div>
+
+  <footer>
+    <button id="exporter" class="bouton texte-large">Exporter</button>
+  </footer>
+
+  <template id="template-item">
+    <li>
+      <button class="bouton poignee"><img src="../48 - Presentation deuxieme projet/images/poignee.svg" alt="déplacer un item"></button>
+      <p class="nom"></p>
+      <div class="separateur-vertical"></div>
+      <p class="quantite">1</p>
+      <div class="select">
+        <select name="unite" class="unite">
+          <option value="u." selected>u.</option>
+          <option value="g">g</option>
+          <option value="kg">kg</option>
+          <option value="L">L</option>
+        </select>
+      </div>
+      <button class="bouton supprimer"><img src="../48 - Presentation deuxieme projet/images/poubelle.svg" alt="supprimer item"></button>
+    </li>
+  </template>
+
+  <script src="projet-solution.js"></script>
+</body>
+
+</html>
