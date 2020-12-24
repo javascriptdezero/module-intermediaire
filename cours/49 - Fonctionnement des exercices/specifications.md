@@ -164,18 +164,6 @@ Pour supprimer un item il suffit d'utiliser le bouton poubelle à droite de celu
 - Une fois que c'est fait il faut également supprimer l'item `<li>` de la liste `<ul>`
 - **UX** : appliquez la classe `.suppression` avant de supprimer l'item de la liste pour effectuer une animation de suppression. Utilisez l'évènement `transitionend` pour détecter la fin de l'animation de suppression et supprimer l'item `<li>` de la liste `<ul>` à ce moment là
 
-#### Exercice — Changement de l'ordre des items
-
-On souhaite pouvoir changer l'ordre des items de la liste de courses. Pour cela, on va utiliser l'[API Drag and Drop](https://developer.mozilla.org/fr/docs/Web/API/API_HTML_Drag_and_Drop) :
-
-- La poignée d'un item ne doit pas être sélectionnable par la touche `TAB`
-- Avec la souris, lorsqu'on clique puis qu'on déplace la poignée d'un item celui-ci doit se déplacer
-- Lorsqu'on lâche un item entre 2 autres items (sur le séparateur), l'item doit être déplacé à cet endroit
-- Lorsqu'on lâche un item sur la partie supérieure d'un autre item, l'item doit être déplacé juste au dessus de cet item
-- Lorsqu'on lâche un item sur la partie inférieure d'un autre item, l'item doit être déplacé juste en dessous de cet item
-- Lorsque la position de déplacement de l'item est la même que celle où il était avant, on ne doit rien faire
-- Si un déplacement est effectué, il faut sauvegarder immédiatement ce nouvel emplacement dans le `localStorage`
-
 ## Exportation des données
 
 Pour partager facilement la liste de courses, un bouton `Exporter` est mis à disposition. Utilisez-le pour vous envoyer la liste de course par email !
@@ -188,3 +176,15 @@ Pour partager facilement la liste de courses, un bouton `Exporter` est mis à di
 ```
 - Lors du clic sur le bouton, crééz une chaîne de caractères pour construire une URL de type [mailto](https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Liens_email). Utilisez votre adresse email comme destinataire, indiquez `Liste de courses` pour le sujet et utilisez comme corps du message la chaîne de caractères générée juste avant (la liste de courses !)
 - Utilisez [window.location](https://developer.mozilla.org/fr/docs/Web/API/window/location) pour naviguer sur l'URL créée juste avant et lancer votre gestionnaire d'email préféré avec l'email pré-rempli. Il ne reste plus qu'à vous envoyer cet email !
+
+## Changement de l'ordre des items
+
+On souhaite pouvoir changer l'ordre des items de la liste de courses. Pour cela, on va utiliser l'[API Drag and Drop](https://developer.mozilla.org/fr/docs/Web/API/API_HTML_Drag_and_Drop) :
+
+- La poignée d'un item ne doit pas être sélectionnable par la touche `TAB`
+- Avec la souris, lorsqu'on clique puis qu'on déplace la poignée d'un item celui-ci doit se déplacer
+- Lorsqu'on lâche un item entre 2 autres items (sur le séparateur), l'item doit être déplacé à cet endroit
+- Lorsqu'on lâche un item sur la partie supérieure d'un autre item, l'item doit être déplacé juste au dessus de cet item
+- Lorsqu'on lâche un item sur la partie inférieure d'un autre item, l'item doit être déplacé juste en dessous de cet item
+- Lorsque la position de déplacement de l'item est la même que celle où il était avant, on ne doit rien faire
+- Si un déplacement est effectué, il faut sauvegarder immédiatement ce nouvel emplacement dans le `localStorage`
