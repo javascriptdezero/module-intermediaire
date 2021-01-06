@@ -329,13 +329,13 @@ li.drag-start {
   opacity: .5;
 }
 
-.separateur {
+.indicateur {
   background-color: var(--bleu-200);
   width: 100%;
-  animation: apparition-separateur var(--transition-duration) forwards;
+  animation: apparition-indicateur var(--transition-duration) forwards;
 }
 
-@keyframes apparition-separateur {
+@keyframes apparition-indicateur {
   from {
     opacity: 0;
     height: 0;
