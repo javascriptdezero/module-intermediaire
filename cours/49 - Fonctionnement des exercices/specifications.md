@@ -181,10 +181,32 @@ Pour partager facilement la liste de courses, un bouton `Exporter` est mis à di
 
 On souhaite pouvoir changer l'ordre des items de la liste de courses. Pour cela, on va utiliser l'[API Drag and Drop](https://developer.mozilla.org/fr/docs/Web/API/API_HTML_Drag_and_Drop) :
 
+#### Exercice — Déplacement d'un item
+
 - La poignée d'un item ne doit pas être sélectionnable par la touche `TAB`
-- Avec la souris, lorsqu'on clique puis qu'on déplace la poignée d'un item celui-ci doit se déplacer
-- Lorsqu'on lâche un item entre 2 autres items (sur le séparateur), l'item doit être déplacé à cet endroit
-- Lorsqu'on lâche un item sur la partie supérieure d'un autre item, l'item doit être déplacé juste au dessus de cet item
-- Lorsqu'on lâche un item sur la partie inférieure d'un autre item, l'item doit être déplacé juste en dessous de cet item
+- Avec la souris, lorsqu'on clique sur la poignée d'un item (et uniquement sur la poignée) puis qu'on déplace celle-ci, tout l'item doit se déplacer
+- Lors du déplacement d'un item, l'item original de la liste doit devenir semi-transparent, appliquez-lui la classe `drag-start` puis retirez-la quand le déplacement est terminé
+
+#### Exercice — Affichage de l'indicateur
+
+Pour améliorer l'expérience utilisateur, il faut afficher un indicateur à la position où l'item serait déplacé si l'utilisateur relâchait le bouton de la souris.
+
+On utilisera un élément `<li>` avec la classe `separateur` qu'on ajoutera dynamiquement dans la liste `<ul>` en fonction de la position du curseur de la souris pendant le déplacement de l'item.
+
+On utilisera les évènements `drag`, `dragenter` et `dragleave` pour créer cette fonctionnalité.
+
+Quelques définitions : la partie **supérieure** d'un item désigne la partie au dessus de la moitié de sa hauteur. La partie **inférieure** désigne la partie en dessous de la moitié de sa hauteur.
+
+Lorsqu'on déplace un item, un unique indicateur doit être créé et ajouté à la liste à une certaine position :
+- Lorsqu'on survole la partie **supérieure** d'un autre item que celui déplacé, l'indicateur doit être ajouté juste **au dessus** de cet autre item
+- Lorsqu'on survole la partie **inférieure** d'un autre item, l'indicateur doit être ajouté juste **en dessous** de cet autre item
+- Lorsque l'indicateur est en dessous ou au dessus de l'item en cours de déplacement, il ne faut pas l'afficher. En effet, déplacer l'item à sa position initiale n'a aucun intérêt.
+
+#### Exercice — Déplacement de l'item
+
 - Lorsque la position de déplacement de l'item est la même que celle où il était avant, on ne doit rien faire
-- Si un déplacement est effectué, il faut sauvegarder immédiatement ce nouvel emplacement dans le `localStorage`
+- La nouvelle position de l'item déplacé doit être celle de l'indicateur
+
+#### Exercice — Sauvegarde des données
+
+- Si un déplacement est effectué, il faut sauvegarder immédiatement le nouvel emplacement de l'item déplacé dans le `localStorage`
