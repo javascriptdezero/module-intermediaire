@@ -307,8 +307,8 @@ ul.drag-en-cours li {
   position: relative;
 }
 
-ul.drag-en-cours li:not(.drag-start)::before,
-ul.drag-en-cours li:not(.drag-start)::after {
+ul.drag-en-cours li::before,
+ul.drag-en-cours li::after {
   content: '';
   display: block;
   width: 100%;
@@ -316,11 +316,11 @@ ul.drag-en-cours li:not(.drag-start)::after {
   position: absolute;
 }
 
-ul.drag-en-cours li:not(.drag-start)::before {
+ul.drag-en-cours li::before {
   top: calc(-1 * var(--dim-3));
 }
 
-ul.drag-en-cours li:not(.drag-start)::after {
+ul.drag-en-cours li::after {
   bottom: calc(-1 * var(--dim-3));
 }
 
