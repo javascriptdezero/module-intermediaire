@@ -191,21 +191,22 @@ On souhaite pouvoir changer l'ordre des items de la liste de courses. Pour cela,
 
 Pour améliorer l'expérience utilisateur, il faut afficher un indicateur à la position où l'item serait déplacé si l'utilisateur relâchait le bouton de la souris.
 
-On utilisera un élément `<li>` avec la classe `separateur` qu'on ajoutera dynamiquement dans la liste `<ul>` en fonction de la position du curseur de la souris pendant le déplacement de l'item.
+On utilisera un élément `<li>` avec la classe `indicateur` qu'on ajoutera dynamiquement dans la liste `<ul>` en fonction de la position du curseur de la souris pendant le déplacement de l'item.
 
-On utilisera les évènements `drag`, `dragenter` et `dragleave` pour créer cette fonctionnalité.
+On utilisera les évènements `dragover`, `dragenter` et `dragleave` pour créer cette fonctionnalité.
 
 Quelques définitions : la partie **supérieure** d'un item désigne la partie au dessus de la moitié de sa hauteur. La partie **inférieure** désigne la partie en dessous de la moitié de sa hauteur.
 
 Lorsqu'on déplace un item, un unique indicateur doit être créé et ajouté à la liste à une certaine position :
-- Lorsqu'on survole la partie **supérieure** d'un autre item que celui déplacé, l'indicateur doit être ajouté juste **au dessus** de cet autre item
-- Lorsqu'on survole la partie **inférieure** d'un autre item, l'indicateur doit être ajouté juste **en dessous** de cet autre item
-- Lorsque l'indicateur est en dessous ou au dessus de l'item en cours de déplacement, il ne faut pas l'afficher. En effet, déplacer l'item à sa position initiale n'a aucun intérêt.
+- Lorsqu'on survole la partie **supérieure** d'un item, l'indicateur doit être ajouté juste **au dessus** de cet item
+- Lorsqu'on survole la partie **inférieure** d'un item, l'indicateur doit être ajouté juste **en dessous** de cet item
+- Lorsqu'on survole l'item en cours de déplacement, il ne faut pas l'afficher. En effet, déplacer l'item à sa position initiale n'a aucun intérêt
+- Lorsqu'on survole la partie **inférieure** de l'item juste au-dessus de l'item en déplacement ou bien la partie **supérieure** de l'item juste en dessous de celui-ci, l'indicateur ne doit pas être affiché non plus
 
 #### Exercice — Déplacement de l'item
 
-- Lorsque la position de déplacement de l'item est la même que celle où il était avant, on ne doit rien faire
-- La nouvelle position de l'item déplacé doit être celle de l'indicateur
+- L'item ne doit être déplacé que si la nouvelle position est différente de celle qu'il avait avant, sinon on ne doit rien faire
+- Lors du relâchement du bouton de la souris, la nouvelle position de l'item devra être celle indiquée par l'indicateur
 
 #### Exercice — Sauvegarde des données
 
