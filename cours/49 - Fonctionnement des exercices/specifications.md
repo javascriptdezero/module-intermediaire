@@ -193,7 +193,7 @@ Pour améliorer l'expérience utilisateur, il faut afficher un indicateur à la 
 
 On utilisera un élément `<li>` avec la classe `indicateur` qu'on ajoutera dynamiquement dans la liste `<ul>` en fonction de la position du curseur de la souris pendant le déplacement de l'item.
 
-On utilisera les évènements `dragover`, `dragenter` et `dragleave` pour créer cette fonctionnalité.
+On utilisera l'évènement `dragover` pour créer cette fonctionnalité.
 
 Quelques définitions : la partie **supérieure** d'un item désigne la partie au dessus de la moitié de sa hauteur. La partie **inférieure** désigne la partie en dessous de la moitié de sa hauteur.
 
