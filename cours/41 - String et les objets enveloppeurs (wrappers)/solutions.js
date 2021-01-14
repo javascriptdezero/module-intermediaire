@@ -514,7 +514,6 @@ function tableur(liste) {
   // On ajoute les 3 espaces de séparation des colonnes;
   resultat += "   "; // équivalent à resultat = resultat + "   "
   resultat += "NOM".padStart(taillePlusLongNom);
-  debugger;
   
   // Il ne reste plus qu'à ajouter les prénoms et noms
   for (let i = 0; i < prenoms.length; i++) { 
