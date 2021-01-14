@@ -189,7 +189,6 @@ function drop(e) {
   const positionIndicateur = indexDeLiDansListe(indicateur);
   // positionInitiale
   // Supprimer l'item en déplacement
-  debugger;
   const item = listeItems.splice(positionInitiale, 1)[0];
   // Ajouter l'item en déplacement à la position de l'indicateur
   if (positionIndicateur > positionInitiale) {
