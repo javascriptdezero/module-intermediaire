@@ -211,3 +211,50 @@ Lorsqu'on déplace un item, un unique indicateur doit être créé et ajouté à
 #### Exercice — Sauvegarde des données
 
 - Si un déplacement est effectué, il faut sauvegarder immédiatement le nouvel emplacement de l'item déplacé dans le `localStorage`
+
+## BONUS : Animation lors d'un changement d'ordre
+
+Pour améliorer l'expérience utilisateur (UX), il faut créer une animation de déplacement physique d'un item vers sa position finale.
+
+Pour cela on va déplacer l'item en 3 phases :
+1. La phase de décollage
+2. La phase de déplacement
+3. La phase d'atterrissage
+
+Les items situés entre la position initiale et la position finale devront être déplacés dans la direction opposée au même moment que la phase de déplacement de l'item (phase 2).
+
+#### Exercice — Phase de décollage
+
+Pour donner une impression de décollage à l'item, on va simplement appliquer les propriétés CSS `box-shadow: 0 0 24px rgba(32,32,32,.8)` et `transform: scale(1.05)` à celui-ci. On utilisera une durée de transition de `500ms`.
+
+- Lors du relâchement du bouton de la souris il faut appliquer le CSS pour faire décoller l'item
+
+#### Exercice — Phase de déplacement
+
+Une fois la phase de décollage terminée, il faut déplacer l'item vers sa position finale par une translation sur l'axe `Y` grâce à la propriété CSS `transform: translateY()`.
+
+La hauteur du déplacement devra être calculée pour que l'item vienne se placer juste au-dessus du nouvel emplacement qu'il devra occuper.
+
+Pour calculer cette hauteur il faudra prendre en compte la position de l'indicateur, la hauteur d'un élément `<li>` ainsi que la hauteur de sa marge supérieure.
+
+- Lors du relâchement du bouton de la souris et après que la phase de décollage soit terminée, il faut appliquer le CSS pour déplacer l'item au-dessus de son futur emplacement
+- Tester le déplacement vers le bas et vers le haut dans la liste pour vérifier que tout fonctionne correctement
+
+#### Exercice — Déplacer les items de la liste
+
+Lors de la phase de déplacement de l'item, les autres items de la liste doivent lui laisser la place. Pour cela, il faut que tous les items entre la position initiale et la position finale se déplacent d'un cran dans la direction opposée au déplacement de l'item.
+
+- Lors du déplacement de l'item, il faut que tous les items se déplacent dans le sens opposé pour laisser la place pour l'atterrissage. On pourra à nouveau utiliser du CSS avec `transform: translateY()` pour effectuer ce déplacement.
+
+#### Exercice — Phase d'atterrissage
+
+Une fois l'item au-dessus de sa position finale, c'est-à-dire à la fin de la phase de déplacement, il faut le faire atterrir.
+
+- Une fois la phase de déplacement terminée, faire atterrir l'item en retirant les propriétés CSS `box-shadow` et `scale(1.05)` du style de celui-ci.
+
+#### Exercice — Mettre à jour le DOM
+
+Une fois l'atterrissage terminé, il faut mettre à jour le DOM pour faire persister le déplacement. Ensuite il faut supprimer tous les styles ajoutés sur tous les items de la liste pour pouvoir repartir d'une base propre.
+
+- Une fois la phase d'atterrissage terminée, il faut déplacer le noeud de l'item dans le DOM
+- Ensuite, pour que l'affichage soit cohérent et pour préparer un autre déplacement dans le futur il faut supprimer tous les styles ajoutés sur tous les items. On obtient ainsi une liste propre et nettoyée de tout style.
