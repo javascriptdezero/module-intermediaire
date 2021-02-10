@@ -1,0 +1,357 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Variables CSS */
+:root {
+  /* Couleurs */
+  --bleu-200: #4bcfff;
+  --bleu-500: #00455E;
+  
+  --gris-100: #E5E5E5;
+  --gris-300: #949494;
+  --gris-500: #3E3E3E;
+
+  --rouge-500: #ff866e;
+  --vert-500: #a3ff6e;
+
+  /* Font sizes */
+  --font-size-normal: 1.5rem;
+  --font-size-large: 3rem;
+
+  /* Dimensions (sur une base de 16px) */
+  --dim-1: .25rem; /* (4px) */
+  --dim-2: .5rem;  /* (8px) */
+  --dim-3: 1rem;   /* (16px) */
+  --dim-4: 2rem;   /* (32px) */
+  --dim-5: 3rem;   /* (48px) */
+  --dim-6: 3.5rem; /* (56px) */
+  --dim-7: 7rem;   /* (112px) */
+
+  /* Autres */
+  --border-radius: 8px;
+  --box-shadow: 0 0 8px var(var(--box-shadow-color), rgba(0, 0, 0, 0.25));
+  --transition-duration: 200ms;
+}
+
+/* Fontes & Typographie */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+input,
+.bouton {
+  font-size: var(--font-size-normal);
+}
+
+input {
+  padding: 0 var(--dim-3);
+  min-height: var(--dim-6);
+  border: 0;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: var(--gris-300);
+}
+
+.texte-large {
+  font-size: var(--font-size-large);
+}
+
+input,
+.bouton,
+select {
+  transition: box-shadow var(--transition-duration);
+  outline: none;
+}
+
+input:focus,
+.bouton:focus,
+select:focus {
+  --box-shadow-color: var(--bleu-200);
+  box-shadow: 0 0 0 3px var(--box-shadow-color);
+}
+
+.bouton:focus {
+  --box-shadow-color: white;
+}
+
+.bouton,
+.nom,
+.quantite,
+select {
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+}
+
+/* Style des balises de base */
+
+body {
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+  url(../48\ -\ Presentation\ deuxieme\ projet/images/fond.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0 0 calc(var(--dim-7) + 2 * var(--dim-5)) 0;
+  position: relative;
+}
+
+p {
+  line-height: 1;
+  margin: 0;
+  padding: var(--dim-3);
+} 
+
+.bouton {
+  background-color: var(--bleu-200);
+  color: var(--bleu-500);
+  padding: .5em;
+  border-radius: var(--border-radius);
+  border: 0;
+}
+
+/* Conteneur en largeur + centrage et layout */
+
+.conteneur {
+  max-width: 800px;
+  width: calc(100vw - 2 * var(--dim-5));
+  margin: 0 auto;
+}
+
+/* Header */
+
+header {
+  padding-top: var(--dim-5);
+}
+
+form {
+  display: flex;
+}
+
+/* Item */
+
+#nouvel-item {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  flex-grow: 1;
+}
+
+#nouvel-item:valid {
+  --box-shadow-color: var(--vert-500);
+}
+
+#nouvel-item:invalid {
+  --box-shadow-color: var(--rouge-500);
+}
+
+#ajouter {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Liste */
+
+ul {
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  /* Astuce pour éviter le margin collapse */
+  margin-top: calc(var(--dim-5) - var(--dim-3) - 1px);
+  padding-top: 1px;
+}
+
+li {
+  display: flex;
+  background-color: white;
+  border-radius: var(--border-radius);
+  margin-top: var(--dim-3);
+  height: var(--dim-6);
+  right: 0;
+  transition: box-shadow, transform;
+  transition-duration: 2s;
+}
+
+.suppression {
+  transition-property: opacity, height, right, margin-top;
+  transition-delay: 0s, 67ms;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: 
+    cubic-bezier(0, 0, 0.2, 1),
+    cubic-bezier(0.68, -0.55, 0.32, 2.5);
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  margin-top: 0;
+}
+
+.poignee {
+  background-color: var(--gris-100);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: grab;
+  flex-shrink: 0;
+}
+
+.poignee:active {
+  cursor: grabbing;
+}
+
+.poignee:focus {
+  box-shadow: none;
+}
+
+.poignee > img {
+  pointer-events: none;
+}
+
+.nom {
+  transition: flex-grow ease var(--transition-duration);
+}
+
+p.nom {
+  overflow: scroll;
+  white-space: nowrap;
+  flex-grow: 0;
+}
+
+p.nom:focus {
+  flex-grow: 0;
+}
+
+input.nom {
+  transition: flex-grow, box-shadow;
+  transition-duration: var(--transition-duration);
+  flex-grow: 0;
+  text-indent: var(--dim-3);
+  padding: 0;
+  padding-right: var(--dim-3);
+  min-width: 0;
+}
+
+input.nom:focus {
+  flex-grow: 1;
+}
+
+.separateur-vertical {
+  width: 1px;
+  height: var(--dim-4);
+  background-color: var(--gris-100);
+  align-self: center;
+}
+
+.quantite {
+  padding-right: 0;
+}
+
+.unite {
+  font-size: 1.5rem;
+  color: var(--gris-300);
+  border: 0;
+  margin-left: var(--dim-1);
+  padding-right: var(--dim-4);
+}
+
+.select {
+  display: flex;
+  position: relative;
+}
+
+.select::after {
+  content: '';
+  display: block;
+  color: var(--gris-300);
+  width: var(--dim-3);
+  height: 100%;
+  background: url(../48\ -\ Presentation\ deuxieme\ projet/images/fleche-bas.svg) no-repeat;
+  background-position: center;
+  position: absolute;
+  pointer-events: none;
+  right: var(--dim-2);
+}
+
+.supprimer {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: var(--rouge-500);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Footer */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 800px;
+  width: calc(100vw - 2 * var(--dim-5));
+  margin: 0 auto var(--dim-5);
+}
+
+#exporter {
+  width: 100%;
+  min-height: var(--dim-7);
+}
+
+/* Drag & Drop */
+
+/* Pour gérer le position absolute dans le before / after */
+ul.drag-en-cours li {
+  position: relative;
+}
+
+ul.drag-en-cours li::before,
+ul.drag-en-cours li::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: var(--dim-3);
+  position: absolute;
+}
+
+ul.drag-en-cours li::before {
+  top: calc(-1 * var(--dim-3));
+}
+
+ul.drag-en-cours li::after {
+  bottom: calc(-1 * var(--dim-3));
+}
+
+li.drag-start {
+  opacity: .5;
+}
+
+.indicateur {
+  background-color: var(--bleu-200);
+  width: 100%;
+  animation: apparition-indicateur var(--transition-duration) forwards;
+}
+
+@keyframes apparition-indicateur {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: var(--dim-2);
+  }
+}
