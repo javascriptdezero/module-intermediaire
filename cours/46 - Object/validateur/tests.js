@@ -29,307 +29,86 @@ function ajouterTest(idExercice, nomFonction, {
 
 // Exercice 0
 let exerciceId = 0;
-let descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: ["JavaScript"],
+let descriptionEntrees = ["objet1", "objet2"];
+ajouterTest(exerciceId, "assign0", {
+  entrees: [{ prenom: "Jérémy" }, { nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: false,
+  sortie: { prenom: "Jérémy", nom: "MOUZIN" },
 });
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: ["NaN"],
+ajouterTest(exerciceId, "assign0", {
+  entrees: [{ prenom: "Tom" }, { nom: "Redocemia" }],
   descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: [NaN],
-  descriptionEntrees,
-  sortie: true,
+  sortie: { prenom: "Tom", nom: "Redocemia" },
 });
 
 // Exercice 1
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: ["0"],
+descriptionEntrees = ["objet"];
+ajouterTest(exerciceId, "entries0", {
+  entrees: [{ prenom: "Jérémy", nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: false,
+  sortie: [["prenom", "Jérémy"], ["nom", "MOUZIN"]],
 });
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [Infinity],
+ajouterTest(exerciceId, "entries0", {
+  entrees: [{ prenom: "Tom", nom: "Redocemia" }],
   descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [-Infinity],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [NaN],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [0],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [5/2],
-  descriptionEntrees,
-  sortie: true,
+  sortie: [["prenom", "Tom"], ["nom", "Redocemia"]],
 });
 
 // Exercice 2
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: ["0"],
+descriptionEntrees = ["objet"];
+ajouterTest(exerciceId, "keys0", {
+  entrees: [{ prenom: "Jérémy", nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: false,
+  sortie: ["prenom", "nom"],
 });
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [5/2],
+ajouterTest(exerciceId, "keys0", {
+  entrees: [{prenom: "Tom", nom: "Redocemia"}],
   descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [42.1337],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [NaN],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [Infinity],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [0],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [42],
-  descriptionEntrees,
-  sortie: true,
+  sortie: ["prenom", "nom"],
 });
 
 // Exercice 3
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: ["0"],
+descriptionEntrees = ["objet"];
+ajouterTest(exerciceId, "values0", {
+  entrees: [{ prenom: "Jérémy", nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: false,
+  sortie: ["Jérémy", "MOUZIN"],
 });
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [0],
+ajouterTest(exerciceId, "values0", {
+  entrees: [{prenom: "Tom", nom: "Redocemia"}],
   descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-256443645756],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [256443645756],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [9007199254740991],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-9007199254740991],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [9007199254740992],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-9007199254740992],
-  descriptionEntrees,
-  sortie: false,
+  sortie: ["Tom", "Redocemia"],
 });
 
 // Exercice 4
 exerciceId++;
-descriptionEntrees = ["chaine"];
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["8.4°C ce matin..."],
+descriptionEntrees = ["objet"];
+ajouterTest(exerciceId, "inverser", {
+  entrees: [{ prenom: "Jérémy", nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: 8.4,
+  sortie: { Jérémy: "prenom", MOUZIN: "nom" },
 });
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["La réponse est 42... ou NaN"],
+ajouterTest(exerciceId, "inverser", {
+  entrees: [{prenom: "Tom", nom: "Redocemia"}],
   descriptionEntrees,
-  sortie: NaN,
-});
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["2 buts en 30 min !"],
-  descriptionEntrees,
-  sortie: 2,
+  sortie: { Tom: "prenom", Redocemia: "nom" },
 });
 
 // Exercice 5
 exerciceId++;
-descriptionEntrees = ["chaine"];
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["8.4°C ce matin..."],
+descriptionEntrees = ["objet"];
+ajouterTest(exerciceId, "resume", {
+  entrees: [{ prenom: "Jérémy", nom: "MOUZIN" }],
   descriptionEntrees,
-  sortie: 8,
+  sortie: { cles: ["prenom", "nom"], valeurs: ["Jérémy", "MOUZIN"] },
 });
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["La réponse est 42... ou NaN"],
+ajouterTest(exerciceId, "resume", {
+  entrees: [{prenom: "Tom", nom: "Redocemia"}],
   descriptionEntrees,
-  sortie: NaN,
-});
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["2 buts en 30 min !"],
-  descriptionEntrees,
-  sortie: 2,
-});
-
-// Exercice 6
-exerciceId++;
-descriptionEntrees = ["binaire"];
-ajouterTest(exerciceId, "parseInt1", {
-  entrees: ["101010"],
-  descriptionEntrees,
-  sortie: 42,
-});
-ajouterTest(exerciceId, "parseInt1", {
-  entrees: ["10100111001"],
-  descriptionEntrees,
-  sortie: 1337,
-});
-
-// Exercice 7
-exerciceId++;
-descriptionEntrees = ["hexa"];
-ajouterTest(exerciceId, "parseInt2", {
-  entrees: ["2a"],
-  descriptionEntrees,
-  sortie: 42,
-});
-ajouterTest(exerciceId, "parseInt2", {
-  entrees: ["539"],
-  descriptionEntrees,
-  sortie: 1337,
-});
-
-// Exercice 8
-exerciceId++;
-descriptionEntrees = ["hexa"];
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [42.1337],
-  descriptionEntrees,
-  sortie: "42.134",
-});
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [356.23553],
-  descriptionEntrees,
-  sortie: "356.236",
-});
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [1.61803],
-  descriptionEntrees,
-  sortie: "1.618",
-});
-
-// Exercice 9
-exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "toString0", {
-  entrees: [42.1337],
-  descriptionEntrees,
-  sortie: "42.1337",
-});
-ajouterTest(exerciceId, "toString0", {
-  entrees: [1337],
-  descriptionEntrees,
-  sortie: "1337",
-});
-
-// Exercice 10
-exerciceId++;
-descriptionEntrees = ["nombre"];
-ajouterTest(exerciceId, "toString1", {
-  entrees: [42],
-  descriptionEntrees,
-  sortie: "101010",
-});
-ajouterTest(exerciceId, "toString1", {
-  entrees: [1337],
-  descriptionEntrees,
-  sortie: "10100111001",
-});
-
-// Exercice 10
-exerciceId++;
-descriptionEntrees = ["nombre"];
-ajouterTest(exerciceId, "toString2", {
-  entrees: [42],
-  descriptionEntrees,
-  sortie: "2a",
-});
-ajouterTest(exerciceId, "toString2", {
-  entrees: [1337],
-  descriptionEntrees,
-  sortie: "539",
-});
-
-// Exercice 11
-exerciceId++;
-descriptionEntrees = ["secret"];
-ajouterTest(exerciceId, "decodeur", {
-  entrees: ["0110011001110010"],
-  descriptionEntrees,
-  sortie: "fr",
-});
-ajouterTest(exerciceId, "decodeur", {
-  entrees: ["01001010011000010111011001100001010100110110001101110010011010010111000001110100"],
-  descriptionEntrees,
-  sortie: "JavaScript",
-});
-
-// Exercice 12
-exerciceId++;
-descriptionEntrees = ["message"];
-ajouterTest(exerciceId, "encodeur", {
-  entrees: ["fr"],
-  descriptionEntrees,
-  sortie: "0110011001110010",
-});
-ajouterTest(exerciceId, "encodeur", {
-  entrees: ["JavaScript"],
-  descriptionEntrees,
-  sortie: "01001010011000010111011001100001010100110110001101110010011010010111000001110100",
-});
-
-// Exercice 12
-exerciceId++;
-descriptionEntrees = ["commandes"];
-ajouterTest(exerciceId, "totalPanier", {
-  entrees: ["10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes"],
-  descriptionEntrees,
-  sortie: "45 pommes,50 cerises,18 bananes",
-});
-ajouterTest(exerciceId, "totalPanier", {
-  entrees: ["2 melons,12 oranges,35 pommes,1 melons,0 bananes,5 oranges,0 bananes,30 cerises"],
-  descriptionEntrees,
-  sortie: "3 melons,17 oranges,35 pommes,30 cerises",
+  sortie: { cles: ["prenom", "nom"], valeurs: ["Tom", "Redocemia"] },
 });
 
 lancerTousLesTests();
@@ -345,7 +124,7 @@ function lancerTousLesTests() {
           // Sauvegarde des entrées originales qui peuvent être modifiées par l'étudiant à l'intérieur
           // de la fonction. Ça permet d'afficher les entrées d'origine dans le message d'erreur.
           const entreesOriginales = test.entrees.map(dupliquerValeur);
-          
+
           // Exécute la fonction de l'étudiant
           let valeurRetour = (entreesOriginales === null) ? window[nomFonction]() : window[nomFonction](...entreesOriginales);
 
@@ -374,7 +153,7 @@ function dupliquerValeur(valeur) {
     return [...valeur];
   } else if (typeof valeur === "object") {
     // On renvoie un nouvel objet identique
-    return {...valeur};
+    return { ...valeur };
   } else {
     // On renvoie la valeur primitive
     return valeur;
@@ -391,6 +170,10 @@ function formaterObjet(valeur) {
   return valeur;
 }
 
+function estUnObjet(variable) {
+  return Object.prototype.toString.call(variable) === '[object Object]';
+}
+
 function comparerSimplement(valeur1, valeur2) {
   if (typeof valeur1 !== typeof valeur2) return false;
   // Gère le cas où on attend NaN en sortie
@@ -401,9 +184,13 @@ function comparerSimplement(valeur1, valeur2) {
     if (valeur1.length !== valeur2.length) return false;
     // Comparaison, élément par élément
     for (let i = 0, l = valeur1.length; i < l; i++) {
-      if (valeur1[i] !== valeur2[i]) return false;
+      if (!comparerSimplement(valeur1[i], valeur2[i])) return false;
     }
     return true;
+  } else if (estUnObjet(valeur1) && estUnObjet(valeur2)) {
+    // Vu qu'on travaille sur des objets non imbriqués simples, on peut
+    // se permettre d'utiliser JSON.stringify pour aller vite
+    return JSON.stringify(valeur1) === JSON.stringify(valeur2);
   } else {
     return valeur1 === valeur2;
   }

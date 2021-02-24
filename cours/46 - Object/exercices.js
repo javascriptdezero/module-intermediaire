@@ -22,65 +22,28 @@
  */
 
 // Exercice 0
-// Créez la fonction isNaN0(valeur) ci-dessous.
+// Créez la fonction assign0(objet1, objet2) ci-dessous.
 
 
 // Exercice 1
-// Créez la fonction isFinite0(valeur) ci-dessous.
+// Créez la fonction entries0(objet) ci-dessous.
 
 
 // Exercice 2
-// Créez la fonction isInteger0(valeur) ci-dessous.
+// Créez la fonction keys0(objet) ci-dessous.
 
 
 // Exercice 3
-// Créez la fonction isSafeInteger0(valeur) ci-dessous.
-
-
-// Exercice 4
-// Créez la fonction parseFloat0(chaine) ci-dessous.
-
-
-// Exercice 5
-// Créez la fonction parseInt0(chaine) ci-dessous.
-
-
-// Exercice 6
-// Créez la fonction parseInt1(binaire) ci-dessous.
-
-
-// Exercice 7
-// Créez la fonction parseInt2(hexa) ci-dessous.
-
-
-// Exercice 8
-// Créez la fonction toFixed0(valeur) ci-dessous.
-
-
-// Exercice 9
-// Créez la fonction toString0(valeur) ci-dessous.
-
-
-// Exercice 10
-// Créez la fonction toString1(nombre) ci-dessous.
-
-
-// Exercice 11
-// Créez la fonction toString2(nombre) ci-dessous.
+// Créez la fonction values0(objet) ci-dessous.
 
 
 /********************/
 /* Exercices finaux */
 /********************/
 
-// Exercice 0 — Décodeur
-// Créez la fonction decodeur(secret) ci-dessous.
+// Exercice 0 — Inversement clé / valeur
+// Créez la fonction inverser(objet) ci-dessous.
 
 
-// Exercice 1 — Encodeur
-// Créez la fonction encodeur(message) ci-dessous.
-
-
-// Exercice 2 — Panier de fruits
-// Créez la fonction totalPanier(commandes) ci-dessous.
-
+// Exercice 1 — Résumé
+// Créez la fonction resume(objet) ci-dessous.

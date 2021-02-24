@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Number</title>
+  <title>Object</title>
   <link rel="stylesheet" type="text/css" href="../commun/style.css" />
   <link rel="icon" type="image/png" href="../../images/favicon-64px.png" />
 </head>
 
 <body>
-  <h1>Number</h1>
+  <h1>Object</h1>
   <p>
     Pour répondre à ces exercices, tapez votre code dans le fichier <code>exercices.js</code>.<br />
   </p>
@@ -115,25 +115,25 @@
   <h2>Documentation</h2>
   <ul>
     <li>
-      <a class="mdn" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number"
-        target="_blank">Consulter la doc MDN sur le type Number</a>
+      <a class="mdn" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object"
+        target="_blank">Consulter la doc MDN sur le type Object</a>
     </li>
   </ul>
 
   <h2>Objectifs</h2>
   <ul>
-    <li>Comprendre le fonctionnement général du type Number.</li>
-    <li>Savoir déclarer et utiliser les Numbers.</li>
-    <li>Savoir utiliser les méthodes simples disponibles sur les Numbers et notamment :
+    <li>Comprendre le fonctionnement général du type Object.</li>
+    <li>Savoir déclarer et utiliser les Objects.</li>
+    <li>Savoir utiliser les méthodes simples disponibles sur les Objects et notamment :
       <ul>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isNaN" class="mdn" target="_blank">Number.isNaN</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isFinite" class="mdn" target="_blank">Number.isFinite</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isInteger" class="mdn" target="_blank">Number.isInteger</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isSafeInteger" class="mdn" target="_blank">Number.isSafeInteger</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseFloat" class="mdn" target="_blank">Number.parseFloat</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseInt" class="mdn" target="_blank">Number.parseInt</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toFixed" class="mdn" target="_blank">toFixed</a></li>
-        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toString" class="mdn" target="_blank">toString</a></li>
+        <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/assign"
+          class="mdn" target="_blank">assign</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/entries"
+          class="mdn" target="_blank">entries</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/keys" class="mdn"
+          target="_blank">keys</a></li>
+      <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/values"
+          class="mdn" target="_blank">values</a></li>
       </ul>
     </li>
   </ul>
@@ -141,7 +141,7 @@
   <h2>Structure des exercices</h2>
   
   <h3>Exercices d'échauffement</h3>
-  <p>Dans un premier temps, vous allez devoir utiliser les méthodes listées ci-dessus une par une, dans l'ordre, pour réaliser les exercices d'échauffement. Vous ferez quelques exercices sur <code>isNaN()</code>, puis quelques exercices sur <code>isFinite()</code>, puis <code>isInteger()</code> etc.</p>
+  <p>Dans un premier temps, vous allez devoir utiliser les méthodes listées ci-dessus une par une, dans l'ordre, pour réaliser les exercices d'échauffement. Vous ferez quelques exercices sur <code>assign()</code>, <code>entries()</code>, puis <code>keys()</code> etc.</p>
 
   <p>Même si ces exercices peuvent parfois être un peu rébarbatifs, faites-les au moins une fois. L'objectif est de vous familiariser avec chacune de ces méthodes pour retenir l'utilité principale de celles-ci.</p>
   
@@ -161,14 +161,12 @@
     <h2>Exercice 0</h2>
 
     <p>
-      Créez une fonction <code>isNaN0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> vaut <code>NaN</code> et <code>false</code> sinon.
+      Créez une fonction <code>assign0(objet1, objet2)</code> qui renvoie un objet contenant toutes les propriétés et valeurs contenues dans <code>objet1</code> et <code>objet2</code>.
     </p>
 
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>isNaN0("JavaScript")</code> renverra <code>false</code>.</li>
-      <li><code>isNaN0("NaN")</code> renverra <code>false</code>.</li>
-      <li><code>isNaN0(NaN)</code> renverra <code>true</code>.</li>
+      <li><code>assign0({prenom: "Tom"}, {nom: "Redocemia"})</code> renverra un objet <code>{prenom: "Tom", nom: "Redocemia"}</code>.</li>
     </ul>
 
     <div class="message"></div>
@@ -178,17 +176,12 @@
     <h2>Exercice 1</h2>
 
     <p>
-      Créez une fonction <code>isFinite0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre fini (c'est-à-dire un nombre valide, à virgule ou pas, qui n'est pas l'infini) et <code>false</code> sinon.
+      Créez une fonction <code>entries0(objet)</code> qui renvoie un tableau dont chaque item représente une paire <code>[clé, valeur]</code> de <code>objet</code>.
     </p>
 
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>isFinite0("0")</code> renverra <code>false</code>.</li>
-      <li><code>isFinite0(0)</code> renverra <code>true</code>.</li>
-      <li><code>isFinite0(5/2)</code> renverra <code>true</code>.</li>
-      <li><code>isFinite0(Infinity)</code> renverra <code>false</code>.</li>
-      <li><code>isFinite0(NaN)</code> renverra <code>false</code>.</li>
-      <li><code>isFinite0(-Infinity)</code> renverra <code>false</code>.</li>
+      <li><code>entries0({prenom: "Tom", nom: "Redocemia"})</code> renverra <code>[["prenom", "Tom"], ["nom", "Redocemia"]]</code>.</li>
     </ul>
 
     <div class="message"></div>
@@ -198,17 +191,12 @@
     <h2>Exercice 2</h2>
 
     <p>
-      Créez une fonction <code>isInteger0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre entier (c'est-à-dire un nombre valide et pas à virgule) et <code>false</code> sinon.
+      Créez une fonction <code>keys0(objet)</code> qui renvoie un taleau contenant la liste des propriétés de <code>objet</code>.
     </p>
 
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>isInteger0("0")</code> renverra <code>false</code>.</li>
-      <li><code>isInteger0(0)</code> renverra <code>true</code>.</li>
-      <li><code>isInteger0(5/2)</code> renverra <code>false</code>.</li>
-      <li><code>isInteger0(42.1337)</code> renverra <code>false</code>.</li>
-      <li><code>isInteger0(NaN)</code> renverra <code>false</code>.</li>
-      <li><code>isInteger0(Infinity)</code> renverra <code>false</code>.</li>
+      <li><code>keys0({prenom: "Tom", nom: "Redocemia"})</code> renverra <code>["prenom", "nom"]</code>.</li>
     </ul>
 
     <div class="message"></div>
@@ -218,149 +206,12 @@
     <h2>Exercice 3</h2>
 
     <p>
-      Créez une fonction <code>isSafeInteger0(valeur)</code> qui renvoie <code>true</code> si la <code>valeur</code> est un nombre entier "safe" et <code>false</code> sinon. Un entier "safe" est un entier dont on peut stocker la valeur dans un programme JavaScript et la relire sans perdre en précision.
+      Créez une fonction <code>values0(objet)</code> qui renvoie un taleau contenant la liste des valeurs de <code>objet</code>.
     </p>
 
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>isSafeInteger0("0")</code> renverra <code>false</code>.</li>
-      <li><code>isSafeInteger0(0)</code> renverra <code>true</code>.</li>
-      <li><code>isSafeInteger0(-256443645756)</code> renverra <code>true</code>.</li>
-      <li><code>isSafeInteger0(256443645756)</code> renverra <code>true</code>.</li>
-      <li><code>isSafeInteger0(9007199254740991)</code> renverra <code>true</code>.</li>
-      <li><code>isSafeInteger0(-9007199254740991)</code> renverra <code>true</code>.</li>
-      <li><code>isSafeInteger0(9007199254740992)</code> renverra <code>false</code>.</li>
-      <li><code>isSafeInteger0(-9007199254740992)</code> renverra <code>false</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-4">
-    <h2>Exercice 4</h2>
-
-    <p>
-      Créez une fonction <code>parseFloat0(chaine)</code> qui renvoie le nombre à virgule au début de la <code>chaine</code> et <code>NaN</code> si cette <code>chaine</code> ne commence pas par une nombre.
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>parseFloat0("8.4°C ce matin...")</code> renverra <code>8.4</code>.</li>
-      <li><code>parseFloat0("La réponse est 42... ou NaN")</code> renverra <code>NaN</code>.</li>
-      <li><code>parseFloat0("2 buts en 30 min !")</code> renverra <code>2</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-5">
-    <h2>Exercice 5</h2>
-
-    <p>
-      Créez une fonction <code>parseInt0(chaine)</code> qui renvoie le nombre entier au début de la <code>chaine</code> et <code>NaN</code> si cette <code>chaine</code> ne commence pas par une nombre.
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>parseInt0("8.4°C ce matin...")</code> renverra <code>8</code>.</li>
-      <li><code>parseInt0("La réponse est 42... ou NaN")</code> renverra <code>NaN</code>.</li>
-      <li><code>parseInt0("2 buts en 30 min !")</code> renverra <code>2</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-6">
-    <h2>Exercice 6</h2>
-
-    <p>
-      Créez une fonction <code>parseInt1(binaire)</code> qui convertit le nombre <code>binaire</code> écrit en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_binaire" class="mdn" target="_blank">base binaire (base 2)</a> en une valeur décimale (base 10).
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>parseInt1("101010")</code> renverra <code>42</code>.</li>
-      <li><code>parseInt1("10100111001")</code> renverra <code>1337</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-7">
-    <h2>Exercice 7</h2>
-
-    <p>
-      Créez une fonction <code>parseInt2(hexa)</code> qui convertit le nombre <code>hexa</code> écrit en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal" class="mdn" target="_blank">base hexadécimale (base 16)</a> en une valeur décimale (base 10).
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>parseInt2("2a")</code> renverra <code>42</code>.</li>
-      <li><code>parseInt2("539")</code> renverra <code>1337</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-8">
-    <h2>Exercice 8</h2>
-
-    <p>
-      Créez une fonction <code>toFixed0(valeur)</code> qui renvoie une chaîne de caractères avec le nombre à virgule <code>valeur</code> formaté à <code>3</code> chiffres max après la virgule (en arrondissant à l'entier le plus proche si besoin).
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>toFixed0(42.1337)</code> renverra <code>"42.134"</code>.</li>
-      <li><code>toFixed0(356.23553)</code> renverra <code>"356.236"</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-9">
-    <h2>Exercice 9</h2>
-
-    <p>
-      Créez une fonction <code>toString0(valeur)</code> qui renvoie le nombre <code>valeur</code> sous la forme d'une chaîne de caractères.
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>toString0(42)</code> renverra <code>"42"</code>.</li>
-      <li><code>toString0(1337)</code> renverra <code>"1337"</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-10">
-    <h2>Exercice 10</h2>
-
-    <p>
-      Créez une fonction <code>toString1(nombre)</code> qui convertit le <code>nombre</code> entier décimal en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_binaire" class="mdn" target="_blank">binaire (base 2)</a>. La représentation binaire de ce nombre sera renvoyée sur la forme d'une chaîne de caractères.
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>toString1(42)</code> renverra <code>"101010"</code>.</li>
-      <li><code>toString1(1337)</code> renverra <code>"10100111001"</code>.</li>
-    </ul>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-11">
-    <h2>Exercice 11</h2>
-
-    <p>
-      Créez une fonction <code>toString2(nombre)</code> qui convertit le <code>nombre</code> entier décimal en <a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_hexad%C3%A9cimal" class="mdn" target="_blank">hexadécimal (base 16)</a>. La représentation hexadécimale de ce nombre sera renvoyée sur la forme d'une chaîne de caractères.
-    </p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>toString2(42)</code> renverra <code>"2a"</code>.</li>
-      <li><code>toString2(1337)</code> renverra <code>"539"</code>.</li>
+      <li><code>values0({prenom: "Tom", nom: "Redocemia"})</code> renverra <code>["Tom", "Redocemia"]</code>.</li>
     </ul>
 
     <div class="message"></div>
@@ -377,7 +228,7 @@
 
     <li>N'affichez pas les indices avant d'avoir planché sur l'exercice pendant 30 min au moins.</li>
 
-    <li>Vous pouvez/devrez utiliser tout ce qu'on a vu jusqu'à présent : variables, boucles, conditions, etc. et bien sûr les méthodes disponibles <strong style="color: var(--jaune);">sur les Strings, les Arrays et les Numbers bien sûr !</strong></li>
+    <li>Vous pouvez/devrez utiliser tout ce qu'on a vu jusqu'à présent : variables, boucles, conditions, etc. et bien sûr les méthodes disponibles <strong style="color: var(--jaune);">sur les Strings, les Arrays, les Numbers et sur les Objects bien sûr !</strong></li>
 
     <li>Il faudra parfois utiliser plusieurs méthodes ensemble pour répondre à l'énoncé.</li>
 
@@ -388,110 +239,42 @@
 
   <h2>Exercices finaux</h2>
 
-  <div class="enonce" id="enonce-12">
-    <h2>Exercice 0 - Décodeur</h2>
+  <div class="enonce" id="enonce-4">
+    <h2>Exercice 0 - Inversement clé / valeur</h2>
 
     <p>
-      Créez une fonction <code>decodeur(secret)</code> qui décode le message <code>secret</code>. Celui-ci est une chaîne de caractères composée uniquement de 0 et de 1 qui représentent le message original.
+      Créez une fonction <code>inverser(objet)</code> qui renvoie un objet identique à <code>objet</code> mais dont les clés et valeurs ont été inversées.
     </p>
 
-    <p>Par exemple, supposons que <code>secret</code> vaut <code>0110011001110010</code>.</p>
-
-    <p>Pour décoder ce secret, vous devrez suivre les étapes suivantes :</p>
-    <ol>
-      <li>Découpez la chaîne en blocs de 8 chiffres consécutifs. Chaque bloc de 8 chiffres représente un nombre au format binaire.</li>
-      <li>Convertissez ce nombre en décimal. Ici, le 1<sup>er</sup> bloc est <code>01100110</code> et vaut <code>102</code>. Le 2<sup>ème</sup> bloc est <code>01110010</code> et vaut <code>114</code>.</li>
-      <li>Convertissez chaque nombre en son caractère associé selon la <a href="https://fr.wikibooks.org/wiki/Les_ASCII_de_0_%C3%A0_127/La_table_ASCII#Table_des_128_caract%C3%A8res_ASCII" target="_blank">table de correspondances ASCII</a>. La méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/fromCharCode" target="_blank" class="mdn">String.fromCharCode(nombre)</a> vous permet de faire ça facilement !</li>
-      <li>Le nombre <code>102</code> correspond à la lettre <code>f</code>.</li>
-      <li>Le nombre <code>114</code> correspond à la lettre <code>r</code>.</li>
-      <li>Le message clair était donc <code>fr</code>.</li>
-    </ol>
-
-    <p>Il est garanti que la longueur de <code>secret</code> est toujours un multiple de 8.</p>
-
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>decodeur("0110011001110010")</code> renverra <code>"fr"</code>.</li>
-      <li><code style="overflow-wrap: anywhere;">decodeur("01001010011000010111011001100001010100110110001101110010011010010111000001110100")</code> renverra <code>"539"</code>.</li>
+      <li><code>inverser({prenom: "Tom", nom: "Redocemia"})</code> renverra <code>{Tom: "prenom", Redocemia: "nom"}</code>.</li>
     </ul>
 
     <details>
       <summary>Indice</summary>
-      <p>Pour découpez chaque bloc de 8 chiffres, utilisez une boucle avec <code>slice()</code>. Faites les conversions nécessaires avec <code>parseInt()</code> et la base qui va bien puis <code>String.fromCharCode()</code>.</p>
+      <p>Vous pouvez utiliser les 2 méthodes <code>Object.keys()</code> et <code>Object.values()</code> puis boucler sur leurs valeurs pour construire un nouvel objet. Vous pouvez également utiliser uniquement la méthode <code>Object.entries()</code> et boucler sur les valeurs du tableau renvoyé pour construire le nouvel objet.</p>
     </details>
 
     <div class="message"></div>
   </div>
 
-  <div class="enonce" id="enonce-13">
-    <h2>Exercice 1 - Encodeur</h2>
+  <div class="enonce" id="enonce-5">
+    <h2>Exercice 1 - Résumé</h2>
 
     <p>
-      Créez une fonction <code>encodeur(message)</code> qui encode le <code>message</code> sous la forme du <code>secret</code> de l'exercice précédent.
+      Créez une fonction <code>resume(objet)</code> qui renvoie un objet avec 2 propriétés <code>cles</code> et <code>valeurs</code> contenant chacune dans un taleau la liste des propriétés (clés) et la liste des valeurs de <code>objet</code>.
     </p>
 
-    <p>Par exemple, supposons que le message à encoder soit <code>JavaScript</code>.</p>
-
-    <p>Pour encoder ce message, vous devrez suivre les étapes suivantes :</p>
-    <ol>
-      <li>Pour chaque caractère dans le message, convertissez-le en son nombre décimal équivalent selon la <a href="https://fr.wikibooks.org/wiki/Les_ASCII_de_0_%C3%A0_127/La_table_ASCII#Table_des_128_caract%C3%A8res_ASCII" target="_blank">table de correspondances ASCII</a>. La méthode <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/charCodeAt" target="_blank" class="mdn">charCodeAt()</a> vous permet de faire ça facilement !</li>
-      <li>La lettre <code>J</code> correspond au nombre <code>74</code></li>
-      <li>Convertissez chaque nombre en son équivalent binaire grâce à la méthode <code>toString()</code>. Le nombre <code>74</code> devient <code>01001010</code>. Attention, la représentation binaire doit être sur 8 chiffres, il faudra compléter avec des <code>0</code> au début si besoin.</li>
-      <li>Concaténez le tout en une seule chaîne de caractères qu'il faut renvoyer !</li>
-    </ol>
-
-    <p>Exemples :</p>
+    <p>Exemple :</p>
     <ul>
-      <li><code>encodeur("fr")</code> renverra <code>"0110011001110010"</code>.</li>
-      <li><code>decodeur("JavaScript")</code> renverra <code style="overflow-wrap: anywhere;">"01001010011000010111011001100001010100110110001101110010011010010111000001110100"</code></li>
+      <li><code>resume({prenom: "Tom", nom: "Redocemia"})</code> renverra <code>{cles: ["prenom", "nom"], valeurs: ["Tom", "Redocemia"]}</code>.</li>
     </ul>
 
     <details>
       <summary>Indice</summary>
-      <p>Lisez chaque caractère du message avec une boucle et récupérez le nombre correspondant à ce caractère avec <code>charCodeAt()</code>. Faites les conversions nécessaires avec <code>toString()</code> et la base qui va bien puis complétez avec les 0 nécessaires devant la représentation binaire grâce à <code>padStart()</code>.</p>
+      <p>Le plus rapide est d'utiliser les méthodes <code>Object.keys()</code> et <code>Object.values()</code> pour construire facilement le nouvel objet à retourner.</p>
     </details>
-
-    <div class="message"></div>
-  </div>
-
-  <div class="enonce" id="enonce-14">
-    <h2>Exercice 2 - Panier de fruits (difficile)</h2>
-
-    <p>
-      Créez une fonction <code>totalPanier(commandes)</code> qui retourne une chaîne de caractères représentant la somme de toutes les <code>commandes</code> passées par plusieurs clients.
-    </p>
-
-    <p>Les commandes sont au format CSV, sous la forme d'une chaîne de caractères, par exemple : <code>10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes</code>.</p>
-
-    <p>La fonction devra calculer la somme totale de fruits à vendre et retourner cette somme dans une chaîne de caractères comme ceci : <code>45 pommes,50 cerises,18 bananes</code>.</p>
-
-    <p>L'ordre des fruits devra être le même que celui rencontré dans les commandes.</p>
-
-    <p>Pour simplifier l'exercice, il est garanti que le nom du fruit est toujours écrit au pluriel, par exemple, dans la commande, il peut être écrit <code>0 bananes,1 bananes</code>.</p>
-
-    <p>Si la somme des commandes d'un certain fruit vaut <code>0</code>, on ne l'indique pas du tout dans le total.</p>
-
-    <p>Exemples :</p>
-    <ul>
-      <li><code>totalPanier("10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes")</code> renverra <code>45 pommes,50 cerises,18 bananes</code></li>
-      <li><code>totalPanier("2 melons,12 oranges,35 pommes,1 melons,0 bananes,5 oranges,0 bananes,30 cerises")</code> renverra <code>3 melons,17 oranges,35 pommes,30 cerises</code></li>
-    </ul>
-
-    <details>
-      <summary>Indice 1</summary>
-      <p>L'astuce principale à exploiter pour cet exercice est d'utiliser un objet JavaScript (nommons-le <code>sommeCommandes</code> par exemple) pour stocker la somme des quantités de chaque fruit sous la forme <code>{ "pommes": 20, "cerises": 35 }</code>.</p><p>À chaque nouveau fruit qu'on rencontre on ajoute une nouvelle propriété dans cet objet qui aura pour nom le nom du fruit et pour valeur la quantité demandée.</p><p>Si on a déjà rencontré ce fruit, on ajoute la nouvelle quantité à la quantité déjà existante dans <code>sommeCommandes</code>. Par exemple si on avait <code>{ "pommes": 10 }</code> et qu'on lit <code>7 pommes</code> dans la liste des commandes, il faut modifier l'objet pour avoir <code>{ "pommes": 17 }</code> et ainsi de suite.</p>
-      <p>Utilisez la méthode <code>split()</code> pour découper la chaîne <code>commandes</code> et en extraire les quantités et le nom de chaque fruit facilement. Ensuite faites une boucle pour récupérer chaque commande de fruits séparément et alimenter l'objet <code>sommeCommandes</code>.</p>
-      <p>Dans un premier temps, essayez de construire cet objet <code>sommeCommandes</code> correctement, sans vous soucier du reste.</p>
-      <p>Ensuite il faudra trouver un moyen d'afficher dans l'ordre qu'il faut le contenu de <code>sommeCommandes</code>. Essayez de votre côté puis lisez l'indice 2 si vous n'y arrivez pas.</p>
-    </details>
-
-    <details>
-      <summary>Indice 2</summary>
-      <p>Pour retenir l'ordre des fruits, on peut utiliser un tableau <code>ordreDesFruits</code> qui contiendra la liste des noms de chaque fruit qu'on a lu dans <code>commandes</code>. À chaque fois qu'on lit un nouveau nom de fruit, on vérifie qu'il n'est pas déjà dans <code>ordreDesFruits</code> grâce à la méthode <code>includes()</code>. Si ce n'est pas le cas alors on l'ajoute à <code>ordreDesFruits</code> avec la méthode <code>push()</code>.</p>
-      <p>À la fin on obtient dans ce tableau la liste des noms des fruits comme ceci : <code>["pommes", "cerises", "oranges"]</code>. Il ne reste plus qu'à lire chaque nom de fruit dans ce tableau avec une boucle et à utiliser ce nom de fruit avec <code>sommeCommandes</code> pour afficher la quantité et le nom du fruit dans le bon ordre.</p>
-    </details>
-
-    <p class="attention">Cet exercice est très difficile. Vous aurez besoin d'utiliser les objets et les tableaux pour y arriver. N'hésitez pas à passer plusieurs heures sur celui-ci, ne vous découragez pas.</p>
 
     <div class="message"></div>
   </div>
