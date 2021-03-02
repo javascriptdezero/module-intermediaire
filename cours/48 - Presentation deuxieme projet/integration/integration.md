@@ -51,7 +51,3 @@ Il y a un overlay sur l'image de fond pour la rendre plus sombre avec la couleur
 Voici le design à intégrer ([image ici](./design.jpg)):
 
 ![Image du design à intégrer](./design.jpg)
-
-## Solution
-
-Vous trouverez *une solution possible* pour réaliser cette intégration dans le fichier [index.html](../index.html) de ce dossier.
