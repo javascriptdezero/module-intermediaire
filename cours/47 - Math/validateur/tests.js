@@ -29,307 +29,325 @@ function ajouterTest(idExercice, nomFonction, {
 
 // Exercice 0
 let exerciceId = 0;
-let descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: ["JavaScript"],
+let descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "abs0", {
+  entrees: [12],
   descriptionEntrees,
-  sortie: false,
+  sortie: 12,
 });
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: ["NaN"],
+ajouterTest(exerciceId, "abs0", {
+  entrees: [0],
   descriptionEntrees,
-  sortie: false,
+  sortie: 0,
 });
-ajouterTest(exerciceId, "isNaN0", {
-  entrees: [NaN],
+ajouterTest(exerciceId, "abs0", {
+  entrees: [-5],
   descriptionEntrees,
-  sortie: true,
+  sortie: 5,
 });
 
 // Exercice 1
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: ["0"],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [Infinity],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [-Infinity],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [NaN],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isFinite0", {
+descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "ceil0", {
   entrees: [0],
   descriptionEntrees,
-  sortie: true,
+  sortie: 0,
 });
-ajouterTest(exerciceId, "isFinite0", {
-  entrees: [5/2],
+ajouterTest(exerciceId, "ceil0", {
+  entrees: [5.2],
   descriptionEntrees,
-  sortie: true,
+  sortie: 6,
+});
+ajouterTest(exerciceId, "ceil0", {
+  entrees: [8.9],
+  descriptionEntrees,
+  sortie: 9,
+});
+ajouterTest(exerciceId, "ceil0", {
+  entrees: [-0.8],
+  descriptionEntrees,
+  sortie: 0,
+});
+ajouterTest(exerciceId, "ceil0", {
+  entrees: [-42.3],
+  descriptionEntrees,
+  sortie: -42,
 });
 
 // Exercice 2
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: ["0"],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [5/2],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [42.1337],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [NaN],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [Infinity],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isInteger0", {
+descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "floor0", {
   entrees: [0],
   descriptionEntrees,
-  sortie: true,
+  sortie: 0,
 });
-ajouterTest(exerciceId, "isInteger0", {
-  entrees: [42],
+ajouterTest(exerciceId, "floor0", {
+  entrees: [5.2],
   descriptionEntrees,
-  sortie: true,
+  sortie: 5,
+});
+ajouterTest(exerciceId, "floor0", {
+  entrees: [8.9],
+  descriptionEntrees,
+  sortie: 8,
+});
+ajouterTest(exerciceId, "floor0", {
+  entrees: [-0.8],
+  descriptionEntrees,
+  sortie: -1,
+});
+ajouterTest(exerciceId, "floor0", {
+  entrees: [-42.3],
+  descriptionEntrees,
+  sortie: -43,
 });
 
 // Exercice 3
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: ["0"],
+descriptionEntrees = ["cote1", "cote2"];
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [3, 4],
   descriptionEntrees,
-  sortie: false,
+  sortie: 5,
 });
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [0],
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [0, 5],
   descriptionEntrees,
-  sortie: true,
+  sortie: 5,
 });
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-256443645756],
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [12, 28],
   descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [256443645756],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [9007199254740991],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-9007199254740991],
-  descriptionEntrees,
-  sortie: true,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [9007199254740992],
-  descriptionEntrees,
-  sortie: false,
-});
-ajouterTest(exerciceId, "isSafeInteger0", {
-  entrees: [-9007199254740992],
-  descriptionEntrees,
-  sortie: false,
+  sortie: 30.463092423455635,
 });
 
 // Exercice 4
 exerciceId++;
-descriptionEntrees = ["chaine"];
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["8.4°C ce matin..."],
+descriptionEntrees = ["nombre1", "nombre2", "nombre3"];
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [1, 2, 3],
   descriptionEntrees,
-  sortie: 8.4,
+  sortie: 2.23606797749979,
 });
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["La réponse est 42... ou NaN"],
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [42, 12, 34],
   descriptionEntrees,
-  sortie: NaN,
+  sortie: 43.68065933568311,
 });
-ajouterTest(exerciceId, "parseFloat0", {
-  entrees: ["2 buts en 30 min !"],
+ajouterTest(exerciceId, "hypot0", {
+  entrees: [0, 6, 0],
   descriptionEntrees,
-  sortie: 2,
+  sortie: 6,
 });
 
 // Exercice 5
 exerciceId++;
-descriptionEntrees = ["chaine"];
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["8.4°C ce matin..."],
+descriptionEntrees = ["nombre1", "nombre2"];
+ajouterTest(exerciceId, "max0", {
+  entrees: [5, 12],
+  descriptionEntrees,
+  sortie: 12,
+});
+ajouterTest(exerciceId, "max0", {
+  entrees: [-4, 8],
   descriptionEntrees,
   sortie: 8,
 });
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["La réponse est 42... ou NaN"],
+ajouterTest(exerciceId, "max0", {
+  entrees: [-12, -5],
   descriptionEntrees,
-  sortie: NaN,
-});
-ajouterTest(exerciceId, "parseInt0", {
-  entrees: ["2 buts en 30 min !"],
-  descriptionEntrees,
-  sortie: 2,
+  sortie: -5,
 });
 
 // Exercice 6
 exerciceId++;
-descriptionEntrees = ["binaire"];
-ajouterTest(exerciceId, "parseInt1", {
-  entrees: ["101010"],
+descriptionEntrees = ["nombre1", "nombre2", "nombre3"];
+ajouterTest(exerciceId, "max1", {
+  entrees: [5, 12, 20],
   descriptionEntrees,
-  sortie: 42,
+  sortie: 20,
 });
-ajouterTest(exerciceId, "parseInt1", {
-  entrees: ["10100111001"],
+ajouterTest(exerciceId, "max1", {
+  entrees: [-4, 8, 0],
   descriptionEntrees,
-  sortie: 1337,
+  sortie: 8,
+});
+ajouterTest(exerciceId, "max1", {
+  entrees: [-12, -5, -25],
+  descriptionEntrees,
+  sortie: -5,
 });
 
 // Exercice 7
 exerciceId++;
-descriptionEntrees = ["hexa"];
-ajouterTest(exerciceId, "parseInt2", {
-  entrees: ["2a"],
+descriptionEntrees = ["nombre1", "nombre2"];
+ajouterTest(exerciceId, "min0", {
+  entrees: [5, 12],
   descriptionEntrees,
-  sortie: 42,
+  sortie: 5,
 });
-ajouterTest(exerciceId, "parseInt2", {
-  entrees: ["539"],
+ajouterTest(exerciceId, "min0", {
+  entrees: [-4, 8],
   descriptionEntrees,
-  sortie: 1337,
+  sortie: -4,
+});
+ajouterTest(exerciceId, "min0", {
+  entrees: [-12, -5],
+  descriptionEntrees,
+  sortie: -12,
 });
 
 // Exercice 8
 exerciceId++;
-descriptionEntrees = ["hexa"];
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [42.1337],
+descriptionEntrees = ["nombre1", "nombre2", "nombre3"];
+ajouterTest(exerciceId, "min1", {
+  entrees: [5, 12, 20],
   descriptionEntrees,
-  sortie: "42.134",
+  sortie: 5,
 });
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [356.23553],
+ajouterTest(exerciceId, "min1", {
+  entrees: [-4, 8, 0],
   descriptionEntrees,
-  sortie: "356.236",
+  sortie: -4,
 });
-ajouterTest(exerciceId, "toFixed0", {
-  entrees: [1.61803],
+ajouterTest(exerciceId, "min1", {
+  entrees: [-12, -5, -25],
   descriptionEntrees,
-  sortie: "1.618",
+  sortie: -25,
 });
 
 // Exercice 9
 exerciceId++;
-descriptionEntrees = ["valeur"];
-ajouterTest(exerciceId, "toString0", {
-  entrees: [42.1337],
+descriptionEntrees = ["nombre", "puissance"];
+ajouterTest(exerciceId, "pow0", {
+  entrees: [42, 2],
   descriptionEntrees,
-  sortie: "42.1337",
+  sortie: 1764,
 });
-ajouterTest(exerciceId, "toString0", {
-  entrees: [1337],
+ajouterTest(exerciceId, "pow0", {
+  entrees: [2, 12],
   descriptionEntrees,
-  sortie: "1337",
-});
-
-// Exercice 10
-exerciceId++;
-descriptionEntrees = ["nombre"];
-ajouterTest(exerciceId, "toString1", {
-  entrees: [42],
-  descriptionEntrees,
-  sortie: "101010",
-});
-ajouterTest(exerciceId, "toString1", {
-  entrees: [1337],
-  descriptionEntrees,
-  sortie: "10100111001",
+  sortie: 4096,
 });
 
 // Exercice 10
 exerciceId++;
-descriptionEntrees = ["nombre"];
-ajouterTest(exerciceId, "toString2", {
-  entrees: [42],
-  descriptionEntrees,
-  sortie: "2a",
-});
-ajouterTest(exerciceId, "toString2", {
+descriptionEntrees = ["limiteHaute"];
+ajouterTest(exerciceId, "random0", {
   entrees: [1337],
   descriptionEntrees,
-  sortie: "539",
+  sortie: [0, 1337],
+});
+ajouterTest(exerciceId, "random0", {
+  entrees: [42],
+  descriptionEntrees,
+  sortie: [0, 42],
 });
 
 // Exercice 11
 exerciceId++;
-descriptionEntrees = ["secret"];
-ajouterTest(exerciceId, "decodeur", {
-  entrees: ["0110011001110010"],
+descriptionEntrees = ["limiteBasse", "limiteHaute"];
+ajouterTest(exerciceId, "random1", {
+  entrees: [10, 42],
   descriptionEntrees,
-  sortie: "fr",
+  sortie: [10, 42],
 });
-ajouterTest(exerciceId, "decodeur", {
-  entrees: ["01001010011000010111011001100001010100110110001101110010011010010111000001110100"],
+ajouterTest(exerciceId, "random1", {
+  entrees: [254, 1337],
   descriptionEntrees,
-  sortie: "JavaScript",
-});
-
-// Exercice 12
-exerciceId++;
-descriptionEntrees = ["message"];
-ajouterTest(exerciceId, "encodeur", {
-  entrees: ["fr"],
-  descriptionEntrees,
-  sortie: "0110011001110010",
-});
-ajouterTest(exerciceId, "encodeur", {
-  entrees: ["JavaScript"],
-  descriptionEntrees,
-  sortie: "01001010011000010111011001100001010100110110001101110010011010010111000001110100",
+  sortie: [254, 1337],
 });
 
 // Exercice 12
 exerciceId++;
-descriptionEntrees = ["commandes"];
-ajouterTest(exerciceId, "totalPanier", {
-  entrees: ["10 pommes,20 cerises,35 pommes,12 bananes,30 cerises,6 bananes"],
+descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "round0", {
+  entrees: [42.2],
   descriptionEntrees,
-  sortie: "45 pommes,50 cerises,18 bananes",
+  sortie: 42,
 });
-ajouterTest(exerciceId, "totalPanier", {
-  entrees: ["2 melons,12 oranges,35 pommes,1 melons,0 bananes,5 oranges,0 bananes,30 cerises"],
+ajouterTest(exerciceId, "round0", {
+  entrees: [42.5],
   descriptionEntrees,
-  sortie: "3 melons,17 oranges,35 pommes,30 cerises",
+  sortie: 43,
+});
+ajouterTest(exerciceId, "round0", {
+  entrees: [42.9],
+  descriptionEntrees,
+  sortie: 43,
+});
+
+// Exercice 13
+exerciceId++;
+descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "sign0", {
+  entrees: [5],
+  descriptionEntrees,
+  sortie: 1,
+});
+ajouterTest(exerciceId, "sign0", {
+  entrees: [0],
+  descriptionEntrees,
+  sortie: 0,
+});
+ajouterTest(exerciceId, "sign0", {
+  entrees: [-4],
+  descriptionEntrees,
+  sortie: -1,
+});
+
+// Exercice 14
+exerciceId++;
+descriptionEntrees = ["nombre"];
+ajouterTest(exerciceId, "trunc0", {
+  entrees: [5.2],
+  descriptionEntrees,
+  sortie: 5,
+});
+ajouterTest(exerciceId, "trunc0", {
+  entrees: [5.8],
+  descriptionEntrees,
+  sortie: 5,
+});
+ajouterTest(exerciceId, "trunc0", {
+  entrees: [-45.2],
+  descriptionEntrees,
+  sortie: -45,
+});
+ajouterTest(exerciceId, "trunc0", {
+  entrees: [-45.8],
+  descriptionEntrees,
+  sortie: -45,
+});
+
+// Exercice 15
+exerciceId++;
+descriptionEntrees = ["liste"];
+ajouterTest(exerciceId, "corrigerTemp", {
+  entrees: [[-2.34, -8.12, 5.74, 20.8, -30.82]],
+  descriptionEntrees,
+  sortie: [-56, -64, -59, -39, -69],
+});
+ajouterTest(exerciceId, "corrigerTemp", {
+  entrees: [[12.34, 3.4, -13.51, -4, 12.7, 35.40, 8.6245, -12.454536]],
+  descriptionEntrees,
+  sortie: [-42,-39,-52,-56,-44,-9,-1,-13],
+});
+
+// Exercice 16
+exerciceId++;
+descriptionEntrees = ["liste"];
+ajouterTest(exerciceId, "corrigerPression", {
+  entrees: [[812.24, -810.8, 829.99, -822.46, -855.12]],
+  descriptionEntrees,
+  sortie: [812, 811, 830, 822, 855],
+});
+ajouterTest(exerciceId, "corrigerPression", {
+  entrees: [[824, -840, 812, -822.54, -830.12]],
+  descriptionEntrees,
+  sortie: [824, 840, 812, 823, 830],
 });
 
 lancerTousLesTests();
@@ -349,17 +367,33 @@ function lancerTousLesTests() {
           // Exécute la fonction de l'étudiant
           let valeurRetour = (entreesOriginales === null) ? window[nomFonction]() : window[nomFonction](...entreesOriginales);
 
-          let valeursIdentiques = comparerSimplement(valeurRetour, test.sortie);
+          // Gestion manuelle des exercices sur Math.random()
+          if (nomFonction.startsWith("random")) {
+            const [limiteBasse, limiteHaute] = test.sortie;
+            console.log(`(${valeurRetour} >= ${limiteBasse} && ${valeurRetour} < ${limiteHaute})`, (valeurRetour >= limiteBasse && valeurRetour < limiteHaute));
+            if (valeurRetour >= limiteBasse && valeurRetour < limiteHaute) {
+              // Succès
+              enonces.definirSucces(enonces.liste[test.idExercice], valeurRetour);
+            } else {
+              // Echec
+              const valeurAttendue = `Une valeur entre ${limiteBasse} (inclus) et ${limiteHaute} (exclu)`;
+              enonces.definirEchec(enonces.liste[test.idExercice], { valeurRecue: valeurRetour, valeurAttendue });
 
-          if (valeursIdentiques) {
-            let bonneReponse = formaterObjet(test.sortie);
-            enonces.definirSucces(enonces.liste[test.idExercice], bonneReponse);
+              continuerTests = false;
+            }
           } else {
-            const valeurRecue = formaterObjet(valeurRetour);
-            const valeurAttendue = construireMessageErreur(test, numeroTest, listeTests.length);
-            enonces.definirEchec(enonces.liste[test.idExercice], { valeurRecue, valeurAttendue });
+            let valeursIdentiques = comparerSimplement(valeurRetour, test.sortie);
 
-            continuerTests = false;
+            if (valeursIdentiques) {
+              let bonneReponse = formaterObjet(test.sortie);
+              enonces.definirSucces(enonces.liste[test.idExercice], bonneReponse);
+            } else {
+              const valeurRecue = formaterObjet(valeurRetour);
+              const valeurAttendue = construireMessageErreur(test, numeroTest, listeTests.length);
+              enonces.definirEchec(enonces.liste[test.idExercice], { valeurRecue, valeurAttendue });
+  
+              continuerTests = false;
+            }
           }
         }
       });

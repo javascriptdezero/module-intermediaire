@@ -22,65 +22,73 @@
  */
 
 // Exercice 0
-// Créez la fonction isNaN0(valeur) ci-dessous.
+// Créez la fonction abs0(nombre) ci-dessous.
 
 
 // Exercice 1
-// Créez la fonction isFinite0(valeur) ci-dessous.
+// Créez la fonction ceil0(nombre) ci-dessous.
 
 
 // Exercice 2
-// Créez la fonction isInteger0(valeur) ci-dessous.
+// Créez la fonction floor0(nombre) ci-dessous.
 
 
 // Exercice 3
-// Créez la fonction isSafeInteger0(valeur) ci-dessous.
+// Créez la fonction hypot0(cote1, cote2) ci-dessous.
 
 
 // Exercice 4
-// Créez la fonction parseFloat0(chaine) ci-dessous.
+// Créez la fonction hypot1(nombre1, nombre2, nombre3) ci-dessous.
 
 
 // Exercice 5
-// Créez la fonction parseInt0(chaine) ci-dessous.
+// Créez la fonction max0(nombre1, nombre2) ci-dessous.
 
 
 // Exercice 6
-// Créez la fonction parseInt1(binaire) ci-dessous.
+// Créez la fonction max1(nombre1, nombre2, nombre3) ci-dessous.
 
 
 // Exercice 7
-// Créez la fonction parseInt2(hexa) ci-dessous.
+// Créez la fonction min0(nombre1, nombre2) ci-dessous.
 
 
 // Exercice 8
-// Créez la fonction toFixed0(valeur) ci-dessous.
+// Créez la fonction min1(nombre1, nombre2, nombre3) ci-dessous.
 
 
 // Exercice 9
-// Créez la fonction toString0(valeur) ci-dessous.
+// Créez la fonction pow0(nombre, puissance) ci-dessous.
 
 
 // Exercice 10
-// Créez la fonction toString1(nombre) ci-dessous.
+// Créez la fonction random0(limiteHaute) ci-dessous.
 
 
 // Exercice 11
-// Créez la fonction toString2(nombre) ci-dessous.
+// Créez la fonction random1(limiteBasse, limiteHaute) ci-dessous.
+
+
+// Exercice 12
+// Créez la fonction round0(nombre) ci-dessous.
+
+
+// Exercice 13
+// Créez la fonction sign0(nombre) ci-dessous.
+
+
+// Exercice 14
+// Créez la fonction trunc0(nombre) ci-dessous.
 
 
 /********************/
 /* Exercices finaux */
 /********************/
 
-// Exercice 0 — Décodeur
-// Créez la fonction decodeur(secret) ci-dessous.
+// Exercice 0 — Thermomètre endommagé
+// Créez la fonction corrigerTemp(liste) ci-dessous.
 
 
-// Exercice 1 — Encodeur
-// Créez la fonction encodeur(message) ci-dessous.
-
-
-// Exercice 2 — Panier de fruits
-// Créez la fonction totalPanier(commandes) ci-dessous.
+// Exercice 1 — Vent solaire
+// Créez la fonction corrigerPression(liste) ci-dessous.
 

@@ -5,169 +5,110 @@
  */
 
 // Exercice 0
-function isNaN0(valeur) {
-  return Number.isNaN(valeur);
+function abs0(nombre) {
+  return Math.abs(nombre);
 }
 
 // Exercice 1
-function isFinite0(valeur) {
-  return Number.isFinite(valeur);
+function ceil0(nombre) {
+  return Math.ceil(nombre);
 }
 
 // Exercice 2
-function isInteger0(valeur) {
-  return Number.isInteger(valeur);
+function floor0(nombre) {
+  return Math.floor(nombre);
 }
 
 // Exercice 3
-function isSafeInteger0(valeur) {
-  return Number.isSafeInteger(valeur);
+function hypot0(cote1, cote2) {
+  return Math.hypot(cote1, cote2);
 }
 
 // Exercice 4
-function parseFloat0(chaine) {
-  return Number.parseFloat(chaine);
+function hypot1(nombre1, nombre2, nombre3) {
+  return Math.hypot(nombre1, nombre2, nombre3);
 }
 
 // Exercice 5
-function parseInt0(chaine) {
-  return Number.parseInt(chaine);
+function max0(nombre1, nombre2) {
+  return Math.max(nombre1, nombre2);
 }
 
 // Exercice 6
-function parseInt1(binaire) {
-  return Number.parseInt(binaire, 2);
+function max1(nombre1, nombre2, nombre3) {
+  return Math.max(nombre1, nombre2, nombre3);
 }
 
 // Exercice 7
-function parseInt2(hexa) {
-  return Number.parseInt(hexa, 16);
+function min0(nombre1, nombre2) {
+  return Math.min(nombre1, nombre2);
 }
 
 // Exercice 8
-function toFixed0(valeur) {
-  return valeur.toFixed(3);
+function min1(nombre1, nombre2, nombre3) {
+  return Math.min(nombre1, nombre2, nombre3);
 }
 
 // Exercice 9
-function toString0(valeur) {
-  return valeur.toString();
-} 
+function pow0(nombre, puissance) {
+  return Math.pow(nombre, puissance);
+}
 
 // Exercice 10
-function toString1(nombre) {
-  return nombre.toString(2);
+function random0(limiteHaute) {
+  return Math.random() * limiteHaute;
 }
 
 // Exercice 11
-function toString2(nombre) {
-  return nombre.toString(16);
+function random1(limiteBasse, limiteHaute) {
+  return limiteBasse + Math.random() * (limiteHaute - limiteBasse);
+}
+
+// Exercice 12
+function round0(nombre) {
+  return Math.round(nombre);
+}
+
+// Exercice 13
+function sign0(nombre) {
+  return Math.sign(nombre);
+}
+
+// Exercice 14
+function trunc0(nombre) {
+  return Math.trunc(nombre);
 }
 
 /********************/
 /* Exercices finaux */
 /********************/
 
-// Exercice 0 — Décodeur
-function decodeur(secret) {
-  let message = "";
-
-  // On incrémente de 8 unités pour découper par bloc de 8 chiffres
-  for (let i = 0; i < secret.length; i += 8) {
-    // On découpe 8 caractères
-    let binaire = secret.slice(i, i + 8);
-    // On convertit en base 10 le binaire qui est en base 2
-    let nombre = Number.parseInt(binaire, 2);
-    // On ajoute au résultat la lettre correspondante au nombre
-    message += String.fromCharCode(nombre);
-  }
-  return message;
-}
-
-// Exercice 1 — Encodeur
-function encodeur(message) {
-  let secret = "";
-  // Pour chaque caractère du message...
-  for (let i = 0; i < message.length; i++) {
-    // On récupère le nombre correspondant à chaque caractère
-    let nombre = message.charCodeAt(i);
-    // On le convertit en binaire
-    let binaire = nombre.toString(2);
-    // On ajoute les 0 devant pour faire 8 chiffres et on ajoute
-    // au résultat avec += (concaténation)
-    secret += binaire.padStart(8, '0');
-  }
-  return secret;
-}
-
-// Exercice 2 — Panier de fruits
-function totalPanier(commandes) {
-  // On retiendra l'ordre des fruits dans ce tableau, on y stockera
-  // chaque nom de fruit (une seule fois) rencontré dans les commandes
-  let ordreDesFruits = [];
-  // Chaque somme de fruits sera stockée dans un objet. Le nom
-  // du fruit sera le nom de la propriété dont la valeur sera la
-  // quantité totale des commandes de ce fruit.
-  // Par exemple : sommeCommandes = { "pommes": 20, "cerises": 12 }
-  let sommeCommandes = {};
-  
-  // On découpe chaque énumération de fruit des commandes...
-  let commandeParFruit = commandes.split(',');
-
-  // Pour chaque commande de fruit...
-  for (let i = 0; i < commandeParFruit.length; i++) {
-    // On extrait la quantité et le nom du fruit
-    // commandeParFruit[i] vaut par exemple "45 pommes"
-    let quantiteEtNom = commandeParFruit[i].split(' ');
-    // quantiteEtNom vaut ["45", "pommes"]
-    let quantite = quantiteEtNom[0];
-    let nom = quantiteEtNom[1];
-
-    // Etape 1 : on sauvegarde ce nouveau fruit dans ordreDesFruits.
-    // Si le nom de ce fruit n'est pas contenu dans notre tableau
-    // ordreDesFruits, alors on l'ajoute
-    if (!ordreDesFruits.includes(nom)) {
-      ordreDesFruits.push(nom);
-    }
-
-    // Etape 2 : on ajoute la quantité de cette commande à la
-    // quantité de fruits déjà connue. Cas particulier : si c'est
-    // la 1ère fois qu'on voit ce fruit, il faut l'ajouter à notre
-    // objet sommeCommandes.
-    
-    // On vérifie si on a déjà vu ce fruit. Quand on essaye
-    // d'accéder à une propriété qui n'existe pas sur un objet, ça
-    // renvoie undefined.
-    // Si on n'a jamais enregistré ce fruit dans sommeCommandes...
-    if (sommeCommandes[nom] === undefined) {
-      // ... on l'ajoute à l'objet sommeCommandes avec sa quantité
-      // initiale. Attention quantite est une chaîne de caractères,
-      // il faut la convertir en nombre
-      sommeCommandes[nom] = Number(quantite);
-    } else {
-      // sinon, si on a déjà vu ce fruit, on ajoute la nouvelle
-      // quantité à la somme déjà existante avec l'opérateur '+='.
-      // Attention quantite est une chaîne de caractères, il faut
-      // la convertir en nombre pour faire l'addition
-      sommeCommandes[nom] += Number(quantite);
-    }
-  }
-
-  // Etape 3, on affiche dans l'ordre toutes les sommes, pour ça
-  // on utilise notre ordreDesFruits pour récupérer chaque nom
-  // de fruit à utiliser sur sommeCommandes.
+// Exercice 0 — Thermomètre endommagé
+function corrigerTemp(liste) {
+  // La température initiale est toujours de -54 °C.
+  let temperaturePrecedente = -54;
   let resultat = [];
-
-  // Pour chaque fruit dans l'ordre...
-  for (let i = 0; i < ordreDesFruits.length; i++) {
-    let nomDuFruit = ordreDesFruits[i];
-    // On ne doit afficher que les fruits dont la quantité est > 0
-    if (sommeCommandes[nomDuFruit] > 0) {
-      // On ajoute au tableau résultat par exemple "45 pommes"
-      resultat.push(`${sommeCommandes[nomDuFruit]} ${nomDuFruit}`);
-    }
+  // Pour chaque différence de température
+  for (let i = 0; i < liste.length; i++) {
+    // On ajoute la température absolue du jour précédent avec la différence de température dont on a retiré les décimales
+    temperaturePrecedente += Math.trunc(liste[i]);
+    // On stocke le résultat
+    resultat.push(temperaturePrecedente);
   }
+  return resultat;
+}
 
-  // Etape 4 : on retourne la chaîne de caractères finale en CSV
-  return resultat.join(',');
+// Exercice 1 — Vent solaire
+function corrigerPression(liste) {
+  let resultat = [];
+  for (let i = 0; i < liste.length; i++) {
+    let valeur = liste[i];
+    // On corrige le signe négatif
+    valeur = Math.abs(valeur);
+    // On corrige l'arrondi
+    valeur = Math.round(valeur);
+    // On stocke le résultat
+    resultat.push(valeur);
+  }
+  return resultat;
 }
