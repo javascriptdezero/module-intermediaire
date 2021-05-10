@@ -34,8 +34,8 @@ Explications détaillées :
 2. Ouvrez le répertoire où vous avez cloné le module intermédiaire : allez dans le menu **Fichier > Ouvrir** et sélectionnez le répertoire du dépôt sur votre ordinateur (**Documents/module-intermediaire** par exemple).
 3. Sélectionnez sur le panneau latéral gauche l'icône **debug** (étape 1 de l'image).
 4. Sélectionnez **Mettre à jour le dépôt** dans le menu déroulant du haut (étape 2 de l'image).
-5. Ouvrez la console de déboguage : cliquez sur l'icône terminal à droite du menu déroulant (étape 3 de l'image).
-6. Lancez la mise à jour en cliquant sur le bouton **Lecture** à gauche du menu déroulant (étape 4 de l'image).
+5. Ouvrez la console de déboguage : cliquez sur l'icône 3 petits points (étape 3 de l'image) puis cochez Console de débogage (étape 4 de l'image).
+6. Lancez la mise à jour en cliquant sur le bouton **Lecture** à gauche du menu déroulant (étape 5 de l'image).
 7. Vérifiez que tout se passe bien dans la console de déboguage.
 
 J'ai créé ce processus pour faciliter la mise à jour pour les néophytes qui ne connaissent pas Git.
