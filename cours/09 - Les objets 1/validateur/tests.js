@@ -115,7 +115,8 @@ function lancerTousLesTests() {
 
           if (doitRenvoyerUnObjet) {
             if (valeurRetour) {
-              valeursIdentiques = true;
+              // Vérifie qu'il y a le même nombre de propriétés dans chaque objet à comparer
+              valeursIdentiques = Object.keys(valeurRetour).length === Object.keys(test.sortie).length;
               // Vérifie que toutes les valeurs de propriétés sont les mêmes
               for (let cle in valeurRetour) {
                 if (valeurRetour[cle] !== test.sortie[cle]) {
