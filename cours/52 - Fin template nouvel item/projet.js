@@ -24,11 +24,5 @@ elForm.addEventListener('submit', function(e) {
 
   // Ajouter l'élément <li> dans la liste <ul>
   liste.append(elLi);
-
-  // Vider le champ nouvel item
-  elNouvelItem.value = "";
-
-  // Mettre le focus immédiatement sur le champ nouvel item
-  elNouvelItem.focus();
   
 });
