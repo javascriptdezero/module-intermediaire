@@ -57,7 +57,7 @@ Utilisez la gestion des erreurs HTML5 grâce à l'attribut [pattern](https://dev
 
 #### Exercice — Messages d'erreurs utiles à l'utilisateur
 
-Si une contrainte n'est pas respectée, il faut expliquer clairement le problème à l'utilisateur avec [un message d'erreur personnalisé](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input#Notes).
+Si une contrainte n'est pas respectée, il faut expliquer clairement le problème à l'utilisateur avec [un message d'erreur personnalisé](https://developer.mozilla.org/fr/docs/Web/HTML/Element/input#exemple_de_message_derreur_de_validation_sur_mesure).
 
 - Si le champ est vide on affichera : `Vous devez indiquer les informations de l'item, exemple : 250 g chocolat`
 - Si le champ contient des caractères interdits on affichera : `Les caractères spéciaux, les accents et autres lettres spécifiques ne sont pas autorisés`
