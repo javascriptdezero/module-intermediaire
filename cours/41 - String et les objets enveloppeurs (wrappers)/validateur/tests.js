@@ -766,7 +766,7 @@ ajouterTest(exerciceId, "camelCase", {
   descriptionEntrees,
   sortie: "listeNoeudsHtml",
 });
-ajouterTest(exerciceId, "kebabCase", {
+ajouterTest(exerciceId, "camelCase", {
   entrees: ["Liste des items selection"],
   descriptionEntrees,
   sortie: "listeDesItemsSelection",
