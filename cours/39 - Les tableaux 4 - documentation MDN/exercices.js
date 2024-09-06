@@ -164,4 +164,4 @@
 // Créez la fonction extractionMultiple(transmission, sequence) ci-dessous.
 
 // Exercice 9 — Extraction multiple incomplète
-// Créez la fonction extractionMultiple(transmission, sequence) ci-dessous.
+// Créez la fonction extractionMultipleIncomplete(transmission, sequence) ci-dessous.
