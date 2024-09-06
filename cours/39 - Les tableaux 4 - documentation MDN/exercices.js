@@ -94,7 +94,7 @@
 // Créez la fonction shift1(tableau) ci-dessous.
 
 // Exercice 24
-// Créez la fonction slice0(tableau) ci-dessous.
+// Créez la fonction slice0(tableau, debut) ci-dessous.
 
 // Exercice 25
 // Créez la fonction slice1(tableau, debut, fin) ci-dessous.
